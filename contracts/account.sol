@@ -48,10 +48,10 @@ contract AccountFactory is Ownable {
         payable(msg.sender).transfer(amount);
     }
 
-    modifier _needAccountExist(address _user) {
-        require(ownerToAccount[_user].addr == address(0));
-        _;
-    }
+    // modifier _needAccountExist(address _user) {
+    //     require(ownerToAccount[_user].addr == address(0), "need register first");
+    //     _;
+    // }
 }
 
 contract Provider is AccountFactory {

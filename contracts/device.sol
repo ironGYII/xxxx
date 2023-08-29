@@ -15,7 +15,7 @@ struct deviceInfo {
 
 contract DeviceFactory {
     uint id = 0;
-    mapping(uint => deviceInfo) public devices;
+    deviceInfo [] public devices;
 
     modifier _isOwner(address _owner) {
         _;
@@ -23,11 +23,12 @@ contract DeviceFactory {
 
     function createDevice(uint _price, string memory _extraData) internal {
         id += 1;
-        devices[id] = deviceInfo(msg.sender, id, DeviceStatus.Created, _price, _extraData);
+        devices.push(deviceInfo(msg.sender, id, DeviceStatus.Created, _price, _extraData));
     }
 
     function deleteDevices(uint _deviceId) internal {
-        delete(devices[_deviceId]);
+        require(devices[_deviceId].status == DeviceStatus.Online || devices[_deviceId].status == DeviceStatus.Created, "need pre status online or created");
+        devices[_deviceId - 1].status = DeviceStatus.Offline;
     }
 
 }
@@ -45,8 +46,10 @@ contract Device is DeviceFactory {
     }
 
     function offlineDevice(uint _deviceId) internal {
-        require(devices[_deviceId].status == DeviceStatus.Online, "need pre status online");
+        require(devices[_deviceId].status == DeviceStatus.Online || devices[_deviceId].status == DeviceStatus.Created, "need pre status online or created");
         devices[_deviceId].status = DeviceStatus.Offline;
+        if (devices[_deviceId].status == DeviceStatus.Online) {
+        }
     }
 
     function rentDevice(uint _deviceId) internal {

@@ -39,31 +39,31 @@ contract Lease is Device{
 
     function renewalLease(uint _leaseId, uint _period) internal {
 
-        uint index = 0;
-        (, index) = getLeaseInfo(_leaseId);
-        require(leases[index].recipient == msg.sender, "only recipient can renewal lease");
-        require(leases[index].expireTime > now() , "lease always expire");
+        uint _index = 0;
+        (, _index) = getLeaseInfo(_leaseId);
+        require(leases[_index].recipient == msg.sender, "only recipient can renewal lease");
+        require(leases[_index].expireTime > block.timestamp, "lease always expire");
 
-        leases[index].expireTime = leases[index].expireTime + _period;
-        leases[index].billing.fee = leases[index].billing.fee + _period * (_endTime - _startTime);
+        leases[_index].expireTime = leases[_index].expireTime + _period;
+        leases[_index].billing.fee = leases[_index].billing.fee + _period * (leases[_index].expireTime- leases[_index].startTime);
     }
 
     function expireLease(uint _leaseId) internal returns (uint index, billingInfo memory bInfo){
-        uint index = 0;
-        leaseInfo memory lInfo;
-        (, index) = getLeaseInfo(_leaseId);
+        uint _index;
+        // leaseInfo memory _lInfo;
+        (, _index) = getLeaseInfo(_leaseId);
         
-        leases[index].billing.status = billingStatus.payed;
-        return (index, leases[index].billing);
+        leases[_index].billing.status = billingStatus.payed;
+        return (_index, leases[_index].billing);
     }
 
-    function getLeaseInfo(uint leaseId) private returns (leaseInfo memory info, uint index){
+    function getLeaseInfo(uint _leaseId) private view returns (leaseInfo memory info, uint index){
         for (uint i = 0; i < leases.length; i++) {
-            if (leases[i].leaseId == leaseId) {
+            if (leases[i].leaseId == _leaseId) {
                 return (leases[i], i);
             }
-            revert(concatenateStrings("unknown lease_id: ", uintToString(leaseId)));
         }
+        revert(concatenateStrings("unknown lease_id: ", uintToString(_leaseId)));
     }
 
     function concatenateStrings(string memory a, string memory b) public pure returns (string memory) {
@@ -98,10 +98,10 @@ contract Lease is Device{
         }
         
         bytes memory buffer = new bytes(digits);
-        uint256 index = digits - 1;
+        uint256 _index = digits - 1;
         
         while (number != 0) {
-            buffer[index--] = bytes1(uint8(48 + number % 10));
+            buffer[_index--] = bytes1(uint8(48 + number % 10));
             number /= 10;
         }
         
