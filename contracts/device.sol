@@ -21,6 +21,7 @@ contract DeviceFactory {
         _;
     }
 
+    // 这里需要质押, 这里price 可能存在的多种情况
     function createDevice(uint _price, string memory _extraData) internal {
         id += 1;
         devices.push(deviceInfo(msg.sender, id, DeviceStatus.Created, _price, _extraData));

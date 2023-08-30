@@ -1,4 +1,4 @@
-var MyContract = artifacts.require("FUCK");
+var MyContract = artifacts.require("helper.sol");
 
 module.exports = function(deployer) {
     // 部署步骤

@@ -8,17 +8,16 @@ contract AccountFactory is Ownable {
         uint balance;
         uint providerBlockedFunds;
         uint recipientBlockedFunds;
+        string info;
     }
     mapping (address => accountInfo) ownerToAccount;
 
     function register() public returns (accountInfo memory accountinfo) {
-        accountInfo storage info = ownerToAccount[msg.sender];
         // 测试这里是否能判断key是否存在
-        if (info.addr == address(0)) {
-            info.addr = msg.sender;
-            ownerToAccount[msg.sender] = info;
+        if (ownerToAccount[msg.sender].addr == address(0)) {
+            ownerToAccount[msg.sender] = accountInfo(msg.sender, 0, 0, 0, "");
         }
-        return info;
+        return ownerToAccount[msg.sender];
     }
 
     function withdraw() public onlyOwner {
@@ -29,8 +28,12 @@ contract AccountFactory is Ownable {
         delete(ownerToAccount[msg.sender]);
     }
 
+    function setProviderInfo(string memory _info) public _needAccountExist(msg.sender){
+        ownerToAccount[msg.sender].info = _info;
+    }
+
     // 这里如何判断质押多少代币呢
-    function stake() payable public {
+    function stake() payable public _needAccountExist(msg.sender) {
         accountInfo storage info = ownerToAccount[msg.sender];
         if (info.addr == address(0)) {
             info.addr = msg.sender;
@@ -48,36 +51,12 @@ contract AccountFactory is Ownable {
         payable(msg.sender).transfer(amount);
     }
 
-    // modifier _needAccountExist(address _user) {
-    //     require(ownerToAccount[_user].addr == address(0), "need register first");
-    //     _;
-    // }
-}
-
-contract Provider is AccountFactory {
-    // 上线机器后保证金
-    function blockOnlineFund(uint _amout) internal {
+    modifier _needAccountExist(address _user) {
+        require(ownerToAccount[_user].addr != address(0), "need register first");
+        _;
     }
 
-    // 下线机器后解冻保证金
-    function unblockOfflineFund(uint _amout) internal {
+    function getAccount(address _addr) view public _needAccountExist(_addr) returns (accountInfo memory)  {
+        return ownerToAccount[_addr];
     }
-}
-
-contract Recipient is AccountFactory {
-    // 冻结支付产生的费用
-    function blockRentFund(uint amount) internal {
-
-    }
-
-    // 冻结续租产生的费用    
-    function blockRenewalFund(uint period) internal {
-
-    }
-
-    // 账单结算
-    function settleFund(uint period) internal {
-        
-    }
-
 }
