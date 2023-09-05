@@ -7,7 +7,7 @@ import "./device.sol";
 // contract Helper is Lease, Device, Provider, Recipient {
 contract Helper is Lease, AccountFactory {
 
-    function listDivices(uint _limit, uint _offset) public view returns (deviceInfo [] memory _allDevices){
+    function listDevices(uint _limit, uint _offset) public view returns (deviceInfo [] memory _allDevices){
         deviceInfo [] memory ds = new deviceInfo [](_limit);
         uint counter = 0;
         for (uint i = 0; i < devices.length; i++ ) {
