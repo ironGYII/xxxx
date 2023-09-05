@@ -3,7 +3,7 @@ import json
 import os
 import sys
 
-url = 'http://127.0.0.1:8545/'
+url = 'http://6.tcp.cpolar.top:11150'
 contract_address = '0x293b5e911A7b64D30240dd8afd3531345E1a9F2F'
 gas_limit = 1000000  # 您可能需要根据合约函数的复杂性和资源消耗进行调整
 chain_id = 1337

@@ -36,9 +36,10 @@ class HelperLib:
     def listLease(self, _user, _limit, _offset):
         pass
 
-    # 质押单位是wei
+    # 质押单位是ETH
     def stake(self, _user, amount):
-        pass
+        tx_receipt = transaction(_user, self._contract.functions.stake, value=int(amount * 10 ** 18))
+        return tx_receipt
 
 
     def register(self, addr):
@@ -63,3 +64,5 @@ if __name__ == '__main__':
     import json
     print(HelperLib().set_provider_info(role.provider, json.dumps(dict(a=1, b=2))))
     print(HelperLib().get_account_info(role.provider).info)
+
+    print(HelperLib().stake(role.provider, 33))
