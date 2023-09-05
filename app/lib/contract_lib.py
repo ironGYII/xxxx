@@ -1,6 +1,6 @@
 import json
-from .config import role
-from .conn import helper_contract, get_nonce, transaction
+from app.lib.config import role
+from app.lib.conn import helper_contract, get_nonce, transaction
 
 
 class UserInfo:
@@ -38,7 +38,11 @@ class HelperLib:
 
     # 质押单位是ETH
     def stake(self, _user, amount):
-        tx_receipt = transaction(_user, self._contract.functions.stake, value=int(amount * 10 ** 18))
+        tx_receipt = transaction(_user, self._contract.functions.stake(), value=int(amount * 10 ** 18))
+        return tx_receipt
+
+    def unstake(self, _user, amount):
+        tx_receipt = transaction(_user, self._contract.functions.unstake(amount=int(amount * 10 ** 18)))
         return tx_receipt
 
 
@@ -65,4 +69,5 @@ if __name__ == '__main__':
     print(HelperLib().set_provider_info(role.provider, json.dumps(dict(a=1, b=2))))
     print(HelperLib().get_account_info(role.provider).info)
 
-    print(HelperLib().stake(role.provider, 33))
+    # print(HelperLib().stake(role.provider, 33))
+    print(HelperLib().unstake(role.provider, 10))
