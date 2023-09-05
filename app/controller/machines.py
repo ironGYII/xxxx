@@ -1,23 +1,23 @@
+import json
+
+
 class Machine:
 
-    def __init__(self, pub_key, ip, container_name, info):
-        self._pub_key = pub_key
-        self._ip = ip
-        self._container_name = container_name
-        self._info = info
+    def __init__(self, machine_id, pub_key, host, port, server_info, api_version):
+        if type(server_info) == str and len(server_info) > 0:
+            server_info = json.loads(server_info)
+        else:
+            server_info = None
+        self.machine_id = machine_id
+        self.pub_key = pub_key
+        self.host = host
+        self.port = port
+        self.server_info = server_info
+        self.api_version = api_version
 
     @property
     def data(self):
-        data = dict()
-        data.update(self._info)
-        data["pub_key"] = self._pub_key
-        data["ip"] = self._ip
-        data["info"] = self._info
-        return  data
-
-    @property
-    def name(self):
-        return self._container_name
+        return dict(machine_id=self.machine_id, pub_key=self.pub_key, host=self.host, port=self.port, server_info=self.server_info, apiVersion=self.api_version)
 
 
 class MountedMachine:
@@ -28,8 +28,11 @@ class MountedMachine:
         pass
 
     def register(self, machine):
-        self._machines[machine.name] = machine
+        self._machines[machine.pub_key] = self._machines.get(machine.pub_key, []) + [machine]
 
+        for m in self._machines.get(machine.pub_key, []):
+            if m.machine_id == machine.machine_id:
+                raise Exception("machine_id exit")
 
 
 mounted_machine = MountedMachine()
