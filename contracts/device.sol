@@ -3,14 +3,21 @@ pragma solidity ^0.8.0;
 
 enum DeviceStatus {Created, Online, Running, Offline}
 
-struct deviceInfo {
-        address owner;
-        uint id;
-        // uint8 status;
-        DeviceStatus status;
-        uint price;
-        string extraData;
+struct Price {
+    uint serverPrice;
+    uint storagePrice;
+    uint upbandWidth;
+    uint downbandWidth;
+}
 
+struct deviceInfo {
+
+        uint id;
+        address owner;
+        DeviceStatus status;
+        string machineId;
+        string serverInfo;
+        Price price;
 }
 
 contract DeviceFactory {
@@ -22,9 +29,16 @@ contract DeviceFactory {
     }
 
     // 这里需要质押, 这里price 可能存在的多种情况
-    function createDevice(uint _price, string memory _extraData) internal {
+    function online(string memory _machineId, string memory _serverInfo, Price memory _price) internal returns (uint) {
         id += 1;
-        devices.push(deviceInfo(msg.sender, id, DeviceStatus.Created, _price, _extraData));
+        // 这里msg.sender 不做检查, 只是因为当前不考虑作弊, 考虑作弊这里要处理
+        devices.push(deviceInfo(id, msg.sender,  DeviceStatus.Online, _machineId, _serverInfo, _price));
+        return id;
+    }
+
+    function getDevice(uint _deviceId) view internal returns(deviceInfo memory) {
+        require(_deviceId > 0, "need device_id > 0");
+        return devices[_deviceId - 1];
     }
 
     function deleteDevices(uint _deviceId) internal {

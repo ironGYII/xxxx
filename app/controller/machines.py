@@ -1,23 +1,6 @@
 import json
 
-
-class Machine:
-
-    def __init__(self, machine_id, pub_key, host, port, server_info, api_version):
-        if type(server_info) == str and len(server_info) > 0:
-            server_info = json.loads(server_info)
-        else:
-            server_info = None
-        self.machine_id = machine_id
-        self.pub_key = pub_key
-        self.host = host
-        self.port = port
-        self.server_info = server_info
-        self.api_version = api_version
-
-    @property
-    def data(self):
-        return dict(machine_id=self.machine_id, pub_key=self.pub_key, host=self.host, port=self.port, server_info=self.server_info, apiVersion=self.api_version)
+from app.model.machine import Machine
 
 
 class MountedMachine:
@@ -28,11 +11,22 @@ class MountedMachine:
         pass
 
     def register(self, machine):
-        self._machines[machine.pub_key] = self._machines.get(machine.pub_key, []) + [machine]
 
-        for m in self._machines.get(machine.pub_key, []):
-            if m.machine_id == machine.machine_id:
-                raise Exception("machine_id exit")
+        machines = self._machines.get(machine.pub_key, dict())
+        machines[machine.pub_key] = machine
+
+        self._machines[machine.pub_key] = machines
+        if self._machines.get(machine.pub_key, dict()).get(machine.machine_id, None) is None:
+            raise Exception("machine_id exit")
+
+    def get(self, address, machine_id):
+        ownMachines = self._machines.get(address, [])
+        if ownMachines.get(machine_id, None) is None:
+            raise Exception("machine not exit")
+        return ownMachines[machine_id]
+
+    def list(self, address):
+        return self._machines.get(address, dict())
 
 
 mounted_machine = MountedMachine()

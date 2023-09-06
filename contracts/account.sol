@@ -32,6 +32,12 @@ contract AccountFactory is Ownable {
         ownerToAccount[msg.sender].info = _info;
     }
 
+    function onlineBlockedFund(uint _stakeAmount) internal {
+        require(_stakeAmount <= ownerToAccount[msg.sender].balance, "balance not enough! please stake");
+        ownerToAccount[msg.sender].balance -= _stakeAmount;
+        ownerToAccount[msg.sender].providerBlockedFunds += _stakeAmount;
+    }
+
     // 这里如何判断质押多少代币呢
     function stake() payable public _needAccountExist(msg.sender) {
         accountInfo storage info = ownerToAccount[msg.sender];

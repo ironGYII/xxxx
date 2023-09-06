@@ -3,6 +3,7 @@ pragma solidity ^0.8.0;
 
 import "./device.sol";
 
+enum leaseType {Machine, Developer}
 enum billingStatus {unPayed, payed, unValid}
 
 struct billingInfo {
@@ -12,16 +13,11 @@ struct billingInfo {
     uint fee;
 }
 
-struct leaseInfo {
+struct providerLeaseInfo {
     uint leaseId;
     uint startTime;
     uint expireTime;
-    uint price;
     uint deviceId;
-    uint8 platformSharingRatio;
-    address provider;
-    address recipient;
-    billingInfo billing;
 }
 
 contract Lease is Device{
@@ -29,42 +25,49 @@ contract Lease is Device{
     uint8 public platformSharingRatio = 0;
 
 
-    leaseInfo [] public leases;
+    providerLeaseInfo [] public leaseProvider;
+    // leaseInfo [] public leaseDeveloper;
 
-    function signLease(uint _startTime, uint _endTime, uint _devcieId, uint _price) internal {
-        deviceInfo storage device = devices[_devcieId];
+    function onlineLease(uint _devcieId, uint _startTime, uint _endTime) internal returns(uint){
         leaseId = leaseId + 1;
-        leases.push(leaseInfo(leaseId, _startTime, _endTime, _price, _devcieId, platformSharingRatio, device.owner, msg.sender, billingInfo(device.owner, msg.sender, billingStatus.unPayed, _price * (_endTime - _startTime))));
+        // deviceInfo memory device = devices[_devcieId];
+        leaseProvider.push(providerLeaseInfo(leaseId, _startTime, _endTime, _devcieId));
+        return leaseId;
     }
 
-    function renewalLease(uint _leaseId, uint _period) internal {
-
-        uint _index = 0;
-        (, _index) = getLeaseInfo(_leaseId);
-        require(leases[_index].recipient == msg.sender, "only recipient can renewal lease");
-        require(leases[_index].expireTime > block.timestamp, "lease always expire");
-
-        leases[_index].expireTime = leases[_index].expireTime + _period;
-        leases[_index].billing.fee = leases[_index].billing.fee + _period * (leases[_index].expireTime- leases[_index].startTime);
+    function providerStakeCalcute(uint _startTime, uint _endTime, Price memory _price) pure public returns(uint) {
+        return _price.serverPrice * (_endTime - _startTime);
     }
 
-    function expireLease(uint _leaseId) internal returns (uint index, billingInfo memory bInfo){
-        uint _index;
-        // leaseInfo memory _lInfo;
-        (, _index) = getLeaseInfo(_leaseId);
+
+    // function renewalLease(uint _leaseId, uint _period) internal {
+
+    //     uint _index = 0;
+    //     (, _index) = getLeaseInfo(_leaseId);
+    //     require(leases[_index].recipient == msg.sender, "only recipient can renewal lease");
+    //     require(leases[_index].expireTime > block.timestamp, "lease always expire");
+
+    //     leases[_index].expireTime = leases[_index].expireTime + _period;
+    //     leases[_index].billing.fee = leases[_index].billing.fee + _period * (leases[_index].expireTime- leases[_index].startTime);
+    // }
+
+    // function expireLease(uint _leaseId) internal returns (uint index, billingInfo memory bInfo){
+    //     uint _index;
+    //     // leaseInfo memory _lInfo;
+    //     (, _index) = getLeaseInfo(_leaseId);
         
-        leases[_index].billing.status = billingStatus.payed;
-        return (_index, leases[_index].billing);
-    }
+    //     leases[_index].billing.status = billingStatus.payed;
+    //     return (_index, leases[_index].billing);
+    // }
 
-    function getLeaseInfo(uint _leaseId) private view returns (leaseInfo memory info, uint index){
-        for (uint i = 0; i < leases.length; i++) {
-            if (leases[i].leaseId == _leaseId) {
-                return (leases[i], i);
-            }
-        }
-        revert(concatenateStrings("unknown lease_id: ", uintToString(_leaseId)));
-    }
+    // function getLeaseInfo(uint _leaseId) private view returns (leaseInfo memory info, uint index){
+    //     for (uint i = 0; i < leases.length; i++) {
+    //         if (leases[i].leaseId == _leaseId) {
+    //             return (leases[i], i);
+    //         }
+    //     }
+    //     revert(concatenateStrings("unknown lease_id: ", uintToString(_leaseId)));
+    // }
 
     function concatenateStrings(string memory a, string memory b) public pure returns (string memory) {
         bytes memory strA = bytes(a);
