@@ -26,7 +26,7 @@ def transaction(addr, func, **kwargs):
         'nonce': get_nonce(addr.public_key),
     }
 
-    transaction.update(kwargs)
+    transaction.update(**kwargs)
     transaction = func.build_transaction(transaction)
     signed_txn = web3.eth.account.sign_transaction(transaction, addr.private_key)
     tx_hash = web3.eth.send_raw_transaction(signed_txn.rawTransaction)

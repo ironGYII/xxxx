@@ -44,12 +44,19 @@ class HelperLib:
         result = [Machine.init_from_contract(item) for item in resp]
         return result
 
-    def listLease(self, _user, _limit, _offset):
-        pass
+    def list_provider_lease(self, public_key, _limit, _offset):
+        lease, billing = self._contract.functions.listProviderLease(public_key, _limit, _offset).call()
+        lease = list(filter(lambda x: x[1] != 0, lease))
+        billing = list(filter(lambda x: x[1] != 0, billing))
+        return lease, billing
 
     def online_server(self, _user, machine_info, price, start_time, end_time):
         # print(dict(_machineId=machine_info.machine_id, _serverInfo=machine_info.contract_server_info, _price=price.contract_price, _startTime=start_time, _endTime=end_time))
         tx_receipt = transaction(_user, self._contract.functions.onlineServer(_machineId=machine_info.machine_id, _serverInfo=machine_info.contract_server_info, _price=price.contract_price, _startTime=start_time, _endTime=end_time))
+        return tx_receipt
+
+    def offline_server(self, _user, _deviceId):
+        tx_receipt = transaction(_user, self._contract.functions.offlineServer(_deviceId=_deviceId))
         return tx_receipt
 
     # 质押单位是ETH
@@ -83,6 +90,9 @@ class HelperLib:
         tx_receipt = transaction(addr, self._contract.functions.setProviderInfo(_info))
         return tx_receipt
 
+    def fuck_get(self, _deviceId):
+        return self._contract.functions.getOfflineLeaseAndBilling(_deviceId=_deviceId).call()
+
 
 contract_helper = HelperLib()
 
@@ -94,12 +104,6 @@ if __name__ == '__main__':
     print(HelperLib().set_provider_info(role.provider, json.dumps(dict(a=1, b=2))))
     print(HelperLib().get_account_info(role.provider.public_key).info)
 
-    # print(HelperLib().stake(role.provider, 33))
-    # print(HelperLib().unstake(role.provider, 10))
-
-    # print(HelperLib().online_server(role.provider, Machine(machine_id="ym-test", pub_key=role.provider.public_key, host="127.0.0.1", port="10", server_info=dict(a="a", b="b", c="c"), api_version="v0"), price=Price(server_price=10 ** 16, storage_price=10, upband_width=20, downband_width=30), start_time=int(time.time()), end_time=int(time.time()) + 10))
-    print([i.data for i in HelperLib().list_devices(10, 0)])
-    print([i.data for i in HelperLib().list_own_devices(role.provider, 10, 0)])
     try:
         print(HelperLib().get_account_info(role.user.public_key).info) ## 测试一个不存在的key, 应该返回报错, 先注册
     except Exception as e:
@@ -107,3 +111,21 @@ if __name__ == '__main__':
 
     print(HelperLib().register(role.user))
     print(HelperLib().get_account_info(role.provider.public_key).info)
+
+    # print("=" * 10, "测试质押", "=" * 10)
+    # print(HelperLib().stake(role.provider, 13))
+    # time.sleep(5)
+
+    print("=" * 10, "上线机器", "=" * 10)
+    print("online_server", HelperLib().online_server(role.provider, Machine(machine_id="ym-test", pub_key=role.provider.public_key, host="127.0.0.1", port="10", server_info=dict(a="a", b="b", c="c"), api_version="v0"), price=Price(server_price=10 ** 16, storage_price=10, upband_width=20, downband_width=30), start_time=int(time.time()), end_time=int(time.time()) + 10)['status'])
+
+    # print(HelperLib().unstake(role.provider, 50))
+    print("=" * 10, "test offline server", "=" * 10)
+    print("list_devices", [(i.data['market_id'], i.data['status']) for i in HelperLib().list_devices(100, 0)])
+    print("list_provider_lease", [i for i in HelperLib().list_provider_lease(role.provider.public_key, 1000, 0)])
+    print("offline_server", HelperLib().offline_server(role.provider, 1)['status'])
+    print("fuck_get", HelperLib().fuck_get(1))
+    print([(i.data['market_id'], i.data['status']) for i in HelperLib().list_devices(100, 0)])
+    # print([i.data['market_id'] for i in HelperLib().list_own_devices(role.provider, 10, 0)])
+# 200000000000000000
+# 100000000000000000

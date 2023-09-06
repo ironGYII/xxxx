@@ -20,7 +20,7 @@ struct deviceInfo {
         Price price;
 }
 
-contract DeviceFactory {
+contract Device {
     uint id = 0;
     deviceInfo [] public devices;
 
@@ -46,33 +46,9 @@ contract DeviceFactory {
         devices[_deviceId - 1].status = DeviceStatus.Offline;
     }
 
-}
-
-
-contract Device is DeviceFactory {
-
-    modifier canRent(string memory _deviceId) {
-        _;
-    }
-
-    function onlineDevice(uint _deviceId) internal {
-        require(devices[_deviceId].status == DeviceStatus.Created, "need pre status created");
-        devices[_deviceId].status = DeviceStatus.Online;
-    }
-
     function offlineDevice(uint _deviceId) internal {
-        require(devices[_deviceId].status == DeviceStatus.Online, "need pre status online");
-        devices[_deviceId].status = DeviceStatus.Offline;
-    }
-
-    function rentDevice(uint _deviceId) internal {
-        require(devices[_deviceId].status == DeviceStatus.Online , "need pre status online");
-        devices[_deviceId].status = DeviceStatus.Running;
-    }
-
-    function expireDevice(uint _deviceId) internal {
-        require(devices[_deviceId].status == DeviceStatus.Running, "need pre status running");
-        devices[_deviceId].status = DeviceStatus.Online;
+        // require(devices[_deviceId - 1].status == DeviceStatus.Online, "need pre status online");
+        devices[_deviceId - 1].status = DeviceStatus.Offline;
     }
 
 }

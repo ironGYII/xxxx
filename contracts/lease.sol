@@ -4,45 +4,31 @@ pragma solidity ^0.8.0;
 import "./device.sol";
 
 enum leaseType {Machine, Developer}
-enum billingStatus {unPayed, payed, unValid}
+enum billingStatus {UnPayed, Payed, UnValid}
+enum billingType {ProviderStake, DeveloperRent, TreasureBilling}
 
 struct billingInfo {
-    address provider;
-    address recipient;
+    address user;
+    // 质押的token, 后续需要返还账户
+    uint id;
+    uint leaseId;
+    uint providerBlockedFund;
+    uint recipientBlockedFunds;
+    // 涉及的金额
+    uint amount;  // 结算时候, 才会出现, 跟lease有关
     billingStatus status;
-    uint fee;
+    billingType billType;
 }
 
 struct providerLeaseInfo {
+    address owner;
     uint leaseId;
     uint startTime;
     uint expireTime;
     uint deviceId;
 }
 
-struct providerStakeBilling {
-    address provider;
-    uint id;
-    uint leaseId;
-}
-
-contract Billing {
-    uint providerBillingCounter = 0;
-    providerBilling [] public billingProvider;
-
-    function getProviderBillingByLeaseId(uint _leaseId) view public returns(providerBilling memory) {
-        for (uint i = 0; i < billingProvider.length; i++) {
-            if (billingProvider[i].leaseId == _leaseId) {
-                return billingProvider[i];
-            }
-        }
-        revert("can't find billing!");
-    }
-
-    function providerOnlineBilling(uint _leaseId, uint stake_amount, )
-}
-
-contract Lease is Device, Billing{
+contract Lease is Device {
     uint private leaseId = 0;
     uint8 public platformSharingRatio = 0;
 
@@ -50,21 +36,15 @@ contract Lease is Device, Billing{
     providerLeaseInfo [] public leaseProvider;
     // leaseInfo [] public leaseDeveloper;
 
-    function onlineLease(uint _devcieId, uint _startTime, uint _endTime) internal returns(uint){
+    function onlineLease(address _owner, uint _devcieId, uint _startTime, uint _endTime) internal returns(uint){
         leaseId = leaseId + 1;
         // deviceInfo memory device = devices[_devcieId];
-        leaseProvider.push(providerLeaseInfo(leaseId, _startTime, _endTime, _devcieId));
+        leaseProvider.push(providerLeaseInfo(_owner, leaseId, _startTime, _endTime, _devcieId));
         return leaseId;
     }
 
     function providerStakeCalcute(uint _startTime, uint _endTime, Price memory _price) pure public returns(uint) {
         return _price.serverPrice * (_endTime - _startTime);
-    }
-
-    function offlineLease(uint _deviceId) internal returns(uint) {
-        // 这里要结算中账单, lease失效
-        providerLeaseInfo memory providerLease = getLeaseByDeviceId(_deviceId);
-        
     }
 
     function getLeaseByDeviceId(uint _deviceId) view public returns(providerLeaseInfo memory) {
@@ -159,4 +139,43 @@ contract Lease is Device, Billing{
 //     function invalid(billingInfo memory _billInfo) internal{
 
 //     }
+// }
+
+contract Billing is Lease {
+    uint private providerBillingCounter = 0;
+    billingInfo [] public providerBillings;
+
+    function getProviderBillingByLeaseId(uint _leaseId) view public returns(billingInfo memory) {
+        for (uint i = 0; i < providerBillings.length; i++) {
+            if (providerBillings[i].leaseId == _leaseId) {
+                return providerBillings[i];
+            }
+        }
+        revert("can't find billing!");
+    }
+
+    function providerOfflineBilling(uint _billId) internal {
+        if (providerBillings[_billId - 1].status == billingStatus.Payed) {
+            revert("stake amount has already unblocked");
+        }
+        providerBillings[_billId - 1].status = billingStatus.Payed;
+    }
+
+    function providerOnlineBilling(uint _leaseId, uint _stakeAmount) internal {
+        // 生成一个账单, 
+        providerBillingCounter = providerBillingCounter + 1;
+        providerBillings.push(billingInfo(msg.sender, providerBillingCounter, _leaseId, _stakeAmount, 0, 0, billingStatus.UnPayed, billingType.ProviderStake));
+    }
+}
+
+
+// struct billingInfo {
+//     address user;
+//     // 质押的token, 后续需要返还账户
+//     uint providerBlockedFund;
+//     uint recipientBlockedFunds;
+//     // 涉及的金额
+//     uint amount;  // 结算时候, 才会出现, 跟lease有关
+//     billingStatus status;
+//     billingType billType;
 // }

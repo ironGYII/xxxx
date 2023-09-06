@@ -41,14 +41,15 @@ class Machine:
     def init_from_contract(cls, resp):
         cid, address, status, machine_id, server_info, price = resp
         server_info = json.loads(server_info)
-        print(server_info)
         machine = Machine(machine_id, address, server_info['host_info']['host'], server_info['host_info']['port'], server_info, server_info['api_version'])
         machine.price = Price.init_from_contract(price)
+        machine.market_id = cid
+        machine.status = status
         return machine
 
     @property
     def data(self):
-        return dict(machine_id=self.machine_id, pub_key=self.pub_key, host=self.host, port=self.port, server_info=self.server_info, apiVersion=self.api_version)
+        return dict(machine_id=self.machine_id, pub_key=self.pub_key, host=self.host, port=self.port, server_info=self.server_info, apiVersion=self.api_version, market_id=self.market_id, status=self.status)
 
     # 生成合约的info
     @property

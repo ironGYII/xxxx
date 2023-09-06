@@ -38,6 +38,11 @@ contract AccountFactory is Ownable {
         ownerToAccount[msg.sender].providerBlockedFunds += _stakeAmount;
     }
 
+    function offlineUnBlockedFund(uint _stakeAmount) internal {
+        ownerToAccount[msg.sender].balance += _stakeAmount;
+        ownerToAccount[msg.sender].providerBlockedFunds -= _stakeAmount;
+    }
+
     // 这里如何判断质押多少代币呢
     function stake() payable public _needAccountExist(msg.sender) {
         accountInfo storage info = ownerToAccount[msg.sender];
