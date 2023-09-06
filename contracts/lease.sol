@@ -20,6 +20,12 @@ struct providerLeaseInfo {
     uint deviceId;
 }
 
+struct providerBilling {
+    address provider;
+    
+    
+}
+
 contract Lease is Device{
     uint private leaseId = 0;
     uint8 public platformSharingRatio = 0;
@@ -37,6 +43,21 @@ contract Lease is Device{
 
     function providerStakeCalcute(uint _startTime, uint _endTime, Price memory _price) pure public returns(uint) {
         return _price.serverPrice * (_endTime - _startTime);
+    }
+
+    function offlineLease(uint _deviceId) internal returns(uint) {
+        providerLeaseInfo memory providerLease = getLeaseByDeviceId(_deviceId);
+
+    }
+
+    function getLeaseByDeviceId(uint _deviceId) view public returns(providerLeaseInfo memory) {
+        for (uint i = 0; i < leaseProvider.length; i++) {
+            if (leaseProvider[i].deviceId == _deviceId) {
+                return leaseProvider[i];
+            }
+        }
+
+        revert("can't find lease!");
     }
 
 

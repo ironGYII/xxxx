@@ -8,12 +8,15 @@ from app.lib.contract_lib import contract_helper
 account_blueprint = Blueprint(name="account", import_name=__name__, url_prefix="/apus/account/")
 
 
-
 @account_blueprint.route("/info", methods=['GET'])
 def mount_client():
-
     user_address = request.args.get("address")
-    info = contract_helper.get_account_info(addr=user_address)
+    try:
+        info = contract_helper.get_account_info(pub_key=user_address)
+    except Exception as e:
+        return jsonify(dict(code=400, msg=str(e)))
+    return jsonify(dict(code=200, data=info))
 
-    return jsonify(dict(code=200, data=dict(address=user_address)))
+
+
 

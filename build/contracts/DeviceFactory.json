@@ -68,9 +68,9 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"devices\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"enum DeviceStatus\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"machineId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"serverInfo\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"serverPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"storagePrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"upbandWidth\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"downbandWidth\",\"type\":\"uint256\"}],\"internalType\":\"struct Price\",\"name\":\"price\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/device.sol\":\"DeviceFactory\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/device.sol\":{\"keccak256\":\"0x2a53b4ab985d1daad218a99cadc6a3a55c78b531f1e37fb314e1647fb3d73af1\",\"license\":\"SEE LICENSE IN LICENSE\",\"urls\":[\"bzz-raw://4270d7db1264e321691a057fa9de99495b24093b364af7a5964b6ae15daaff15\",\"dweb:/ipfs/QmR5ASv73xTTtVAWS54Jp1i3cHyvn8egGBa7ndk8H37gox\"]}},\"version\":1}",
-  "bytecode": "0x60806040525f8055348015610012575f80fd5b50610522806100205f395ff3fe608060405234801561000f575f80fd5b5060043610610029575f3560e01c806310ff8e311461002d575b5f80fd5b61004760048036038101906100429190610249565b610062565b60405161005996959493929190610421565b60405180910390f35b60018181548110610071575f80fd5b905f5260205f2090600802015f91509050805f015490806001015f9054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010160149054906101000a900460ff16908060020180546100ce906104bc565b80601f01602080910402602001604051908101604052809291908181526020018280546100fa906104bc565b80156101455780601f1061011c57610100808354040283529160200191610145565b820191905f5260205f20905b81548152906001019060200180831161012857829003601f168201915b50505050509080600301805461015a906104bc565b80601f0160208091040260200160405190810160405280929190818152602001828054610186906104bc565b80156101d15780601f106101a8576101008083540402835291602001916101d1565b820191905f5260205f20905b8154815290600101906020018083116101b457829003601f168201915b505050505090806004016040518060800160405290815f82015481526020016001820154815260200160028201548152602001600382015481525050905086565b5f80fd5b5f819050919050565b61022881610216565b8114610232575f80fd5b50565b5f813590506102438161021f565b92915050565b5f6020828403121561025e5761025d610212565b5b5f61026b84828501610235565b91505092915050565b61027d81610216565b82525050565b5f73ffffffffffffffffffffffffffffffffffffffff82169050919050565b5f6102ac82610283565b9050919050565b6102bc816102a2565b82525050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602160045260245ffd5b60048110610300576102ff6102c2565b5b50565b5f819050610310826102ef565b919050565b5f61031f82610303565b9050919050565b61032f81610315565b82525050565b5f81519050919050565b5f82825260208201905092915050565b5f5b8381101561036c578082015181840152602081019050610351565b5f8484015250505050565b5f601f19601f8301169050919050565b5f61039182610335565b61039b818561033f565b93506103ab81856020860161034f565b6103b481610377565b840191505092915050565b6103c881610216565b82525050565b608082015f8201516103e25f8501826103bf565b5060208201516103f560208501826103bf565b50604082015161040860408501826103bf565b50606082015161041b60608501826103bf565b50505050565b5f610120820190506104355f830189610274565b61044260208301886102b3565b61044f6040830187610326565b81810360608301526104618186610387565b905081810360808301526104758185610387565b905061048460a08301846103ce565b979650505050505050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602260045260245ffd5b5f60028204905060018216806104d357607f821691505b6020821081036104e6576104e561048f565b5b5091905056fea26469706673582212207f93b88208fd46c40eae59f69cb9e90a421c385e16b32f2433e597358ed96b8264736f6c63430008150033",
-  "deployedBytecode": "0x608060405234801561000f575f80fd5b5060043610610029575f3560e01c806310ff8e311461002d575b5f80fd5b61004760048036038101906100429190610249565b610062565b60405161005996959493929190610421565b60405180910390f35b60018181548110610071575f80fd5b905f5260205f2090600802015f91509050805f015490806001015f9054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010160149054906101000a900460ff16908060020180546100ce906104bc565b80601f01602080910402602001604051908101604052809291908181526020018280546100fa906104bc565b80156101455780601f1061011c57610100808354040283529160200191610145565b820191905f5260205f20905b81548152906001019060200180831161012857829003601f168201915b50505050509080600301805461015a906104bc565b80601f0160208091040260200160405190810160405280929190818152602001828054610186906104bc565b80156101d15780601f106101a8576101008083540402835291602001916101d1565b820191905f5260205f20905b8154815290600101906020018083116101b457829003601f168201915b505050505090806004016040518060800160405290815f82015481526020016001820154815260200160028201548152602001600382015481525050905086565b5f80fd5b5f819050919050565b61022881610216565b8114610232575f80fd5b50565b5f813590506102438161021f565b92915050565b5f6020828403121561025e5761025d610212565b5b5f61026b84828501610235565b91505092915050565b61027d81610216565b82525050565b5f73ffffffffffffffffffffffffffffffffffffffff82169050919050565b5f6102ac82610283565b9050919050565b6102bc816102a2565b82525050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602160045260245ffd5b60048110610300576102ff6102c2565b5b50565b5f819050610310826102ef565b919050565b5f61031f82610303565b9050919050565b61032f81610315565b82525050565b5f81519050919050565b5f82825260208201905092915050565b5f5b8381101561036c578082015181840152602081019050610351565b5f8484015250505050565b5f601f19601f8301169050919050565b5f61039182610335565b61039b818561033f565b93506103ab81856020860161034f565b6103b481610377565b840191505092915050565b6103c881610216565b82525050565b608082015f8201516103e25f8501826103bf565b5060208201516103f560208501826103bf565b50604082015161040860408501826103bf565b50606082015161041b60608501826103bf565b50505050565b5f610120820190506104355f830189610274565b61044260208301886102b3565b61044f6040830187610326565b81810360608301526104618186610387565b905081810360808301526104758185610387565b905061048460a08301846103ce565b979650505050505050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602260045260245ffd5b5f60028204905060018216806104d357607f821691505b6020821081036104e6576104e561048f565b5b5091905056fea26469706673582212207f93b88208fd46c40eae59f69cb9e90a421c385e16b32f2433e597358ed96b8264736f6c63430008150033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.21+commit.d9974bed\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"devices\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"enum DeviceStatus\",\"name\":\"status\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"machineId\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"serverInfo\",\"type\":\"string\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"serverPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"storagePrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"upbandWidth\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"downbandWidth\",\"type\":\"uint256\"}],\"internalType\":\"struct Price\",\"name\":\"price\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/device.sol\":\"DeviceFactory\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/device.sol\":{\"keccak256\":\"0xac7d6d746a857b4834424d830b5bcb1282911a9c3c7b8b11e2ed2cc745b2ecd2\",\"license\":\"SEE LICENSE IN LICENSE\",\"urls\":[\"bzz-raw://d37a400b49cf3ed9a840f32fb7397a92ce3ab2b9311e16282aee9dd20ca55952\",\"dweb:/ipfs/QmXy8y6eiL7AMUCR6NobGyJunCmkFpk4ctpYsmTzyvvFfJ\"]}},\"version\":1}",
+  "bytecode": "0x60806040525f8055348015610012575f80fd5b50610522806100205f395ff3fe608060405234801561000f575f80fd5b5060043610610029575f3560e01c806310ff8e311461002d575b5f80fd5b61004760048036038101906100429190610249565b610062565b60405161005996959493929190610421565b60405180910390f35b60018181548110610071575f80fd5b905f5260205f2090600802015f91509050805f015490806001015f9054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010160149054906101000a900460ff16908060020180546100ce906104bc565b80601f01602080910402602001604051908101604052809291908181526020018280546100fa906104bc565b80156101455780601f1061011c57610100808354040283529160200191610145565b820191905f5260205f20905b81548152906001019060200180831161012857829003601f168201915b50505050509080600301805461015a906104bc565b80601f0160208091040260200160405190810160405280929190818152602001828054610186906104bc565b80156101d15780601f106101a8576101008083540402835291602001916101d1565b820191905f5260205f20905b8154815290600101906020018083116101b457829003601f168201915b505050505090806004016040518060800160405290815f82015481526020016001820154815260200160028201548152602001600382015481525050905086565b5f80fd5b5f819050919050565b61022881610216565b8114610232575f80fd5b50565b5f813590506102438161021f565b92915050565b5f6020828403121561025e5761025d610212565b5b5f61026b84828501610235565b91505092915050565b61027d81610216565b82525050565b5f73ffffffffffffffffffffffffffffffffffffffff82169050919050565b5f6102ac82610283565b9050919050565b6102bc816102a2565b82525050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602160045260245ffd5b60048110610300576102ff6102c2565b5b50565b5f819050610310826102ef565b919050565b5f61031f82610303565b9050919050565b61032f81610315565b82525050565b5f81519050919050565b5f82825260208201905092915050565b5f5b8381101561036c578082015181840152602081019050610351565b5f8484015250505050565b5f601f19601f8301169050919050565b5f61039182610335565b61039b818561033f565b93506103ab81856020860161034f565b6103b481610377565b840191505092915050565b6103c881610216565b82525050565b608082015f8201516103e25f8501826103bf565b5060208201516103f560208501826103bf565b50604082015161040860408501826103bf565b50606082015161041b60608501826103bf565b50505050565b5f610120820190506104355f830189610274565b61044260208301886102b3565b61044f6040830187610326565b81810360608301526104618186610387565b905081810360808301526104758185610387565b905061048460a08301846103ce565b979650505050505050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602260045260245ffd5b5f60028204905060018216806104d357607f821691505b6020821081036104e6576104e561048f565b5b5091905056fea26469706673582212203079e7deb196a1676aee73ee2e41c2adada280807e242d0557097d74e1135f9d64736f6c63430008150033",
+  "deployedBytecode": "0x608060405234801561000f575f80fd5b5060043610610029575f3560e01c806310ff8e311461002d575b5f80fd5b61004760048036038101906100429190610249565b610062565b60405161005996959493929190610421565b60405180910390f35b60018181548110610071575f80fd5b905f5260205f2090600802015f91509050805f015490806001015f9054906101000a900473ffffffffffffffffffffffffffffffffffffffff16908060010160149054906101000a900460ff16908060020180546100ce906104bc565b80601f01602080910402602001604051908101604052809291908181526020018280546100fa906104bc565b80156101455780601f1061011c57610100808354040283529160200191610145565b820191905f5260205f20905b81548152906001019060200180831161012857829003601f168201915b50505050509080600301805461015a906104bc565b80601f0160208091040260200160405190810160405280929190818152602001828054610186906104bc565b80156101d15780601f106101a8576101008083540402835291602001916101d1565b820191905f5260205f20905b8154815290600101906020018083116101b457829003601f168201915b505050505090806004016040518060800160405290815f82015481526020016001820154815260200160028201548152602001600382015481525050905086565b5f80fd5b5f819050919050565b61022881610216565b8114610232575f80fd5b50565b5f813590506102438161021f565b92915050565b5f6020828403121561025e5761025d610212565b5b5f61026b84828501610235565b91505092915050565b61027d81610216565b82525050565b5f73ffffffffffffffffffffffffffffffffffffffff82169050919050565b5f6102ac82610283565b9050919050565b6102bc816102a2565b82525050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602160045260245ffd5b60048110610300576102ff6102c2565b5b50565b5f819050610310826102ef565b919050565b5f61031f82610303565b9050919050565b61032f81610315565b82525050565b5f81519050919050565b5f82825260208201905092915050565b5f5b8381101561036c578082015181840152602081019050610351565b5f8484015250505050565b5f601f19601f8301169050919050565b5f61039182610335565b61039b818561033f565b93506103ab81856020860161034f565b6103b481610377565b840191505092915050565b6103c881610216565b82525050565b608082015f8201516103e25f8501826103bf565b5060208201516103f560208501826103bf565b50604082015161040860408501826103bf565b50606082015161041b60608501826103bf565b50505050565b5f610120820190506104355f830189610274565b61044260208301886102b3565b61044f6040830187610326565b81810360608301526104618186610387565b905081810360808301526104758185610387565b905061048460a08301846103ce565b979650505050505050565b7f4e487b71000000000000000000000000000000000000000000000000000000005f52602260045260245ffd5b5f60028204905060018216806104d357607f821691505b6020821081036104e6576104e561048f565b5b5091905056fea26469706673582212203079e7deb196a1676aee73ee2e41c2adada280807e242d0557097d74e1135f9d64736f6c63430008150033",
   "immutableReferences": {},
   "generatedSources": [],
   "deployedGeneratedSources": [
@@ -1162,7 +1162,7 @@
                 }
               ]
             },
-            "name": "validator_assert_t_enum$_DeviceStatus_$416",
+            "name": "validator_assert_t_enum$_DeviceStatus_$434",
             "nativeSrc": "1693:121:6",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
@@ -1212,7 +1212,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "validator_assert_t_enum$_DeviceStatus_$416",
+                      "name": "validator_assert_t_enum$_DeviceStatus_$434",
                       "nativeSrc": "1908:42:6",
                       "nodeType": "YulIdentifier",
                       "src": "1908:42:6"
@@ -1227,7 +1227,7 @@
                 }
               ]
             },
-            "name": "cleanup_t_enum$_DeviceStatus_$416",
+            "name": "cleanup_t_enum$_DeviceStatus_$434",
             "nativeSrc": "1820:143:6",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
@@ -1270,7 +1270,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "cleanup_t_enum$_DeviceStatus_$416",
+                      "name": "cleanup_t_enum$_DeviceStatus_$434",
                       "nativeSrc": "2066:33:6",
                       "nodeType": "YulIdentifier",
                       "src": "2066:33:6"
@@ -1290,7 +1290,7 @@
                 }
               ]
             },
-            "name": "convert_t_enum$_DeviceStatus_$416_to_t_uint8",
+            "name": "convert_t_enum$_DeviceStatus_$434_to_t_uint8",
             "nativeSrc": "1969:143:6",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
@@ -1338,7 +1338,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "convert_t_enum$_DeviceStatus_$416_to_t_uint8",
+                          "name": "convert_t_enum$_DeviceStatus_$434_to_t_uint8",
                           "nativeSrc": "2219:44:6",
                           "nodeType": "YulIdentifier",
                           "src": "2219:44:6"
@@ -1364,7 +1364,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_enum$_DeviceStatus_$416_to_t_uint8_fromStack",
+            "name": "abi_encode_t_enum$_DeviceStatus_$434_to_t_uint8_fromStack",
             "nativeSrc": "2118:159:6",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
@@ -2727,7 +2727,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_struct$_Price_$425_memory_ptr_to_t_struct$_Price_$425_memory_ptr_fromStack",
+            "name": "abi_encode_t_struct$_Price_$443_memory_ptr_to_t_struct$_Price_$443_memory_ptr_fromStack",
             "nativeSrc": "3456:880:6",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
@@ -2934,7 +2934,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_enum$_DeviceStatus_$416_to_t_uint8_fromStack",
+                      "name": "abi_encode_t_enum$_DeviceStatus_$434_to_t_uint8_fromStack",
                       "nativeSrc": "4888:57:6",
                       "nodeType": "YulIdentifier",
                       "src": "4888:57:6"
@@ -3201,7 +3201,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_struct$_Price_$425_memory_ptr_to_t_struct$_Price_$425_memory_ptr_fromStack",
+                      "name": "abi_encode_t_struct$_Price_$443_memory_ptr_to_t_struct$_Price_$443_memory_ptr_fromStack",
                       "nativeSrc": "5291:87:6",
                       "nodeType": "YulIdentifier",
                       "src": "5291:87:6"
@@ -3216,7 +3216,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_uint256_t_address_t_enum$_DeviceStatus_$416_t_string_memory_ptr_t_string_memory_ptr_t_struct$_Price_$425_memory_ptr__to_t_uint256_t_address_t_uint8_t_string_memory_ptr_t_string_memory_ptr_t_struct$_Price_$425_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_uint256_t_address_t_enum$_DeviceStatus_$434_t_string_memory_ptr_t_string_memory_ptr_t_struct$_Price_$443_memory_ptr__to_t_uint256_t_address_t_uint8_t_string_memory_ptr_t_string_memory_ptr_t_struct$_Price_$443_memory_ptr__fromStack_reversed",
             "nativeSrc": "4342:1073:6",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
@@ -3656,7 +3656,7 @@
           }
         ]
       },
-      "contents": "{\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_uint256(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_tuple_t_uint256(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_t_uint256_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function abi_encode_t_address_to_t_address_fromStack(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function panic_error_0x21() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x21)\n        revert(0, 0x24)\n    }\n\n    function validator_assert_t_enum$_DeviceStatus_$416(value) {\n        if iszero(lt(value, 4)) { panic_error_0x21() }\n    }\n\n    function cleanup_t_enum$_DeviceStatus_$416(value) -> cleaned {\n        cleaned := value validator_assert_t_enum$_DeviceStatus_$416(value)\n    }\n\n    function convert_t_enum$_DeviceStatus_$416_to_t_uint8(value) -> converted {\n        converted := cleanup_t_enum$_DeviceStatus_$416(value)\n    }\n\n    function abi_encode_t_enum$_DeviceStatus_$416_to_t_uint8_fromStack(value, pos) {\n        mstore(pos, convert_t_enum$_DeviceStatus_$416_to_t_uint8(value))\n    }\n\n    function array_length_t_string_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function copy_memory_to_memory_with_cleanup(src, dst, length) {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        mstore(add(dst, length), 0)\n    }\n\n    function round_up_to_mul_of_32(value) -> result {\n        result := and(add(value, 31), not(31))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length)\n        copy_memory_to_memory_with_cleanup(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_uint256_to_t_uint256(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    // struct Price -> struct Price\n    function abi_encode_t_struct$_Price_$425_memory_ptr_to_t_struct$_Price_$425_memory_ptr_fromStack(value, pos)  {\n        let tail := add(pos, 0x80)\n\n        {\n            // serverPrice\n\n            let memberValue0 := mload(add(value, 0x00))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x00))\n        }\n\n        {\n            // storagePrice\n\n            let memberValue0 := mload(add(value, 0x20))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x20))\n        }\n\n        {\n            // upbandWidth\n\n            let memberValue0 := mload(add(value, 0x40))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x40))\n        }\n\n        {\n            // downbandWidth\n\n            let memberValue0 := mload(add(value, 0x60))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x60))\n        }\n\n    }\n\n    function abi_encode_tuple_t_uint256_t_address_t_enum$_DeviceStatus_$416_t_string_memory_ptr_t_string_memory_ptr_t_struct$_Price_$425_memory_ptr__to_t_uint256_t_address_t_uint8_t_string_memory_ptr_t_string_memory_ptr_t_struct$_Price_$425_memory_ptr__fromStack_reversed(headStart , value5, value4, value3, value2, value1, value0) -> tail {\n        tail := add(headStart, 288)\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_address_to_t_address_fromStack(value1,  add(headStart, 32))\n\n        abi_encode_t_enum$_DeviceStatus_$416_to_t_uint8_fromStack(value2,  add(headStart, 64))\n\n        mstore(add(headStart, 96), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value3,  tail)\n\n        mstore(add(headStart, 128), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value4,  tail)\n\n        abi_encode_t_struct$_Price_$425_memory_ptr_to_t_struct$_Price_$425_memory_ptr_fromStack(value5,  add(headStart, 160))\n\n    }\n\n    function panic_error_0x22() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x22)\n        revert(0, 0x24)\n    }\n\n    function extract_byte_array_length(data) -> length {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) {\n            length := and(length, 0x7f)\n        }\n\n        if eq(outOfPlaceEncoding, lt(length, 32)) {\n            panic_error_0x22()\n        }\n    }\n\n}\n",
+      "contents": "{\n\n    function allocate_unbounded() -> memPtr {\n        memPtr := mload(64)\n    }\n\n    function revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() {\n        revert(0, 0)\n    }\n\n    function revert_error_c1322bf8034eace5e0b5c7295db60986aa89aae5e0ea0873e4689e076861a5db() {\n        revert(0, 0)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n    function abi_decode_t_uint256(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_tuple_t_uint256(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert_error_dbdddcbe895c83990c08b3492a0e83918d802a52331272ac6fdb6a7c4aea3b1b() }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_t_uint256_to_t_uint256_fromStack(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function abi_encode_t_address_to_t_address_fromStack(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function panic_error_0x21() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x21)\n        revert(0, 0x24)\n    }\n\n    function validator_assert_t_enum$_DeviceStatus_$434(value) {\n        if iszero(lt(value, 4)) { panic_error_0x21() }\n    }\n\n    function cleanup_t_enum$_DeviceStatus_$434(value) -> cleaned {\n        cleaned := value validator_assert_t_enum$_DeviceStatus_$434(value)\n    }\n\n    function convert_t_enum$_DeviceStatus_$434_to_t_uint8(value) -> converted {\n        converted := cleanup_t_enum$_DeviceStatus_$434(value)\n    }\n\n    function abi_encode_t_enum$_DeviceStatus_$434_to_t_uint8_fromStack(value, pos) {\n        mstore(pos, convert_t_enum$_DeviceStatus_$434_to_t_uint8(value))\n    }\n\n    function array_length_t_string_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function copy_memory_to_memory_with_cleanup(src, dst, length) {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        mstore(add(dst, length), 0)\n    }\n\n    function round_up_to_mul_of_32(value) -> result {\n        result := and(add(value, 31), not(31))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length)\n        copy_memory_to_memory_with_cleanup(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_uint256_to_t_uint256(value, pos) {\n        mstore(pos, cleanup_t_uint256(value))\n    }\n\n    // struct Price -> struct Price\n    function abi_encode_t_struct$_Price_$443_memory_ptr_to_t_struct$_Price_$443_memory_ptr_fromStack(value, pos)  {\n        let tail := add(pos, 0x80)\n\n        {\n            // serverPrice\n\n            let memberValue0 := mload(add(value, 0x00))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x00))\n        }\n\n        {\n            // storagePrice\n\n            let memberValue0 := mload(add(value, 0x20))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x20))\n        }\n\n        {\n            // upbandWidth\n\n            let memberValue0 := mload(add(value, 0x40))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x40))\n        }\n\n        {\n            // downbandWidth\n\n            let memberValue0 := mload(add(value, 0x60))\n            abi_encode_t_uint256_to_t_uint256(memberValue0, add(pos, 0x60))\n        }\n\n    }\n\n    function abi_encode_tuple_t_uint256_t_address_t_enum$_DeviceStatus_$434_t_string_memory_ptr_t_string_memory_ptr_t_struct$_Price_$443_memory_ptr__to_t_uint256_t_address_t_uint8_t_string_memory_ptr_t_string_memory_ptr_t_struct$_Price_$443_memory_ptr__fromStack_reversed(headStart , value5, value4, value3, value2, value1, value0) -> tail {\n        tail := add(headStart, 288)\n\n        abi_encode_t_uint256_to_t_uint256_fromStack(value0,  add(headStart, 0))\n\n        abi_encode_t_address_to_t_address_fromStack(value1,  add(headStart, 32))\n\n        abi_encode_t_enum$_DeviceStatus_$434_to_t_uint8_fromStack(value2,  add(headStart, 64))\n\n        mstore(add(headStart, 96), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value3,  tail)\n\n        mstore(add(headStart, 128), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value4,  tail)\n\n        abi_encode_t_struct$_Price_$443_memory_ptr_to_t_struct$_Price_$443_memory_ptr_fromStack(value5,  add(headStart, 160))\n\n    }\n\n    function panic_error_0x22() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x22)\n        revert(0, 0x24)\n    }\n\n    function extract_byte_array_length(data) -> length {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) {\n            length := and(length, 0x7f)\n        }\n\n        if eq(outOfPlaceEncoding, lt(length, 32)) {\n            panic_error_0x22()\n        }\n    }\n\n}\n",
       "id": 6,
       "language": "Yul",
       "name": "#utility.yul"
@@ -3664,33 +3664,33 @@
   ],
   "sourceMap": "407:1038:3:-:0;;;446:1;436:11;;407:1038;;;;;;;;;;;;;;;;",
   "deployedSourceMap": "407:1038:3:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;453:28;;;;;;;;;;;;;:::i;:::-;;:::i;:::-;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;88:117:6:-;197:1;194;187:12;334:77;371:7;400:5;389:16;;334:77;;;:::o;417:122::-;490:24;508:5;490:24;:::i;:::-;483:5;480:35;470:63;;529:1;526;519:12;470:63;417:122;:::o;545:139::-;591:5;629:6;616:20;607:29;;645:33;672:5;645:33;:::i;:::-;545:139;;;;:::o;690:329::-;749:6;798:2;786:9;777:7;773:23;769:32;766:119;;;804:79;;:::i;:::-;766:119;924:1;949:53;994:7;985:6;974:9;970:22;949:53;:::i;:::-;939:63;;895:117;690:329;;;;:::o;1025:118::-;1112:24;1130:5;1112:24;:::i;:::-;1107:3;1100:37;1025:118;;:::o;1149:126::-;1186:7;1226:42;1219:5;1215:54;1204:65;;1149:126;;;:::o;1281:96::-;1318:7;1347:24;1365:5;1347:24;:::i;:::-;1336:35;;1281:96;;;:::o;1383:118::-;1470:24;1488:5;1470:24;:::i;:::-;1465:3;1458:37;1383:118;;:::o;1507:180::-;1555:77;1552:1;1545:88;1652:4;1649:1;1642:15;1676:4;1673:1;1666:15;1693:121;1782:1;1775:5;1772:12;1762:46;;1788:18;;:::i;:::-;1762:46;1693:121;:::o;1820:143::-;1873:7;1902:5;1891:16;;1908:49;1951:5;1908:49;:::i;:::-;1820:143;;;:::o;1969:::-;2033:9;2066:40;2100:5;2066:40;:::i;:::-;2053:53;;1969:143;;;:::o;2118:159::-;2219:51;2264:5;2219:51;:::i;:::-;2214:3;2207:64;2118:159;;:::o;2283:99::-;2335:6;2369:5;2363:12;2353:22;;2283:99;;;:::o;2388:169::-;2472:11;2506:6;2501:3;2494:19;2546:4;2541:3;2537:14;2522:29;;2388:169;;;;:::o;2563:246::-;2644:1;2654:113;2668:6;2665:1;2662:13;2654:113;;;2753:1;2748:3;2744:11;2738:18;2734:1;2729:3;2725:11;2718:39;2690:2;2687:1;2683:10;2678:15;;2654:113;;;2801:1;2792:6;2787:3;2783:16;2776:27;2625:184;2563:246;;;:::o;2815:102::-;2856:6;2907:2;2903:7;2898:2;2891:5;2887:14;2883:28;2873:38;;2815:102;;;:::o;2923:377::-;3011:3;3039:39;3072:5;3039:39;:::i;:::-;3094:71;3158:6;3153:3;3094:71;:::i;:::-;3087:78;;3174:65;3232:6;3227:3;3220:4;3213:5;3209:16;3174:65;:::i;:::-;3264:29;3286:6;3264:29;:::i;:::-;3259:3;3255:39;3248:46;;3015:285;2923:377;;;;:::o;3306:108::-;3383:24;3401:5;3383:24;:::i;:::-;3378:3;3371:37;3306:108;;:::o;3456:880::-;3597:4;3592:3;3588:14;3691:4;3684:5;3680:16;3674:23;3710:63;3767:4;3762:3;3758:14;3744:12;3710:63;:::i;:::-;3612:171;3873:4;3866:5;3862:16;3856:23;3892:63;3949:4;3944:3;3940:14;3926:12;3892:63;:::i;:::-;3793:172;4054:4;4047:5;4043:16;4037:23;4073:63;4130:4;4125:3;4121:14;4107:12;4073:63;:::i;:::-;3975:171;4237:4;4230:5;4226:16;4220:23;4256:63;4313:4;4308:3;4304:14;4290:12;4256:63;:::i;:::-;4156:173;3566:770;3456:880;;:::o;4342:1073::-;4673:4;4711:3;4700:9;4696:19;4688:27;;4725:71;4793:1;4782:9;4778:17;4769:6;4725:71;:::i;:::-;4806:72;4874:2;4863:9;4859:18;4850:6;4806:72;:::i;:::-;4888:86;4970:2;4959:9;4955:18;4946:6;4888:86;:::i;:::-;5021:9;5015:4;5011:20;5006:2;4995:9;4991:18;4984:48;5049:78;5122:4;5113:6;5049:78;:::i;:::-;5041:86;;5175:9;5169:4;5165:20;5159:3;5148:9;5144:19;5137:49;5203:78;5276:4;5267:6;5203:78;:::i;:::-;5195:86;;5291:117;5403:3;5392:9;5388:19;5379:6;5291:117;:::i;:::-;4342:1073;;;;;;;;;:::o;5421:180::-;5469:77;5466:1;5459:88;5566:4;5563:1;5556:15;5590:4;5587:1;5580:15;5607:320;5651:6;5688:1;5682:4;5678:12;5668:22;;5735:1;5729:4;5725:12;5756:18;5746:81;;5812:4;5804:6;5800:17;5790:27;;5746:81;5874:2;5866:6;5863:14;5843:18;5840:38;5837:84;;5893:18;;:::i;:::-;5837:84;5658:269;5607:320;;;:::o",
-  "source": "// SPDX-License-Identifier: SEE LICENSE IN LICENSE\npragma solidity ^0.8.0;\n\nenum DeviceStatus {Created, Online, Running, Offline}\n\nstruct Price {\n    uint serverPrice;\n    uint storagePrice;\n    uint upbandWidth;\n    uint downbandWidth;\n}\n\nstruct deviceInfo {\n\n        uint id;\n        address owner;\n        DeviceStatus status;\n        string machineId;\n        string serverInfo;\n        Price price;\n}\n\ncontract DeviceFactory {\n    uint id = 0;\n    deviceInfo [] public devices;\n\n    modifier _isOwner(address _owner) {\n        _;\n    }\n\n    // 这里需要质押, 这里price 可能存在的多种情况\n    function online(string memory _machineId, string memory _serverInfo, Price memory _price) internal returns (uint) {\n        id += 1;\n        // 这里msg.sender 不做检查, 只是因为当前不考虑作弊, 考虑作弊这里要处理\n        devices.push(deviceInfo(id, msg.sender,  DeviceStatus.Online, _machineId, _serverInfo, _price));\n        return id;\n    }\n\n    function getDevice(uint _deviceId) view internal returns(deviceInfo memory) {\n        require(_deviceId > 0, \"need device_id > 0\");\n        return devices[_deviceId - 1];\n    }\n\n    function deleteDevices(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Online || devices[_deviceId].status == DeviceStatus.Created, \"need pre status online or created\");\n        devices[_deviceId - 1].status = DeviceStatus.Offline;\n    }\n\n}\n\n\ncontract Device is DeviceFactory {\n\n    modifier canRent(string memory _deviceId) {\n        _;\n    }\n\n    function onlineDevice(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Created, \"need pre status created\");\n        devices[_deviceId].status = DeviceStatus.Online;\n    }\n\n    function offlineDevice(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Online || devices[_deviceId].status == DeviceStatus.Created, \"need pre status online or created\");\n        devices[_deviceId].status = DeviceStatus.Offline;\n        if (devices[_deviceId].status == DeviceStatus.Online) {\n        }\n    }\n\n    function rentDevice(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Online , \"need pre status online\");\n        devices[_deviceId].status = DeviceStatus.Running;\n    }\n\n    function expireDevice(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Running, \"need pre status running\");\n        devices[_deviceId].status = DeviceStatus.Online;\n    }\n\n}",
+  "source": "// SPDX-License-Identifier: SEE LICENSE IN LICENSE\npragma solidity ^0.8.0;\n\nenum DeviceStatus {Created, Online, Running, Offline}\n\nstruct Price {\n    uint serverPrice;\n    uint storagePrice;\n    uint upbandWidth;\n    uint downbandWidth;\n}\n\nstruct deviceInfo {\n\n        uint id;\n        address owner;\n        DeviceStatus status;\n        string machineId;\n        string serverInfo;\n        Price price;\n}\n\ncontract DeviceFactory {\n    uint id = 0;\n    deviceInfo [] public devices;\n\n    modifier _isOwner(address _owner) {\n        _;\n    }\n\n    // 这里需要质押, 这里price 可能存在的多种情况\n    function online(string memory _machineId, string memory _serverInfo, Price memory _price) internal returns (uint) {\n        id += 1;\n        // 这里msg.sender 不做检查, 只是因为当前不考虑作弊, 考虑作弊这里要处理\n        devices.push(deviceInfo(id, msg.sender,  DeviceStatus.Online, _machineId, _serverInfo, _price));\n        return id;\n    }\n\n    function getDevice(uint _deviceId) view internal returns(deviceInfo memory) {\n        require(_deviceId > 0, \"need device_id > 0\");\n        return devices[_deviceId - 1];\n    }\n\n    function deleteDevices(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Online || devices[_deviceId].status == DeviceStatus.Created, \"need pre status online or created\");\n        devices[_deviceId - 1].status = DeviceStatus.Offline;\n    }\n\n}\n\n\ncontract Device is DeviceFactory {\n\n    modifier canRent(string memory _deviceId) {\n        _;\n    }\n\n    function onlineDevice(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Created, \"need pre status created\");\n        devices[_deviceId].status = DeviceStatus.Online;\n    }\n\n    function offlineDevice(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Online, \"need pre status online\");\n        devices[_deviceId].status = DeviceStatus.Offline;\n    }\n\n    function rentDevice(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Online , \"need pre status online\");\n        devices[_deviceId].status = DeviceStatus.Running;\n    }\n\n    function expireDevice(uint _deviceId) internal {\n        require(devices[_deviceId].status == DeviceStatus.Running, \"need pre status running\");\n        devices[_deviceId].status = DeviceStatus.Online;\n    }\n\n}",
   "sourcePath": "/Users/irongyi/solidity_project/apus_network_v0/contracts/device.sol",
   "ast": {
     "absolutePath": "project:/contracts/device.sol",
     "exportedSymbols": {
       "Device": [
-        671
+        672
       ],
       "DeviceFactory": [
-        545
+        563
       ],
       "DeviceStatus": [
-        416
+        434
       ],
       "Price": [
-        425
+        443
       ],
       "deviceInfo": [
-        440
+        458
       ]
     },
-    "id": 672,
+    "id": 673,
     "license": "SEE LICENSE IN LICENSE",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 411,
+        "id": 429,
         "literals": [
           "solidity",
           "^",
@@ -3702,31 +3702,31 @@
       },
       {
         "canonicalName": "DeviceStatus",
-        "id": 416,
+        "id": 434,
         "members": [
           {
-            "id": 412,
+            "id": 430,
             "name": "Created",
             "nameLocation": "95:7:3",
             "nodeType": "EnumValue",
             "src": "95:7:3"
           },
           {
-            "id": 413,
+            "id": 431,
             "name": "Online",
             "nameLocation": "104:6:3",
             "nodeType": "EnumValue",
             "src": "104:6:3"
           },
           {
-            "id": 414,
+            "id": 432,
             "name": "Running",
             "nameLocation": "112:7:3",
             "nodeType": "EnumValue",
             "src": "112:7:3"
           },
           {
-            "id": 415,
+            "id": 433,
             "name": "Offline",
             "nameLocation": "121:7:3",
             "nodeType": "EnumValue",
@@ -3740,16 +3740,16 @@
       },
       {
         "canonicalName": "Price",
-        "id": 425,
+        "id": 443,
         "members": [
           {
             "constant": false,
-            "id": 418,
+            "id": 436,
             "mutability": "mutable",
             "name": "serverPrice",
             "nameLocation": "155:11:3",
             "nodeType": "VariableDeclaration",
-            "scope": 425,
+            "scope": 443,
             "src": "150:16:3",
             "stateVariable": false,
             "storageLocation": "default",
@@ -3758,7 +3758,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 417,
+              "id": 435,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "150:4:3",
@@ -3771,12 +3771,12 @@
           },
           {
             "constant": false,
-            "id": 420,
+            "id": 438,
             "mutability": "mutable",
             "name": "storagePrice",
             "nameLocation": "177:12:3",
             "nodeType": "VariableDeclaration",
-            "scope": 425,
+            "scope": 443,
             "src": "172:17:3",
             "stateVariable": false,
             "storageLocation": "default",
@@ -3785,7 +3785,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 419,
+              "id": 437,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "172:4:3",
@@ -3798,12 +3798,12 @@
           },
           {
             "constant": false,
-            "id": 422,
+            "id": 440,
             "mutability": "mutable",
             "name": "upbandWidth",
             "nameLocation": "200:11:3",
             "nodeType": "VariableDeclaration",
-            "scope": 425,
+            "scope": 443,
             "src": "195:16:3",
             "stateVariable": false,
             "storageLocation": "default",
@@ -3812,7 +3812,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 421,
+              "id": 439,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "195:4:3",
@@ -3825,12 +3825,12 @@
           },
           {
             "constant": false,
-            "id": 424,
+            "id": 442,
             "mutability": "mutable",
             "name": "downbandWidth",
             "nameLocation": "222:13:3",
             "nodeType": "VariableDeclaration",
-            "scope": 425,
+            "scope": 443,
             "src": "217:18:3",
             "stateVariable": false,
             "storageLocation": "default",
@@ -3839,7 +3839,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 423,
+              "id": 441,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "217:4:3",
@@ -3854,22 +3854,22 @@
         "name": "Price",
         "nameLocation": "138:5:3",
         "nodeType": "StructDefinition",
-        "scope": 672,
+        "scope": 673,
         "src": "131:107:3",
         "visibility": "public"
       },
       {
         "canonicalName": "deviceInfo",
-        "id": 440,
+        "id": 458,
         "members": [
           {
             "constant": false,
-            "id": 427,
+            "id": 445,
             "mutability": "mutable",
             "name": "id",
             "nameLocation": "274:2:3",
             "nodeType": "VariableDeclaration",
-            "scope": 440,
+            "scope": 458,
             "src": "269:7:3",
             "stateVariable": false,
             "storageLocation": "default",
@@ -3878,7 +3878,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 426,
+              "id": 444,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "269:4:3",
@@ -3891,12 +3891,12 @@
           },
           {
             "constant": false,
-            "id": 429,
+            "id": 447,
             "mutability": "mutable",
             "name": "owner",
             "nameLocation": "294:5:3",
             "nodeType": "VariableDeclaration",
-            "scope": 440,
+            "scope": 458,
             "src": "286:13:3",
             "stateVariable": false,
             "storageLocation": "default",
@@ -3905,7 +3905,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 428,
+              "id": 446,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "286:7:3",
@@ -3919,36 +3919,36 @@
           },
           {
             "constant": false,
-            "id": 432,
+            "id": 450,
             "mutability": "mutable",
             "name": "status",
             "nameLocation": "322:6:3",
             "nodeType": "VariableDeclaration",
-            "scope": 440,
+            "scope": 458,
             "src": "309:19:3",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_enum$_DeviceStatus_$416",
+              "typeIdentifier": "t_enum$_DeviceStatus_$434",
               "typeString": "enum DeviceStatus"
             },
             "typeName": {
-              "id": 431,
+              "id": 449,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 430,
+                "id": 448,
                 "name": "DeviceStatus",
                 "nameLocations": [
                   "309:12:3"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 416,
+                "referencedDeclaration": 434,
                 "src": "309:12:3"
               },
-              "referencedDeclaration": 416,
+              "referencedDeclaration": 434,
               "src": "309:12:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                "typeIdentifier": "t_enum$_DeviceStatus_$434",
                 "typeString": "enum DeviceStatus"
               }
             },
@@ -3956,12 +3956,12 @@
           },
           {
             "constant": false,
-            "id": 434,
+            "id": 452,
             "mutability": "mutable",
             "name": "machineId",
             "nameLocation": "345:9:3",
             "nodeType": "VariableDeclaration",
-            "scope": 440,
+            "scope": 458,
             "src": "338:16:3",
             "stateVariable": false,
             "storageLocation": "default",
@@ -3970,7 +3970,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 433,
+              "id": 451,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "338:6:3",
@@ -3983,12 +3983,12 @@
           },
           {
             "constant": false,
-            "id": 436,
+            "id": 454,
             "mutability": "mutable",
             "name": "serverInfo",
             "nameLocation": "371:10:3",
             "nodeType": "VariableDeclaration",
-            "scope": 440,
+            "scope": 458,
             "src": "364:17:3",
             "stateVariable": false,
             "storageLocation": "default",
@@ -3997,7 +3997,7 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 435,
+              "id": 453,
               "name": "string",
               "nodeType": "ElementaryTypeName",
               "src": "364:6:3",
@@ -4010,36 +4010,36 @@
           },
           {
             "constant": false,
-            "id": 439,
+            "id": 457,
             "mutability": "mutable",
             "name": "price",
             "nameLocation": "397:5:3",
             "nodeType": "VariableDeclaration",
-            "scope": 440,
+            "scope": 458,
             "src": "391:11:3",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_struct$_Price_$425_storage_ptr",
+              "typeIdentifier": "t_struct$_Price_$443_storage_ptr",
               "typeString": "struct Price"
             },
             "typeName": {
-              "id": 438,
+              "id": 456,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 437,
+                "id": 455,
                 "name": "Price",
                 "nameLocations": [
                   "391:5:3"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 425,
+                "referencedDeclaration": 443,
                 "src": "391:5:3"
               },
-              "referencedDeclaration": 425,
+              "referencedDeclaration": 443,
               "src": "391:5:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_struct$_Price_$425_storage_ptr",
+                "typeIdentifier": "t_struct$_Price_$443_storage_ptr",
                 "typeString": "struct Price"
               }
             },
@@ -4049,7 +4049,7 @@
         "name": "deviceInfo",
         "nameLocation": "247:10:3",
         "nodeType": "StructDefinition",
-        "scope": 672,
+        "scope": 673,
         "src": "240:165:3",
         "visibility": "public"
       },
@@ -4060,9 +4060,9 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 545,
+        "id": 563,
         "linearizedBaseContracts": [
-          545
+          563
         ],
         "name": "DeviceFactory",
         "nameLocation": "416:13:3",
@@ -4070,12 +4070,12 @@
         "nodes": [
           {
             "constant": false,
-            "id": 443,
+            "id": 461,
             "mutability": "mutable",
             "name": "id",
             "nameLocation": "441:2:3",
             "nodeType": "VariableDeclaration",
-            "scope": 545,
+            "scope": 563,
             "src": "436:11:3",
             "stateVariable": true,
             "storageLocation": "default",
@@ -4084,7 +4084,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 441,
+              "id": 459,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
               "src": "436:4:3",
@@ -4095,7 +4095,7 @@
             },
             "value": {
               "hexValue": "30",
-              "id": 442,
+              "id": 460,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -4114,45 +4114,45 @@
           {
             "constant": false,
             "functionSelector": "10ff8e31",
-            "id": 447,
+            "id": 465,
             "mutability": "mutable",
             "name": "devices",
             "nameLocation": "474:7:3",
             "nodeType": "VariableDeclaration",
-            "scope": 545,
+            "scope": 563,
             "src": "453:28:3",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+              "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
               "typeString": "struct deviceInfo[]"
             },
             "typeName": {
               "baseType": {
-                "id": 445,
+                "id": 463,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
-                  "id": 444,
+                  "id": 462,
                   "name": "deviceInfo",
                   "nameLocations": [
                     "453:10:3"
                   ],
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 440,
+                  "referencedDeclaration": 458,
                   "src": "453:10:3"
                 },
-                "referencedDeclaration": 440,
+                "referencedDeclaration": 458,
                 "src": "453:10:3",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_deviceInfo_$440_storage_ptr",
+                  "typeIdentifier": "t_struct$_deviceInfo_$458_storage_ptr",
                   "typeString": "struct deviceInfo"
                 }
               },
-              "id": 446,
+              "id": 464,
               "nodeType": "ArrayTypeName",
               "src": "453:13:3",
               "typeDescriptions": {
-                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage_ptr",
+                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage_ptr",
                 "typeString": "struct deviceInfo[]"
               }
             },
@@ -4160,33 +4160,33 @@
           },
           {
             "body": {
-              "id": 452,
+              "id": 470,
               "nodeType": "Block",
               "src": "522:18:3",
               "statements": [
                 {
-                  "id": 451,
+                  "id": 469,
                   "nodeType": "PlaceholderStatement",
                   "src": "532:1:3"
                 }
               ]
             },
-            "id": 453,
+            "id": 471,
             "name": "_isOwner",
             "nameLocation": "497:8:3",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 450,
+              "id": 468,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 449,
+                  "id": 467,
                   "mutability": "mutable",
                   "name": "_owner",
                   "nameLocation": "514:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 453,
+                  "scope": 471,
                   "src": "506:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4195,7 +4195,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 448,
+                    "id": 466,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "506:7:3",
@@ -4216,23 +4216,23 @@
           },
           {
             "body": {
-              "id": 486,
+              "id": 504,
               "nodeType": "Block",
               "src": "727:253:3",
               "statements": [
                 {
                   "expression": {
-                    "id": 467,
+                    "id": 485,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 465,
+                      "id": 483,
                       "name": "id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 443,
+                      "referencedDeclaration": 461,
                       "src": "737:2:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -4243,7 +4243,7 @@
                     "operator": "+=",
                     "rightHandSide": {
                       "hexValue": "31",
-                      "id": 466,
+                      "id": 484,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -4263,7 +4263,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 468,
+                  "id": 486,
                   "nodeType": "ExpressionStatement",
                   "src": "737:7:3"
                 },
@@ -4273,11 +4273,11 @@
                       {
                         "arguments": [
                           {
-                            "id": 473,
+                            "id": 491,
                             "name": "id",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 443,
+                            "referencedDeclaration": 461,
                             "src": "883:2:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -4286,7 +4286,7 @@
                           },
                           {
                             "expression": {
-                              "id": 474,
+                              "id": 492,
                               "name": "msg",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
@@ -4297,7 +4297,7 @@
                                 "typeString": "msg"
                               }
                             },
-                            "id": 475,
+                            "id": 493,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -4313,18 +4313,18 @@
                           },
                           {
                             "expression": {
-                              "id": 476,
+                              "id": 494,
                               "name": "DeviceStatus",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 416,
+                              "referencedDeclaration": 434,
                               "src": "900:12:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                                "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                                 "typeString": "type(enum DeviceStatus)"
                               }
                             },
-                            "id": 477,
+                            "id": 495,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -4332,19 +4332,19 @@
                             "memberLocation": "913:6:3",
                             "memberName": "Online",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 413,
+                            "referencedDeclaration": 431,
                             "src": "900:19:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                              "typeIdentifier": "t_enum$_DeviceStatus_$434",
                               "typeString": "enum DeviceStatus"
                             }
                           },
                           {
-                            "id": 478,
+                            "id": 496,
                             "name": "_machineId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 455,
+                            "referencedDeclaration": 473,
                             "src": "921:10:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -4352,11 +4352,11 @@
                             }
                           },
                           {
-                            "id": 479,
+                            "id": 497,
                             "name": "_serverInfo",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 457,
+                            "referencedDeclaration": 475,
                             "src": "933:11:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_string_memory_ptr",
@@ -4364,14 +4364,14 @@
                             }
                           },
                           {
-                            "id": 480,
+                            "id": 498,
                             "name": "_price",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 460,
+                            "referencedDeclaration": 478,
                             "src": "946:6:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Price_$425_memory_ptr",
+                              "typeIdentifier": "t_struct$_Price_$443_memory_ptr",
                               "typeString": "struct Price memory"
                             }
                           }
@@ -4387,7 +4387,7 @@
                               "typeString": "address"
                             },
                             {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                              "typeIdentifier": "t_enum$_DeviceStatus_$434",
                               "typeString": "enum DeviceStatus"
                             },
                             {
@@ -4399,22 +4399,22 @@
                               "typeString": "string memory"
                             },
                             {
-                              "typeIdentifier": "t_struct$_Price_$425_memory_ptr",
+                              "typeIdentifier": "t_struct$_Price_$443_memory_ptr",
                               "typeString": "struct Price memory"
                             }
                           ],
-                          "id": 472,
+                          "id": 490,
                           "name": "deviceInfo",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 440,
+                          "referencedDeclaration": 458,
                           "src": "872:10:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_struct$_deviceInfo_$440_storage_ptr_$",
+                            "typeIdentifier": "t_type$_t_struct$_deviceInfo_$458_storage_ptr_$",
                             "typeString": "type(struct deviceInfo storage pointer)"
                           }
                         },
-                        "id": 481,
+                        "id": 499,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -4426,7 +4426,7 @@
                         "src": "872:81:3",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_deviceInfo_$440_memory_ptr",
+                          "typeIdentifier": "t_struct$_deviceInfo_$458_memory_ptr",
                           "typeString": "struct deviceInfo memory"
                         }
                       }
@@ -4434,23 +4434,23 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_struct$_deviceInfo_$440_memory_ptr",
+                          "typeIdentifier": "t_struct$_deviceInfo_$458_memory_ptr",
                           "typeString": "struct deviceInfo memory"
                         }
                       ],
                       "expression": {
-                        "id": 469,
+                        "id": 487,
                         "name": "devices",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 447,
+                        "referencedDeclaration": 465,
                         "src": "859:7:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                          "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                           "typeString": "struct deviceInfo storage ref[] storage ref"
                         }
                       },
-                      "id": 471,
+                      "id": 489,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -4460,11 +4460,11 @@
                       "nodeType": "MemberAccess",
                       "src": "859:12:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage_ptr_$_t_struct$_deviceInfo_$440_storage_$returns$__$attached_to$_t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage_ptr_$",
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage_ptr_$_t_struct$_deviceInfo_$458_storage_$returns$__$attached_to$_t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage_ptr_$",
                         "typeString": "function (struct deviceInfo storage ref[] storage pointer,struct deviceInfo storage ref)"
                       }
                     },
-                    "id": 482,
+                    "id": 500,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4480,31 +4480,31 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 483,
+                  "id": 501,
                   "nodeType": "ExpressionStatement",
                   "src": "859:95:3"
                 },
                 {
                   "expression": {
-                    "id": 484,
+                    "id": 502,
                     "name": "id",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 443,
+                    "referencedDeclaration": 461,
                     "src": "971:2:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 464,
-                  "id": 485,
+                  "functionReturnParameters": 482,
+                  "id": 503,
                   "nodeType": "Return",
                   "src": "964:9:3"
                 }
               ]
             },
-            "id": 487,
+            "id": 505,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4512,17 +4512,17 @@
             "nameLocation": "622:6:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 461,
+              "id": 479,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 455,
+                  "id": 473,
                   "mutability": "mutable",
                   "name": "_machineId",
                   "nameLocation": "643:10:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 487,
+                  "scope": 505,
                   "src": "629:24:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4531,7 +4531,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 454,
+                    "id": 472,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "629:6:3",
@@ -4544,12 +4544,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 457,
+                  "id": 475,
                   "mutability": "mutable",
                   "name": "_serverInfo",
                   "nameLocation": "669:11:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 487,
+                  "scope": 505,
                   "src": "655:25:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -4558,7 +4558,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 456,
+                    "id": 474,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "655:6:3",
@@ -4571,36 +4571,36 @@
                 },
                 {
                   "constant": false,
-                  "id": 460,
+                  "id": 478,
                   "mutability": "mutable",
                   "name": "_price",
                   "nameLocation": "695:6:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 487,
+                  "scope": 505,
                   "src": "682:19:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Price_$425_memory_ptr",
+                    "typeIdentifier": "t_struct$_Price_$443_memory_ptr",
                     "typeString": "struct Price"
                   },
                   "typeName": {
-                    "id": 459,
+                    "id": 477,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 458,
+                      "id": 476,
                       "name": "Price",
                       "nameLocations": [
                         "682:5:3"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 425,
+                      "referencedDeclaration": 443,
                       "src": "682:5:3"
                     },
-                    "referencedDeclaration": 425,
+                    "referencedDeclaration": 443,
                     "src": "682:5:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Price_$425_storage_ptr",
+                      "typeIdentifier": "t_struct$_Price_$443_storage_ptr",
                       "typeString": "struct Price"
                     }
                   },
@@ -4610,17 +4610,17 @@
               "src": "628:74:3"
             },
             "returnParameters": {
-              "id": 464,
+              "id": 482,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 463,
+                  "id": 481,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 487,
+                  "scope": 505,
                   "src": "721:4:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4629,7 +4629,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 462,
+                    "id": 480,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "721:4:3",
@@ -4643,7 +4643,7 @@
               ],
               "src": "720:6:3"
             },
-            "scope": 545,
+            "scope": 563,
             "src": "613:367:3",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -4651,7 +4651,7 @@
           },
           {
             "body": {
-              "id": 508,
+              "id": 526,
               "nodeType": "Block",
               "src": "1062:100:3",
               "statements": [
@@ -4663,17 +4663,17 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 498,
+                        "id": 516,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 496,
+                          "id": 514,
                           "name": "_deviceId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 489,
+                          "referencedDeclaration": 507,
                           "src": "1080:9:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -4684,7 +4684,7 @@
                         "operator": ">",
                         "rightExpression": {
                           "hexValue": "30",
-                          "id": 497,
+                          "id": 515,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -4706,7 +4706,7 @@
                       },
                       {
                         "hexValue": "6e656564206465766963655f6964203e2030",
-                        "id": 499,
+                        "id": 517,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4732,7 +4732,7 @@
                           "typeString": "literal_string \"need device_id > 0\""
                         }
                       ],
-                      "id": 495,
+                      "id": 513,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -4746,7 +4746,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 500,
+                    "id": 518,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -4762,41 +4762,41 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 501,
+                  "id": 519,
                   "nodeType": "ExpressionStatement",
                   "src": "1072:44:3"
                 },
                 {
                   "expression": {
                     "baseExpression": {
-                      "id": 502,
+                      "id": 520,
                       "name": "devices",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 447,
+                      "referencedDeclaration": 465,
                       "src": "1133:7:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                        "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                         "typeString": "struct deviceInfo storage ref[] storage ref"
                       }
                     },
-                    "id": 506,
+                    "id": 524,
                     "indexExpression": {
                       "commonType": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 505,
+                      "id": 523,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "leftExpression": {
-                        "id": 503,
+                        "id": 521,
                         "name": "_deviceId",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 489,
+                        "referencedDeclaration": 507,
                         "src": "1141:9:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -4807,7 +4807,7 @@
                       "operator": "-",
                       "rightExpression": {
                         "hexValue": "31",
-                        "id": 504,
+                        "id": 522,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -4834,18 +4834,18 @@
                     "nodeType": "IndexAccess",
                     "src": "1133:22:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                      "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                       "typeString": "struct deviceInfo storage ref"
                     }
                   },
-                  "functionReturnParameters": 494,
-                  "id": 507,
+                  "functionReturnParameters": 512,
+                  "id": 525,
                   "nodeType": "Return",
                   "src": "1126:29:3"
                 }
               ]
             },
-            "id": 509,
+            "id": 527,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -4853,17 +4853,17 @@
             "nameLocation": "995:9:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 490,
+              "id": 508,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 489,
+                  "id": 507,
                   "mutability": "mutable",
                   "name": "_deviceId",
                   "nameLocation": "1010:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 509,
+                  "scope": 527,
                   "src": "1005:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -4872,7 +4872,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 488,
+                    "id": 506,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1005:4:3",
@@ -4887,41 +4887,41 @@
               "src": "1004:16:3"
             },
             "returnParameters": {
-              "id": 494,
+              "id": 512,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 493,
+                  "id": 511,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 509,
+                  "scope": 527,
                   "src": "1043:17:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_deviceInfo_$440_memory_ptr",
+                    "typeIdentifier": "t_struct$_deviceInfo_$458_memory_ptr",
                     "typeString": "struct deviceInfo"
                   },
                   "typeName": {
-                    "id": 492,
+                    "id": 510,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 491,
+                      "id": 509,
                       "name": "deviceInfo",
                       "nameLocations": [
                         "1043:10:3"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 440,
+                      "referencedDeclaration": 458,
                       "src": "1043:10:3"
                     },
-                    "referencedDeclaration": 440,
+                    "referencedDeclaration": 458,
                     "src": "1043:10:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_deviceInfo_$440_storage_ptr",
+                      "typeIdentifier": "t_struct$_deviceInfo_$458_storage_ptr",
                       "typeString": "struct deviceInfo"
                     }
                   },
@@ -4930,7 +4930,7 @@
               ],
               "src": "1042:19:3"
             },
-            "scope": 545,
+            "scope": 563,
             "src": "986:176:3",
             "stateMutability": "view",
             "virtual": false,
@@ -4938,7 +4938,7 @@
           },
           {
             "body": {
-              "id": 543,
+              "id": 561,
               "nodeType": "Block",
               "src": "1216:226:3",
               "statements": [
@@ -4950,17 +4950,17 @@
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         },
-                        "id": 529,
+                        "id": 547,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
                           "commonType": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
                             "typeString": "enum DeviceStatus"
                           },
-                          "id": 521,
+                          "id": 539,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -4968,24 +4968,24 @@
                           "leftExpression": {
                             "expression": {
                               "baseExpression": {
-                                "id": 515,
+                                "id": 533,
                                 "name": "devices",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 447,
+                                "referencedDeclaration": 465,
                                 "src": "1234:7:3",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                                  "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                                   "typeString": "struct deviceInfo storage ref[] storage ref"
                                 }
                               },
-                              "id": 517,
+                              "id": 535,
                               "indexExpression": {
-                                "id": 516,
+                                "id": 534,
                                 "name": "_deviceId",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 511,
+                                "referencedDeclaration": 529,
                                 "src": "1242:9:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
@@ -4999,11 +4999,11 @@
                               "nodeType": "IndexAccess",
                               "src": "1234:18:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                                "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                                 "typeString": "struct deviceInfo storage ref"
                               }
                             },
-                            "id": 518,
+                            "id": 536,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
@@ -5011,10 +5011,10 @@
                             "memberLocation": "1253:6:3",
                             "memberName": "status",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 432,
+                            "referencedDeclaration": 450,
                             "src": "1234:25:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                              "typeIdentifier": "t_enum$_DeviceStatus_$434",
                               "typeString": "enum DeviceStatus"
                             }
                           },
@@ -5022,18 +5022,18 @@
                           "operator": "==",
                           "rightExpression": {
                             "expression": {
-                              "id": 519,
+                              "id": 537,
                               "name": "DeviceStatus",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 416,
+                              "referencedDeclaration": 434,
                               "src": "1263:12:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                                "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                                 "typeString": "type(enum DeviceStatus)"
                               }
                             },
-                            "id": 520,
+                            "id": 538,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -5041,10 +5041,10 @@
                             "memberLocation": "1276:6:3",
                             "memberName": "Online",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 413,
+                            "referencedDeclaration": 431,
                             "src": "1263:19:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                              "typeIdentifier": "t_enum$_DeviceStatus_$434",
                               "typeString": "enum DeviceStatus"
                             }
                           },
@@ -5058,10 +5058,10 @@
                         "operator": "||",
                         "rightExpression": {
                           "commonType": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
                             "typeString": "enum DeviceStatus"
                           },
-                          "id": 528,
+                          "id": 546,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -5069,24 +5069,24 @@
                           "leftExpression": {
                             "expression": {
                               "baseExpression": {
-                                "id": 522,
+                                "id": 540,
                                 "name": "devices",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 447,
+                                "referencedDeclaration": 465,
                                 "src": "1286:7:3",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                                  "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                                   "typeString": "struct deviceInfo storage ref[] storage ref"
                                 }
                               },
-                              "id": 524,
+                              "id": 542,
                               "indexExpression": {
-                                "id": 523,
+                                "id": 541,
                                 "name": "_deviceId",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 511,
+                                "referencedDeclaration": 529,
                                 "src": "1294:9:3",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
@@ -5100,11 +5100,11 @@
                               "nodeType": "IndexAccess",
                               "src": "1286:18:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                                "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                                 "typeString": "struct deviceInfo storage ref"
                               }
                             },
-                            "id": 525,
+                            "id": 543,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
@@ -5112,10 +5112,10 @@
                             "memberLocation": "1305:6:3",
                             "memberName": "status",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 432,
+                            "referencedDeclaration": 450,
                             "src": "1286:25:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                              "typeIdentifier": "t_enum$_DeviceStatus_$434",
                               "typeString": "enum DeviceStatus"
                             }
                           },
@@ -5123,18 +5123,18 @@
                           "operator": "==",
                           "rightExpression": {
                             "expression": {
-                              "id": 526,
+                              "id": 544,
                               "name": "DeviceStatus",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 416,
+                              "referencedDeclaration": 434,
                               "src": "1315:12:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                                "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                                 "typeString": "type(enum DeviceStatus)"
                               }
                             },
-                            "id": 527,
+                            "id": 545,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -5142,10 +5142,10 @@
                             "memberLocation": "1328:7:3",
                             "memberName": "Created",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 412,
+                            "referencedDeclaration": 430,
                             "src": "1315:20:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                              "typeIdentifier": "t_enum$_DeviceStatus_$434",
                               "typeString": "enum DeviceStatus"
                             }
                           },
@@ -5163,7 +5163,7 @@
                       },
                       {
                         "hexValue": "6e6565642070726520737461747573206f6e6c696e65206f722063726561746564",
-                        "id": 530,
+                        "id": 548,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -5189,7 +5189,7 @@
                           "typeString": "literal_string \"need pre status online or created\""
                         }
                       ],
-                      "id": 514,
+                      "id": 532,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -5203,7 +5203,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 531,
+                    "id": 549,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5219,13 +5219,13 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 532,
+                  "id": 550,
                   "nodeType": "ExpressionStatement",
                   "src": "1226:147:3"
                 },
                 {
                   "expression": {
-                    "id": 541,
+                    "id": 559,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5233,34 +5233,34 @@
                     "leftHandSide": {
                       "expression": {
                         "baseExpression": {
-                          "id": 533,
+                          "id": 551,
                           "name": "devices",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 447,
+                          "referencedDeclaration": 465,
                           "src": "1383:7:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                             "typeString": "struct deviceInfo storage ref[] storage ref"
                           }
                         },
-                        "id": 537,
+                        "id": 555,
                         "indexExpression": {
                           "commonType": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
                           },
-                          "id": 536,
+                          "id": 554,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftExpression": {
-                            "id": 534,
+                            "id": 552,
                             "name": "_deviceId",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 511,
+                            "referencedDeclaration": 529,
                             "src": "1391:9:3",
                             "typeDescriptions": {
                               "typeIdentifier": "t_uint256",
@@ -5271,7 +5271,7 @@
                           "operator": "-",
                           "rightExpression": {
                             "hexValue": "31",
-                            "id": 535,
+                            "id": 553,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
@@ -5298,11 +5298,11 @@
                         "nodeType": "IndexAccess",
                         "src": "1383:22:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                          "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                           "typeString": "struct deviceInfo storage ref"
                         }
                       },
-                      "id": 538,
+                      "id": 556,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -5310,10 +5310,10 @@
                       "memberLocation": "1406:6:3",
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 432,
+                      "referencedDeclaration": 450,
                       "src": "1383:29:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
                         "typeString": "enum DeviceStatus"
                       }
                     },
@@ -5321,18 +5321,18 @@
                     "operator": "=",
                     "rightHandSide": {
                       "expression": {
-                        "id": 539,
+                        "id": 557,
                         "name": "DeviceStatus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 416,
+                        "referencedDeclaration": 434,
                         "src": "1415:12:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                           "typeString": "type(enum DeviceStatus)"
                         }
                       },
-                      "id": 540,
+                      "id": 558,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5340,26 +5340,26 @@
                       "memberLocation": "1428:7:3",
                       "memberName": "Offline",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 415,
+                      "referencedDeclaration": 433,
                       "src": "1415:20:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
                         "typeString": "enum DeviceStatus"
                       }
                     },
                     "src": "1383:52:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                      "typeIdentifier": "t_enum$_DeviceStatus_$434",
                       "typeString": "enum DeviceStatus"
                     }
                   },
-                  "id": 542,
+                  "id": 560,
                   "nodeType": "ExpressionStatement",
                   "src": "1383:52:3"
                 }
               ]
             },
-            "id": 544,
+            "id": 562,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -5367,17 +5367,17 @@
             "nameLocation": "1177:13:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 512,
+              "id": 530,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 511,
+                  "id": 529,
                   "mutability": "mutable",
                   "name": "_deviceId",
                   "nameLocation": "1196:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 544,
+                  "scope": 562,
                   "src": "1191:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5386,7 +5386,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 510,
+                    "id": 528,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1191:4:3",
@@ -5401,19 +5401,19 @@
               "src": "1190:16:3"
             },
             "returnParameters": {
-              "id": 513,
+              "id": 531,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1216:0:3"
             },
-            "scope": 545,
+            "scope": 563,
             "src": "1168:274:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 672,
+        "scope": 673,
         "src": "407:1038:3",
         "usedErrors": [],
         "usedEvents": []
@@ -5423,16 +5423,16 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 546,
+              "id": 564,
               "name": "DeviceFactory",
               "nameLocations": [
                 "1467:13:3"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 545,
+              "referencedDeclaration": 563,
               "src": "1467:13:3"
             },
-            "id": 547,
+            "id": 565,
             "nodeType": "InheritanceSpecifier",
             "src": "1467:13:3"
           }
@@ -5441,10 +5441,10 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "fullyImplemented": true,
-        "id": 671,
+        "id": 672,
         "linearizedBaseContracts": [
-          671,
-          545
+          672,
+          563
         ],
         "name": "Device",
         "nameLocation": "1457:6:3",
@@ -5452,33 +5452,33 @@
         "nodes": [
           {
             "body": {
-              "id": 552,
+              "id": 570,
               "nodeType": "Block",
               "src": "1530:18:3",
               "statements": [
                 {
-                  "id": 551,
+                  "id": 569,
                   "nodeType": "PlaceholderStatement",
                   "src": "1540:1:3"
                 }
               ]
             },
-            "id": 553,
+            "id": 571,
             "name": "canRent",
             "nameLocation": "1497:7:3",
             "nodeType": "ModifierDefinition",
             "parameters": {
-              "id": 550,
+              "id": 568,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 549,
+                  "id": 567,
                   "mutability": "mutable",
                   "name": "_deviceId",
                   "nameLocation": "1519:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 553,
+                  "scope": 571,
                   "src": "1505:23:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -5487,7 +5487,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 548,
+                    "id": 566,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1505:6:3",
@@ -5507,7 +5507,7 @@
           },
           {
             "body": {
-              "id": 577,
+              "id": 595,
               "nodeType": "Block",
               "src": "1601:159:3",
               "statements": [
@@ -5516,10 +5516,10 @@
                     "arguments": [
                       {
                         "commonType": {
-                          "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                          "typeIdentifier": "t_enum$_DeviceStatus_$434",
                           "typeString": "enum DeviceStatus"
                         },
-                        "id": 565,
+                        "id": 583,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -5527,24 +5527,24 @@
                         "leftExpression": {
                           "expression": {
                             "baseExpression": {
-                              "id": 559,
+                              "id": 577,
                               "name": "devices",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 447,
+                              "referencedDeclaration": 465,
                               "src": "1619:7:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                                 "typeString": "struct deviceInfo storage ref[] storage ref"
                               }
                             },
-                            "id": 561,
+                            "id": 579,
                             "indexExpression": {
-                              "id": 560,
+                              "id": 578,
                               "name": "_deviceId",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 555,
+                              "referencedDeclaration": 573,
                               "src": "1627:9:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -5558,11 +5558,11 @@
                             "nodeType": "IndexAccess",
                             "src": "1619:18:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                              "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                               "typeString": "struct deviceInfo storage ref"
                             }
                           },
-                          "id": 562,
+                          "id": 580,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -5570,10 +5570,10 @@
                           "memberLocation": "1638:6:3",
                           "memberName": "status",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 432,
+                          "referencedDeclaration": 450,
                           "src": "1619:25:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
                             "typeString": "enum DeviceStatus"
                           }
                         },
@@ -5581,18 +5581,18 @@
                         "operator": "==",
                         "rightExpression": {
                           "expression": {
-                            "id": 563,
+                            "id": 581,
                             "name": "DeviceStatus",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 416,
+                            "referencedDeclaration": 434,
                             "src": "1648:12:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                              "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                               "typeString": "type(enum DeviceStatus)"
                             }
                           },
-                          "id": 564,
+                          "id": 582,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -5600,10 +5600,10 @@
                           "memberLocation": "1661:7:3",
                           "memberName": "Created",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 412,
+                          "referencedDeclaration": 430,
                           "src": "1648:20:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
                             "typeString": "enum DeviceStatus"
                           }
                         },
@@ -5615,7 +5615,7 @@
                       },
                       {
                         "hexValue": "6e65656420707265207374617475732063726561746564",
-                        "id": 566,
+                        "id": 584,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -5641,7 +5641,7 @@
                           "typeString": "literal_string \"need pre status created\""
                         }
                       ],
-                      "id": 558,
+                      "id": 576,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -5655,7 +5655,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 567,
+                    "id": 585,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5671,13 +5671,13 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 568,
+                  "id": 586,
                   "nodeType": "ExpressionStatement",
                   "src": "1611:85:3"
                 },
                 {
                   "expression": {
-                    "id": 575,
+                    "id": 593,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5685,24 +5685,24 @@
                     "leftHandSide": {
                       "expression": {
                         "baseExpression": {
-                          "id": 569,
+                          "id": 587,
                           "name": "devices",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 447,
+                          "referencedDeclaration": 465,
                           "src": "1706:7:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                             "typeString": "struct deviceInfo storage ref[] storage ref"
                           }
                         },
-                        "id": 571,
+                        "id": 589,
                         "indexExpression": {
-                          "id": 570,
+                          "id": 588,
                           "name": "_deviceId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 555,
+                          "referencedDeclaration": 573,
                           "src": "1714:9:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
@@ -5716,11 +5716,11 @@
                         "nodeType": "IndexAccess",
                         "src": "1706:18:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                          "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                           "typeString": "struct deviceInfo storage ref"
                         }
                       },
-                      "id": 572,
+                      "id": 590,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -5728,10 +5728,10 @@
                       "memberLocation": "1725:6:3",
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 432,
+                      "referencedDeclaration": 450,
                       "src": "1706:25:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
                         "typeString": "enum DeviceStatus"
                       }
                     },
@@ -5739,18 +5739,18 @@
                     "operator": "=",
                     "rightHandSide": {
                       "expression": {
-                        "id": 573,
+                        "id": 591,
                         "name": "DeviceStatus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 416,
+                        "referencedDeclaration": 434,
                         "src": "1734:12:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                           "typeString": "type(enum DeviceStatus)"
                         }
                       },
-                      "id": 574,
+                      "id": 592,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5758,26 +5758,26 @@
                       "memberLocation": "1747:6:3",
                       "memberName": "Online",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 413,
+                      "referencedDeclaration": 431,
                       "src": "1734:19:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
                         "typeString": "enum DeviceStatus"
                       }
                     },
                     "src": "1706:47:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                      "typeIdentifier": "t_enum$_DeviceStatus_$434",
                       "typeString": "enum DeviceStatus"
                     }
                   },
-                  "id": 576,
+                  "id": 594,
                   "nodeType": "ExpressionStatement",
                   "src": "1706:47:3"
                 }
               ]
             },
-            "id": 578,
+            "id": 596,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -5785,17 +5785,17 @@
             "nameLocation": "1563:12:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 556,
+              "id": 574,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 555,
+                  "id": 573,
                   "mutability": "mutable",
                   "name": "_deviceId",
                   "nameLocation": "1581:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 578,
+                  "scope": 596,
                   "src": "1576:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -5804,7 +5804,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 554,
+                    "id": 572,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
                     "src": "1576:4:3",
@@ -5819,12 +5819,12 @@
               "src": "1575:16:3"
             },
             "returnParameters": {
-              "id": 557,
+              "id": 575,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1601:0:3"
             },
-            "scope": 671,
+            "scope": 672,
             "src": "1554:206:3",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -5832,571 +5832,19 @@
           },
           {
             "body": {
-              "id": 619,
+              "id": 620,
               "nodeType": "Block",
-              "src": "1814:296:3",
+              "src": "1814:158:3",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
                         "commonType": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        },
-                        "id": 598,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "leftExpression": {
-                          "commonType": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                            "typeString": "enum DeviceStatus"
-                          },
-                          "id": 590,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "leftExpression": {
-                            "expression": {
-                              "baseExpression": {
-                                "id": 584,
-                                "name": "devices",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 447,
-                                "src": "1832:7:3",
-                                "typeDescriptions": {
-                                  "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
-                                  "typeString": "struct deviceInfo storage ref[] storage ref"
-                                }
-                              },
-                              "id": 586,
-                              "indexExpression": {
-                                "id": 585,
-                                "name": "_deviceId",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 580,
-                                "src": "1840:9:3",
-                                "typeDescriptions": {
-                                  "typeIdentifier": "t_uint256",
-                                  "typeString": "uint256"
-                                }
-                              },
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "nodeType": "IndexAccess",
-                              "src": "1832:18:3",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
-                                "typeString": "struct deviceInfo storage ref"
-                              }
-                            },
-                            "id": 587,
-                            "isConstant": false,
-                            "isLValue": true,
-                            "isPure": false,
-                            "lValueRequested": false,
-                            "memberLocation": "1851:6:3",
-                            "memberName": "status",
-                            "nodeType": "MemberAccess",
-                            "referencedDeclaration": 432,
-                            "src": "1832:25:3",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                              "typeString": "enum DeviceStatus"
-                            }
-                          },
-                          "nodeType": "BinaryOperation",
-                          "operator": "==",
-                          "rightExpression": {
-                            "expression": {
-                              "id": 588,
-                              "name": "DeviceStatus",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 416,
-                              "src": "1861:12:3",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
-                                "typeString": "type(enum DeviceStatus)"
-                              }
-                            },
-                            "id": 589,
-                            "isConstant": false,
-                            "isLValue": false,
-                            "isPure": true,
-                            "lValueRequested": false,
-                            "memberLocation": "1874:6:3",
-                            "memberName": "Online",
-                            "nodeType": "MemberAccess",
-                            "referencedDeclaration": 413,
-                            "src": "1861:19:3",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                              "typeString": "enum DeviceStatus"
-                            }
-                          },
-                          "src": "1832:48:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_bool",
-                            "typeString": "bool"
-                          }
-                        },
-                        "nodeType": "BinaryOperation",
-                        "operator": "||",
-                        "rightExpression": {
-                          "commonType": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                            "typeString": "enum DeviceStatus"
-                          },
-                          "id": 597,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "leftExpression": {
-                            "expression": {
-                              "baseExpression": {
-                                "id": 591,
-                                "name": "devices",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 447,
-                                "src": "1884:7:3",
-                                "typeDescriptions": {
-                                  "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
-                                  "typeString": "struct deviceInfo storage ref[] storage ref"
-                                }
-                              },
-                              "id": 593,
-                              "indexExpression": {
-                                "id": 592,
-                                "name": "_deviceId",
-                                "nodeType": "Identifier",
-                                "overloadedDeclarations": [],
-                                "referencedDeclaration": 580,
-                                "src": "1892:9:3",
-                                "typeDescriptions": {
-                                  "typeIdentifier": "t_uint256",
-                                  "typeString": "uint256"
-                                }
-                              },
-                              "isConstant": false,
-                              "isLValue": true,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "nodeType": "IndexAccess",
-                              "src": "1884:18:3",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
-                                "typeString": "struct deviceInfo storage ref"
-                              }
-                            },
-                            "id": 594,
-                            "isConstant": false,
-                            "isLValue": true,
-                            "isPure": false,
-                            "lValueRequested": false,
-                            "memberLocation": "1903:6:3",
-                            "memberName": "status",
-                            "nodeType": "MemberAccess",
-                            "referencedDeclaration": 432,
-                            "src": "1884:25:3",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                              "typeString": "enum DeviceStatus"
-                            }
-                          },
-                          "nodeType": "BinaryOperation",
-                          "operator": "==",
-                          "rightExpression": {
-                            "expression": {
-                              "id": 595,
-                              "name": "DeviceStatus",
-                              "nodeType": "Identifier",
-                              "overloadedDeclarations": [],
-                              "referencedDeclaration": 416,
-                              "src": "1913:12:3",
-                              "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
-                                "typeString": "type(enum DeviceStatus)"
-                              }
-                            },
-                            "id": 596,
-                            "isConstant": false,
-                            "isLValue": false,
-                            "isPure": true,
-                            "lValueRequested": false,
-                            "memberLocation": "1926:7:3",
-                            "memberName": "Created",
-                            "nodeType": "MemberAccess",
-                            "referencedDeclaration": 412,
-                            "src": "1913:20:3",
-                            "typeDescriptions": {
-                              "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                              "typeString": "enum DeviceStatus"
-                            }
-                          },
-                          "src": "1884:49:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_bool",
-                            "typeString": "bool"
-                          }
-                        },
-                        "src": "1832:101:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        }
-                      },
-                      {
-                        "hexValue": "6e6565642070726520737461747573206f6e6c696e65206f722063726561746564",
-                        "id": 599,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": true,
-                        "kind": "string",
-                        "lValueRequested": false,
-                        "nodeType": "Literal",
-                        "src": "1935:35:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_stringliteral_d3258e9ce51ebf97f86c7aea6b9122499e7cc5f38b71a936b581e1e805c4bb79",
-                          "typeString": "literal_string \"need pre status online or created\""
-                        },
-                        "value": "need pre status online or created"
-                      }
-                    ],
-                    "expression": {
-                      "argumentTypes": [
-                        {
-                          "typeIdentifier": "t_bool",
-                          "typeString": "bool"
-                        },
-                        {
-                          "typeIdentifier": "t_stringliteral_d3258e9ce51ebf97f86c7aea6b9122499e7cc5f38b71a936b581e1e805c4bb79",
-                          "typeString": "literal_string \"need pre status online or created\""
-                        }
-                      ],
-                      "id": 583,
-                      "name": "require",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        4294967278,
-                        4294967278
-                      ],
-                      "referencedDeclaration": 4294967278,
-                      "src": "1824:7:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
-                        "typeString": "function (bool,string memory) pure"
-                      }
-                    },
-                    "id": 600,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "kind": "functionCall",
-                    "lValueRequested": false,
-                    "nameLocations": [],
-                    "names": [],
-                    "nodeType": "FunctionCall",
-                    "src": "1824:147:3",
-                    "tryCall": false,
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_tuple$__$",
-                      "typeString": "tuple()"
-                    }
-                  },
-                  "id": 601,
-                  "nodeType": "ExpressionStatement",
-                  "src": "1824:147:3"
-                },
-                {
-                  "expression": {
-                    "id": 608,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "expression": {
-                        "baseExpression": {
-                          "id": 602,
-                          "name": "devices",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 447,
-                          "src": "1981:7:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
-                            "typeString": "struct deviceInfo storage ref[] storage ref"
-                          }
-                        },
-                        "id": 604,
-                        "indexExpression": {
-                          "id": 603,
-                          "name": "_deviceId",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 580,
-                          "src": "1989:9:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
-                        },
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "nodeType": "IndexAccess",
-                        "src": "1981:18:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
-                          "typeString": "struct deviceInfo storage ref"
-                        }
-                      },
-                      "id": 605,
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "memberLocation": "2000:6:3",
-                      "memberName": "status",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": 432,
-                      "src": "1981:25:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                        "typeString": "enum DeviceStatus"
-                      }
-                    },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "expression": {
-                        "id": 606,
-                        "name": "DeviceStatus",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 416,
-                        "src": "2009:12:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
-                          "typeString": "type(enum DeviceStatus)"
-                        }
-                      },
-                      "id": 607,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "lValueRequested": false,
-                      "memberLocation": "2022:7:3",
-                      "memberName": "Offline",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": 415,
-                      "src": "2009:20:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                        "typeString": "enum DeviceStatus"
-                      }
-                    },
-                    "src": "1981:48:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                      "typeString": "enum DeviceStatus"
-                    }
-                  },
-                  "id": 609,
-                  "nodeType": "ExpressionStatement",
-                  "src": "1981:48:3"
-                },
-                {
-                  "condition": {
-                    "commonType": {
-                      "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                      "typeString": "enum DeviceStatus"
-                    },
-                    "id": 616,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftExpression": {
-                      "expression": {
-                        "baseExpression": {
-                          "id": 610,
-                          "name": "devices",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 447,
-                          "src": "2043:7:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
-                            "typeString": "struct deviceInfo storage ref[] storage ref"
-                          }
-                        },
-                        "id": 612,
-                        "indexExpression": {
-                          "id": 611,
-                          "name": "_deviceId",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 580,
-                          "src": "2051:9:3",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
-                        },
-                        "isConstant": false,
-                        "isLValue": true,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "nodeType": "IndexAccess",
-                        "src": "2043:18:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
-                          "typeString": "struct deviceInfo storage ref"
-                        }
-                      },
-                      "id": 613,
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": false,
-                      "memberLocation": "2062:6:3",
-                      "memberName": "status",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": 432,
-                      "src": "2043:25:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                        "typeString": "enum DeviceStatus"
-                      }
-                    },
-                    "nodeType": "BinaryOperation",
-                    "operator": "==",
-                    "rightExpression": {
-                      "expression": {
-                        "id": 614,
-                        "name": "DeviceStatus",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 416,
-                        "src": "2072:12:3",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
-                          "typeString": "type(enum DeviceStatus)"
-                        }
-                      },
-                      "id": 615,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": true,
-                      "lValueRequested": false,
-                      "memberLocation": "2085:6:3",
-                      "memberName": "Online",
-                      "nodeType": "MemberAccess",
-                      "referencedDeclaration": 413,
-                      "src": "2072:19:3",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
-                        "typeString": "enum DeviceStatus"
-                      }
-                    },
-                    "src": "2043:48:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_bool",
-                      "typeString": "bool"
-                    }
-                  },
-                  "id": 618,
-                  "nodeType": "IfStatement",
-                  "src": "2039:65:3",
-                  "trueBody": {
-                    "id": 617,
-                    "nodeType": "Block",
-                    "src": "2093:11:3",
-                    "statements": []
-                  }
-                }
-              ]
-            },
-            "id": 620,
-            "implemented": true,
-            "kind": "function",
-            "modifiers": [],
-            "name": "offlineDevice",
-            "nameLocation": "1775:13:3",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 581,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 580,
-                  "mutability": "mutable",
-                  "name": "_deviceId",
-                  "nameLocation": "1794:9:3",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 620,
-                  "src": "1789:14:3",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 579,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "1789:4:3",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "visibility": "internal"
-                }
-              ],
-              "src": "1788:16:3"
-            },
-            "returnParameters": {
-              "id": 582,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "1814:0:3"
-            },
-            "scope": 671,
-            "src": "1766:344:3",
-            "stateMutability": "nonpayable",
-            "virtual": false,
-            "visibility": "internal"
-          },
-          {
-            "body": {
-              "id": 644,
-              "nodeType": "Block",
-              "src": "2161:159:3",
-              "statements": [
-                {
-                  "expression": {
-                    "arguments": [
-                      {
-                        "commonType": {
-                          "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                          "typeIdentifier": "t_enum$_DeviceStatus_$434",
                           "typeString": "enum DeviceStatus"
                         },
-                        "id": 632,
+                        "id": 608,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -6404,25 +5852,25 @@
                         "leftExpression": {
                           "expression": {
                             "baseExpression": {
-                              "id": 626,
+                              "id": 602,
                               "name": "devices",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 447,
-                              "src": "2179:7:3",
+                              "referencedDeclaration": 465,
+                              "src": "1832:7:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                                 "typeString": "struct deviceInfo storage ref[] storage ref"
                               }
                             },
-                            "id": 628,
+                            "id": 604,
                             "indexExpression": {
-                              "id": 627,
+                              "id": 603,
                               "name": "_deviceId",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 622,
-                              "src": "2187:9:3",
+                              "referencedDeclaration": 598,
+                              "src": "1840:9:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -6433,24 +5881,24 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "2179:18:3",
+                            "src": "1832:18:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                              "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                               "typeString": "struct deviceInfo storage ref"
                             }
                           },
-                          "id": 629,
+                          "id": 605,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
-                          "memberLocation": "2198:6:3",
+                          "memberLocation": "1851:6:3",
                           "memberName": "status",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 432,
-                          "src": "2179:25:3",
+                          "referencedDeclaration": 450,
+                          "src": "1832:25:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
                             "typeString": "enum DeviceStatus"
                           }
                         },
@@ -6458,33 +5906,33 @@
                         "operator": "==",
                         "rightExpression": {
                           "expression": {
-                            "id": 630,
+                            "id": 606,
                             "name": "DeviceStatus",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 416,
-                            "src": "2208:12:3",
+                            "referencedDeclaration": 434,
+                            "src": "1861:12:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                              "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                               "typeString": "type(enum DeviceStatus)"
                             }
                           },
-                          "id": 631,
+                          "id": 607,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
-                          "memberLocation": "2221:6:3",
+                          "memberLocation": "1874:6:3",
                           "memberName": "Online",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 413,
-                          "src": "2208:19:3",
+                          "referencedDeclaration": 431,
+                          "src": "1861:19:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
                             "typeString": "enum DeviceStatus"
                           }
                         },
-                        "src": "2179:48:3",
+                        "src": "1832:48:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -6492,14 +5940,14 @@
                       },
                       {
                         "hexValue": "6e6565642070726520737461747573206f6e6c696e65",
-                        "id": 633,
+                        "id": 609,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2230:24:3",
+                        "src": "1882:24:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_3d254f2a6f446db29d252e01aed672bca8adbfda8b0ec6408f4ebb0d6e63b925",
                           "typeString": "literal_string \"need pre status online\""
@@ -6518,7 +5966,7 @@
                           "typeString": "literal_string \"need pre status online\""
                         }
                       ],
-                      "id": 625,
+                      "id": 601,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -6526,13 +5974,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "2171:7:3",
+                      "src": "1824:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 634,
+                    "id": 610,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6541,20 +5989,20 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2171:84:3",
+                    "src": "1824:83:3",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 635,
+                  "id": 611,
                   "nodeType": "ExpressionStatement",
-                  "src": "2171:84:3"
+                  "src": "1824:83:3"
                 },
                 {
                   "expression": {
-                    "id": 642,
+                    "id": 618,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6562,25 +6010,25 @@
                     "leftHandSide": {
                       "expression": {
                         "baseExpression": {
-                          "id": 636,
+                          "id": 612,
                           "name": "devices",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 447,
-                          "src": "2265:7:3",
+                          "referencedDeclaration": 465,
+                          "src": "1917:7:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                             "typeString": "struct deviceInfo storage ref[] storage ref"
                           }
                         },
-                        "id": 638,
+                        "id": 614,
                         "indexExpression": {
-                          "id": 637,
+                          "id": 613,
                           "name": "_deviceId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 622,
-                          "src": "2273:9:3",
+                          "referencedDeclaration": 598,
+                          "src": "1925:9:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -6591,24 +6039,24 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "2265:18:3",
+                        "src": "1917:18:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                          "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                           "typeString": "struct deviceInfo storage ref"
                         }
                       },
-                      "id": 639,
+                      "id": 615,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberLocation": "2284:6:3",
+                      "memberLocation": "1936:6:3",
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 432,
-                      "src": "2265:25:3",
+                      "referencedDeclaration": 450,
+                      "src": "1917:25:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
                         "typeString": "enum DeviceStatus"
                       }
                     },
@@ -6616,64 +6064,64 @@
                     "operator": "=",
                     "rightHandSide": {
                       "expression": {
-                        "id": 640,
+                        "id": 616,
                         "name": "DeviceStatus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 416,
-                        "src": "2293:12:3",
+                        "referencedDeclaration": 434,
+                        "src": "1945:12:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                           "typeString": "type(enum DeviceStatus)"
                         }
                       },
-                      "id": 641,
+                      "id": 617,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "lValueRequested": false,
-                      "memberLocation": "2306:7:3",
-                      "memberName": "Running",
+                      "memberLocation": "1958:7:3",
+                      "memberName": "Offline",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 414,
-                      "src": "2293:20:3",
+                      "referencedDeclaration": 433,
+                      "src": "1945:20:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
                         "typeString": "enum DeviceStatus"
                       }
                     },
-                    "src": "2265:48:3",
+                    "src": "1917:48:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                      "typeIdentifier": "t_enum$_DeviceStatus_$434",
                       "typeString": "enum DeviceStatus"
                     }
                   },
-                  "id": 643,
+                  "id": 619,
                   "nodeType": "ExpressionStatement",
-                  "src": "2265:48:3"
+                  "src": "1917:48:3"
                 }
               ]
             },
-            "id": 645,
+            "id": 621,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
-            "name": "rentDevice",
-            "nameLocation": "2125:10:3",
+            "name": "offlineDevice",
+            "nameLocation": "1775:13:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 623,
+              "id": 599,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 622,
+                  "id": 598,
                   "mutability": "mutable",
                   "name": "_deviceId",
-                  "nameLocation": "2141:9:3",
+                  "nameLocation": "1794:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 645,
-                  "src": "2136:14:3",
+                  "scope": 621,
+                  "src": "1789:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -6681,10 +6129,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 621,
+                    "id": 597,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2136:4:3",
+                    "src": "1789:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -6693,35 +6141,35 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2135:16:3"
+              "src": "1788:16:3"
             },
             "returnParameters": {
-              "id": 624,
+              "id": 600,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2161:0:3"
+              "src": "1814:0:3"
             },
-            "scope": 671,
-            "src": "2116:204:3",
+            "scope": 672,
+            "src": "1766:206:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
             "body": {
-              "id": 669,
+              "id": 645,
               "nodeType": "Block",
-              "src": "2373:159:3",
+              "src": "2023:159:3",
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
                         "commonType": {
-                          "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                          "typeIdentifier": "t_enum$_DeviceStatus_$434",
                           "typeString": "enum DeviceStatus"
                         },
-                        "id": 657,
+                        "id": 633,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -6729,25 +6177,25 @@
                         "leftExpression": {
                           "expression": {
                             "baseExpression": {
-                              "id": 651,
+                              "id": 627,
                               "name": "devices",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 447,
-                              "src": "2391:7:3",
+                              "referencedDeclaration": 465,
+                              "src": "2041:7:3",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                                 "typeString": "struct deviceInfo storage ref[] storage ref"
                               }
                             },
-                            "id": 653,
+                            "id": 629,
                             "indexExpression": {
-                              "id": 652,
+                              "id": 628,
                               "name": "_deviceId",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 647,
-                              "src": "2399:9:3",
+                              "referencedDeclaration": 623,
+                              "src": "2049:9:3",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
                                 "typeString": "uint256"
@@ -6758,24 +6206,24 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "2391:18:3",
+                            "src": "2041:18:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                              "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                               "typeString": "struct deviceInfo storage ref"
                             }
                           },
-                          "id": 654,
+                          "id": 630,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
-                          "memberLocation": "2410:6:3",
+                          "memberLocation": "2060:6:3",
                           "memberName": "status",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 432,
-                          "src": "2391:25:3",
+                          "referencedDeclaration": 450,
+                          "src": "2041:25:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
                             "typeString": "enum DeviceStatus"
                           }
                         },
@@ -6783,33 +6231,358 @@
                         "operator": "==",
                         "rightExpression": {
                           "expression": {
-                            "id": 655,
+                            "id": 631,
                             "name": "DeviceStatus",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 416,
-                            "src": "2420:12:3",
+                            "referencedDeclaration": 434,
+                            "src": "2070:12:3",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                              "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                               "typeString": "type(enum DeviceStatus)"
                             }
                           },
-                          "id": 656,
+                          "id": 632,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
-                          "memberLocation": "2433:7:3",
-                          "memberName": "Running",
+                          "memberLocation": "2083:6:3",
+                          "memberName": "Online",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 414,
-                          "src": "2420:20:3",
+                          "referencedDeclaration": 431,
+                          "src": "2070:19:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
                             "typeString": "enum DeviceStatus"
                           }
                         },
-                        "src": "2391:49:3",
+                        "src": "2041:48:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "6e6565642070726520737461747573206f6e6c696e65",
+                        "id": 634,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "2092:24:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_3d254f2a6f446db29d252e01aed672bca8adbfda8b0ec6408f4ebb0d6e63b925",
+                          "typeString": "literal_string \"need pre status online\""
+                        },
+                        "value": "need pre status online"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_3d254f2a6f446db29d252e01aed672bca8adbfda8b0ec6408f4ebb0d6e63b925",
+                          "typeString": "literal_string \"need pre status online\""
+                        }
+                      ],
+                      "id": 626,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "2033:7:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 635,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "nameLocations": [],
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "2033:84:3",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 636,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2033:84:3"
+                },
+                {
+                  "expression": {
+                    "id": 643,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "expression": {
+                        "baseExpression": {
+                          "id": 637,
+                          "name": "devices",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 465,
+                          "src": "2127:7:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
+                            "typeString": "struct deviceInfo storage ref[] storage ref"
+                          }
+                        },
+                        "id": 639,
+                        "indexExpression": {
+                          "id": 638,
+                          "name": "_deviceId",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 623,
+                          "src": "2135:9:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "2127:18:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
+                          "typeString": "struct deviceInfo storage ref"
+                        }
+                      },
+                      "id": 640,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberLocation": "2146:6:3",
+                      "memberName": "status",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 450,
+                      "src": "2127:25:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
+                        "typeString": "enum DeviceStatus"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "expression": {
+                        "id": 641,
+                        "name": "DeviceStatus",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 434,
+                        "src": "2155:12:3",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
+                          "typeString": "type(enum DeviceStatus)"
+                        }
+                      },
+                      "id": 642,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "memberLocation": "2168:7:3",
+                      "memberName": "Running",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 432,
+                      "src": "2155:20:3",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
+                        "typeString": "enum DeviceStatus"
+                      }
+                    },
+                    "src": "2127:48:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_DeviceStatus_$434",
+                      "typeString": "enum DeviceStatus"
+                    }
+                  },
+                  "id": 644,
+                  "nodeType": "ExpressionStatement",
+                  "src": "2127:48:3"
+                }
+              ]
+            },
+            "id": 646,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "rentDevice",
+            "nameLocation": "1987:10:3",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 624,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 623,
+                  "mutability": "mutable",
+                  "name": "_deviceId",
+                  "nameLocation": "2003:9:3",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 646,
+                  "src": "1998:14:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 622,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1998:4:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1997:16:3"
+            },
+            "returnParameters": {
+              "id": 625,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2023:0:3"
+            },
+            "scope": 672,
+            "src": "1978:204:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 670,
+              "nodeType": "Block",
+              "src": "2235:159:3",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_enum$_DeviceStatus_$434",
+                          "typeString": "enum DeviceStatus"
+                        },
+                        "id": 658,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "baseExpression": {
+                              "id": 652,
+                              "name": "devices",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 465,
+                              "src": "2253:7:3",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
+                                "typeString": "struct deviceInfo storage ref[] storage ref"
+                              }
+                            },
+                            "id": 654,
+                            "indexExpression": {
+                              "id": 653,
+                              "name": "_deviceId",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 648,
+                              "src": "2261:9:3",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "2253:18:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
+                              "typeString": "struct deviceInfo storage ref"
+                            }
+                          },
+                          "id": 655,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberLocation": "2272:6:3",
+                          "memberName": "status",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 450,
+                          "src": "2253:25:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
+                            "typeString": "enum DeviceStatus"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "expression": {
+                            "id": 656,
+                            "name": "DeviceStatus",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 434,
+                            "src": "2282:12:3",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
+                              "typeString": "type(enum DeviceStatus)"
+                            }
+                          },
+                          "id": 657,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "lValueRequested": false,
+                          "memberLocation": "2295:7:3",
+                          "memberName": "Running",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 432,
+                          "src": "2282:20:3",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_enum$_DeviceStatus_$434",
+                            "typeString": "enum DeviceStatus"
+                          }
+                        },
+                        "src": "2253:49:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -6817,14 +6590,14 @@
                       },
                       {
                         "hexValue": "6e65656420707265207374617475732072756e6e696e67",
-                        "id": 658,
+                        "id": 659,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2442:25:3",
+                        "src": "2304:25:3",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_b3b9ccfb00cf600cbf4edcc6c7825f2dfee2caa5155a74b802385af7537e17c2",
                           "typeString": "literal_string \"need pre status running\""
@@ -6843,7 +6616,7 @@
                           "typeString": "literal_string \"need pre status running\""
                         }
                       ],
-                      "id": 650,
+                      "id": 651,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -6851,13 +6624,13 @@
                         4294967278
                       ],
                       "referencedDeclaration": 4294967278,
-                      "src": "2383:7:3",
+                      "src": "2245:7:3",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 659,
+                    "id": 660,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6866,20 +6639,20 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2383:85:3",
+                    "src": "2245:85:3",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 660,
+                  "id": 661,
                   "nodeType": "ExpressionStatement",
-                  "src": "2383:85:3"
+                  "src": "2245:85:3"
                 },
                 {
                   "expression": {
-                    "id": 667,
+                    "id": 668,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6887,25 +6660,25 @@
                     "leftHandSide": {
                       "expression": {
                         "baseExpression": {
-                          "id": 661,
+                          "id": 662,
                           "name": "devices",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 447,
-                          "src": "2478:7:3",
+                          "referencedDeclaration": 465,
+                          "src": "2340:7:3",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$440_storage_$dyn_storage",
+                            "typeIdentifier": "t_array$_t_struct$_deviceInfo_$458_storage_$dyn_storage",
                             "typeString": "struct deviceInfo storage ref[] storage ref"
                           }
                         },
-                        "id": 663,
+                        "id": 664,
                         "indexExpression": {
-                          "id": 662,
+                          "id": 663,
                           "name": "_deviceId",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 647,
-                          "src": "2486:9:3",
+                          "referencedDeclaration": 648,
+                          "src": "2348:9:3",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -6916,24 +6689,24 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "2478:18:3",
+                        "src": "2340:18:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_deviceInfo_$440_storage",
+                          "typeIdentifier": "t_struct$_deviceInfo_$458_storage",
                           "typeString": "struct deviceInfo storage ref"
                         }
                       },
-                      "id": 664,
+                      "id": 665,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberLocation": "2497:6:3",
+                      "memberLocation": "2359:6:3",
                       "memberName": "status",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 432,
-                      "src": "2478:25:3",
+                      "referencedDeclaration": 450,
+                      "src": "2340:25:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
                         "typeString": "enum DeviceStatus"
                       }
                     },
@@ -6941,64 +6714,64 @@
                     "operator": "=",
                     "rightHandSide": {
                       "expression": {
-                        "id": 665,
+                        "id": 666,
                         "name": "DeviceStatus",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 416,
-                        "src": "2506:12:3",
+                        "referencedDeclaration": 434,
+                        "src": "2368:12:3",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$416_$",
+                          "typeIdentifier": "t_type$_t_enum$_DeviceStatus_$434_$",
                           "typeString": "type(enum DeviceStatus)"
                         }
                       },
-                      "id": 666,
+                      "id": 667,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "lValueRequested": false,
-                      "memberLocation": "2519:6:3",
+                      "memberLocation": "2381:6:3",
                       "memberName": "Online",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 413,
-                      "src": "2506:19:3",
+                      "referencedDeclaration": 431,
+                      "src": "2368:19:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                        "typeIdentifier": "t_enum$_DeviceStatus_$434",
                         "typeString": "enum DeviceStatus"
                       }
                     },
-                    "src": "2478:47:3",
+                    "src": "2340:47:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_DeviceStatus_$416",
+                      "typeIdentifier": "t_enum$_DeviceStatus_$434",
                       "typeString": "enum DeviceStatus"
                     }
                   },
-                  "id": 668,
+                  "id": 669,
                   "nodeType": "ExpressionStatement",
-                  "src": "2478:47:3"
+                  "src": "2340:47:3"
                 }
               ]
             },
-            "id": 670,
+            "id": 671,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "expireDevice",
-            "nameLocation": "2335:12:3",
+            "nameLocation": "2197:12:3",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 648,
+              "id": 649,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 647,
+                  "id": 648,
                   "mutability": "mutable",
                   "name": "_deviceId",
-                  "nameLocation": "2353:9:3",
+                  "nameLocation": "2215:9:3",
                   "nodeType": "VariableDeclaration",
-                  "scope": 670,
-                  "src": "2348:14:3",
+                  "scope": 671,
+                  "src": "2210:14:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -7006,10 +6779,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 646,
+                    "id": 647,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2348:4:3",
+                    "src": "2210:4:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -7018,28 +6791,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2347:16:3"
+              "src": "2209:16:3"
             },
             "returnParameters": {
-              "id": 649,
+              "id": 650,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2373:0:3"
+              "src": "2235:0:3"
             },
-            "scope": 671,
-            "src": "2326:206:3",
+            "scope": 672,
+            "src": "2188:206:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 672,
-        "src": "1448:1087:3",
+        "scope": 673,
+        "src": "1448:949:3",
         "usedErrors": [],
         "usedEvents": []
       }
     ],
-    "src": "51:2484:3"
+    "src": "51:2346:3"
   },
   "compiler": {
     "name": "solc",
@@ -7047,7 +6820,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.15",
-  "updatedAt": "2023-09-05T13:08:19.181Z",
+  "updatedAt": "2023-09-06T03:42:14.603Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

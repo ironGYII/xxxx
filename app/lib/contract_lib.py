@@ -1,5 +1,8 @@
 import json
 import time
+
+import web3
+
 from app.lib.config import role
 from app.lib.conn import helper_contract, get_nonce, transaction
 from app.model.machine import Machine, Price
@@ -31,8 +34,8 @@ class HelperLib:
         self._contract = helper_contract
 
     def list_devices(self, _limit, _offset):
-        resp = self._contract.functions.listDevices().call()
-        result = [Machine.init_from_contract(item) for item in resp]
+        resp = self._contract.functions.listDevices(_limit=_limit, _offset=_offset).call()
+        result = [Machine.init_from_contract(item) for item in resp if item[0] != 0]
         return result
 
     def list_own_devices(self, _provider, _limit, _offset):
@@ -62,8 +65,18 @@ class HelperLib:
         tx_receipt = transaction(addr, self._contract.functions.register())
         return tx_receipt
 
-    def get_account_info(self, addr):
-        address, balance, provider_blocked_funds, recipient_blocked_funds, info = self._contract.functions.getAccount(addr.public_key).call()
+    def is_register(self, pub_key):
+        pub_key = web3.Web3.to_checksum_address(pub_key)
+        return self._contract.functions.isRegister(_user=pub_key).call()
+
+    def get_account_info(self, pub_key):
+        pub_key = web3.Web3.to_checksum_address(pub_key)
+        try:
+            address, balance, provider_blocked_funds, recipient_blocked_funds, info = self._contract.functions.getAccount(pub_key).call()
+        except Exception as e:
+            if not self.is_register(pub_key):
+                raise Exception("please register first")
+            raise e
         return UserInfo(address, balance, provider_blocked_funds, recipient_blocked_funds, info)
 
     def set_provider_info(self, addr, _info):
@@ -76,10 +89,10 @@ contract_helper = HelperLib()
 
 if __name__ == '__main__':
     print(HelperLib().register(role.provider))
-    print(HelperLib().get_account_info(role.provider).info)
+    print(HelperLib().get_account_info(role.provider.public_key).info)
     import json
     print(HelperLib().set_provider_info(role.provider, json.dumps(dict(a=1, b=2))))
-    print(HelperLib().get_account_info(role.provider).info)
+    print(HelperLib().get_account_info(role.provider.public_key).info)
 
     # print(HelperLib().stake(role.provider, 33))
     # print(HelperLib().unstake(role.provider, 10))
@@ -87,3 +100,7 @@ if __name__ == '__main__':
     # print(HelperLib().online_server(role.provider, Machine(machine_id="ym-test", pub_key=role.provider.public_key, host="127.0.0.1", port="10", server_info=dict(a="a", b="b", c="c"), api_version="v0"), price=Price(server_price=10 ** 16, storage_price=10, upband_width=20, downband_width=30), start_time=int(time.time()), end_time=int(time.time()) + 10))
     print([i.data for i in HelperLib().list_devices(10, 0)])
     print([i.data for i in HelperLib().list_own_devices(role.provider, 10, 0)])
+    try:
+        print(HelperLib().get_account_info(role.user.public_key).info) ## 测试一个不存在的key, 应该返回报错, 先注册
+    except Exception as e:
+        print(e)

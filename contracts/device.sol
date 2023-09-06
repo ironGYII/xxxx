@@ -61,10 +61,8 @@ contract Device is DeviceFactory {
     }
 
     function offlineDevice(uint _deviceId) internal {
-        require(devices[_deviceId].status == DeviceStatus.Online || devices[_deviceId].status == DeviceStatus.Created, "need pre status online or created");
+        require(devices[_deviceId].status == DeviceStatus.Online, "need pre status online");
         devices[_deviceId].status = DeviceStatus.Offline;
-        if (devices[_deviceId].status == DeviceStatus.Online) {
-        }
     }
 
     function rentDevice(uint _deviceId) internal {

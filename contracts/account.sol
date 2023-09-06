@@ -62,6 +62,10 @@ contract AccountFactory is Ownable {
         _;
     }
 
+    function isRegister(address _user) public view returns(bool){
+        return ownerToAccount[_user].addr != address(0);
+    }
+
     function getAccount(address _addr) view public _needAccountExist(_addr) returns (accountInfo memory)  {
         return ownerToAccount[_addr];
     }
