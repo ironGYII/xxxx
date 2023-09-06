@@ -32,15 +32,28 @@ contract AccountFactory is Ownable {
         ownerToAccount[msg.sender].info = _info;
     }
 
-    function onlineBlockedFund(uint _stakeAmount) internal {
-        require(_stakeAmount <= ownerToAccount[msg.sender].balance, "balance not enough! please stake");
-        ownerToAccount[msg.sender].balance -= _stakeAmount;
-        ownerToAccount[msg.sender].providerBlockedFunds += _stakeAmount;
+    function onlineBlockedFund(address user, uint _stakeAmount) public {
+        require(_stakeAmount <= ownerToAccount[user].balance, "balance not enough! please stake");
+        ownerToAccount[user].balance -= _stakeAmount;
+        ownerToAccount[user].providerBlockedFunds += _stakeAmount;
     }
 
-    function offlineUnBlockedFund(uint _stakeAmount) internal {
-        ownerToAccount[msg.sender].balance += _stakeAmount;
-        ownerToAccount[msg.sender].providerBlockedFunds -= _stakeAmount;
+    function offlineUnBlockedFund(address user, uint _stakeAmount) public {
+        ownerToAccount[user].balance += _stakeAmount;
+        ownerToAccount[user].providerBlockedFunds -= _stakeAmount;
+    }
+
+    function rentBlockedFund(address user, uint _stakeAmount) public {
+        require(_stakeAmount <= ownerToAccount[user].balance, "balance not enough! please stake");
+        ownerToAccount[user].balance -= _stakeAmount;
+        ownerToAccount[user].recipientBlockedFunds += _stakeAmount;
+    }
+
+    function rentUnBlockedFund(address _recipient, address _provider, uint _stakeAmount, uint _unBlockedAmount) public {
+        ownerToAccount[_recipient].recipientBlockedFunds -= _stakeAmount + _unBlockedAmount;
+        ownerToAccount[_recipient].balance += _unBlockedAmount;
+
+        ownerToAccount[_provider].balance += _stakeAmount;
     }
 
     // 这里如何判断质押多少代币呢

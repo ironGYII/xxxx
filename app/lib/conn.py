@@ -11,7 +11,8 @@ from .config import *
 
 web3 = Web3(Web3.HTTPProvider(url))  # 替换为您自己的Infura项目ID或以太坊节点URL
 
-helper_contract = web3.eth.contract(address=contract_address, abi=helper_abi)
+helper_contract = web3.eth.contract(address=helper_contract_address, abi=helper_abi)
+account_contract = web3.eth.contract(address=account_contract_address, abi=account_abi)
 
 
 def get_nonce(address):
@@ -32,4 +33,4 @@ def transaction(addr, func, **kwargs):
     tx_hash = web3.eth.send_raw_transaction(signed_txn.rawTransaction)
     return web3.eth.wait_for_transaction_receipt(tx_hash)
 
-__all__ = ['helper_contract']
+__all__ = ['helper_contract', 'account_contract']

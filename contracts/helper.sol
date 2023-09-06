@@ -4,13 +4,61 @@ import "./lease.sol";
 import "./account.sol";
 import "./device.sol";
 
-// contract Helper is Lease, Device, Provider, Recipient {
-contract Helper is Billing, AccountFactory {
+contract Helper is Billing {
+
+    AccountFactory public account_contract;
+
+    constructor(address _accountFactoryAddress) {
+        account_contract = AccountFactory(_accountFactoryAddress);
+    }
+
+    // function getAccountContract() private view returns(address)
+
+    function rentServer(uint _deviceId, uint _endTime) public {
+        // device rent
+        uint _startTime = block.timestamp;
+        deviceInfo memory dc = getDevice(_deviceId);
+        rentDevice(_deviceId);
+        uint _leaseId = createRentLease(_deviceId, _startTime, _endTime);
+        uint _stakeAmount = recipientStakeCalcute(_startTime, _endTime, dc.price);
+        createRentBilling(_leaseId, 10);
+        account_contract.rentBlockedFund(msg.sender, 10);
+    }
+
+    // 续租
+    function RenewalLeaseServer(uint _leaseId, uint _endTime) public {
+        leaseInfo memory _lease  = renewalRentLease(_leaseId, _endTime);
+
+        // device rent
+        deviceInfo memory _dc = getDevice(_lease.deviceId);
+        uint _stakeAmount = recipientStakeCalcute(_lease.startTime, _endTime, _dc.price);
+        billingInfo memory _bi = getRecipientBillingByLeaseId(_leaseId);
+        _stakeAmount = renewalRentBilling(_bi.id, _stakeAmount);
+        account_contract.rentBlockedFund(msg.sender, _stakeAmount);
+    }
+
+    function terminateInstance(uint _leaseId) public {
+
+        leaseInfo memory _lease  = terminateLease(_leaseId);
+
+        terminateDevice(_lease.deviceId);
+        // device rent
+        deviceInfo memory _dc = getDevice(_lease.deviceId);
+
+        uint _stakeAmount = recipientStakeCalcute(_lease.startTime, _lease.expireTime, _dc.price);
+
+        billingInfo memory _bi = getRecipientBillingByLeaseId(_leaseId);
+
+        uint _unBlockedAmount = terminateBilling(_bi.id, _stakeAmount);
+
+        account_contract.rentUnBlockedFund(msg.sender, _dc.owner, _stakeAmount, _unBlockedAmount);
+    }
+
 
     function onlineServer(string memory _machineId, string memory _serverInfo, Price memory _price, uint _startTime, uint _endTime) public {
         
         uint _stakeAmount = providerStakeCalcute(_startTime, _endTime, _price);
-        onlineBlockedFund(_stakeAmount);
+        account_contract.onlineBlockedFund(msg.sender, _stakeAmount);
         uint _deviceId = online(_machineId, _serverInfo, _price);
         uint _leaseId = onlineLease(msg.sender, _deviceId, _startTime, _endTime);
         providerOnlineBilling(_leaseId, _stakeAmount);
@@ -18,10 +66,10 @@ contract Helper is Billing, AccountFactory {
 
     function offlineServer(uint _deviceId) public {
         offlineDevice(_deviceId);
-        providerLeaseInfo memory _pli = getLeaseByDeviceId(_deviceId);
+        leaseInfo memory _pli = getLeaseByDeviceId(_deviceId);
         billingInfo memory _bi = getProviderBillingByLeaseId(_pli.leaseId);
         providerOfflineBilling(_bi.id);
-        offlineUnBlockedFund(_bi.providerBlockedFund);
+        account_contract.offlineUnBlockedFund(msg.sender, _bi.providerBlockedFund);
     }
 
     function listDevices(uint _limit, uint _offset) public view returns (deviceInfo [] memory _allDevices){
@@ -59,7 +107,7 @@ contract Helper is Billing, AccountFactory {
         return ds;
     }
 
-    function listProviderLease(address _user, uint _limit, uint _offset) public view returns (providerLeaseInfo [] memory, billingInfo[] memory) {
+    function listProviderLease(address _user, uint _limit, uint _offset) public view returns (leaseInfo [] memory, billingInfo[] memory) {
         _limit = _limit + _offset;
         _user = _user;
         return (leaseProvider, providerBillings);
@@ -80,10 +128,13 @@ contract Helper is Billing, AccountFactory {
         // return _ls;
     }
 
-    function getOfflineLeaseAndBilling(uint _deviceId) public view returns(providerLeaseInfo memory, billingInfo memory){
-        providerLeaseInfo memory _pli = getLeaseByDeviceId(_deviceId);
+    function getOfflineLeaseAndBilling(uint _deviceId) public view returns(leaseInfo memory, billingInfo memory){
+        leaseInfo memory _pli = getLeaseByDeviceId(_deviceId);
         billingInfo memory b = getProviderBillingByLeaseId(_pli.leaseId);
         return (_pli, b);
     }
 
+    function getRecipientLease() public returns(billingInfo [] memory){
+        return recipientBillings;
+    }
 }

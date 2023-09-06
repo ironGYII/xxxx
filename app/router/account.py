@@ -3,7 +3,7 @@
 from flask.blueprints import Blueprint
 from flask import request, jsonify
 from app.controller.machines import mounted_machine, Machine
-from app.lib.contract_lib import contract_helper
+from app.lib.contract_lib import contract_connector
 
 account_blueprint = Blueprint(name="account", import_name=__name__, url_prefix="/apus/account/")
 
@@ -12,7 +12,7 @@ account_blueprint = Blueprint(name="account", import_name=__name__, url_prefix="
 def mount_client():
     user_address = request.args.get("address")
     try:
-        info = contract_helper.get_account_info(pub_key=user_address)
+        info = contract_connector.get_account_info(pub_key=user_address)
     except Exception as e:
         return jsonify(dict(code=400, msg=str(e)))
     return jsonify(dict(code=200, data=info.info))

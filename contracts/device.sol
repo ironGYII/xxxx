@@ -11,13 +11,12 @@ struct Price {
 }
 
 struct deviceInfo {
-
-        uint id;
-        address owner;
-        DeviceStatus status;
-        string machineId;
-        string serverInfo;
-        Price price;
+    uint id;
+    address owner;
+    DeviceStatus status;
+    string machineId;
+    string serverInfo;
+    Price price;
 }
 
 contract Device {
@@ -36,7 +35,7 @@ contract Device {
         return id;
     }
 
-    function getDevice(uint _deviceId) view internal returns(deviceInfo memory) {
+    function getDevice(uint _deviceId) view public returns(deviceInfo memory) {
         require(_deviceId > 0, "need device_id > 0");
         return devices[_deviceId - 1];
     }
@@ -47,8 +46,18 @@ contract Device {
     }
 
     function offlineDevice(uint _deviceId) internal {
-        // require(devices[_deviceId - 1].status == DeviceStatus.Online, "need pre status online");
+        require(devices[_deviceId - 1].status == DeviceStatus.Online, "need pre status online");
         devices[_deviceId - 1].status = DeviceStatus.Offline;
+    }
+
+    function rentDevice(uint _deviceId) internal {
+        require(devices[_deviceId - 1].status == DeviceStatus.Online, "need pre status online");
+        devices[_deviceId - 1].status = DeviceStatus.Running;
+    }
+
+    function terminateDevice(uint _deviceId) internal {
+        devices[_deviceId - 1].status = DeviceStatus.Online;
+
     }
 
 }

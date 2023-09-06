@@ -2,7 +2,7 @@
 
 from flask import request, jsonify
 from flask.blueprints import Blueprint
-from app.lib.contract_lib import contract_helper
+from app.lib.contract_lib import contract_connector
 from app.controller.machines import mounted_machine, Machine
 machine_blueprint = Blueprint(name="machine_blueprint", import_name=__name__, url_prefix="/apus_network/server/")
 
@@ -26,7 +26,7 @@ def list_server():
     d_machines = mounted_machine.list(address)
 
     try:
-        c_machines = contract_helper.list_own_devices(type("owner", (), dict(public_key=address)), 100, 0)
+        c_machines = contract_connector.list_own_devices(type("owner", (), dict(public_key=address)), 100, 0)
         c_machines = {machine.machine_id: machine for machine in c_machines}
     except Exception as e:
         return jsonify(dict(code=400, msg="contract rpc:listOwnMachine err"))
@@ -49,7 +49,7 @@ def list_market_server():
     offset = int(request.args.get("offset"))
     limit = int(request.args.get("limit"))
     try:
-        c_machines = contract_helper.list_devices(limit, offset)
+        c_machines = contract_connector.list_devices(limit, offset)
         result = [item.data for item in c_machines]
     except Exception as e:
         return jsonify(dict(code=400, msg="contract rpc:listMachine err"))
