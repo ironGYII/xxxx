@@ -13,10 +13,13 @@ class Price:
     def init_from_contract(cls, resp):
         return Price(*resp)
 
-
     @property
     def contract_price(self):
         return (self.server_price, self.storage_price, self.upband_width, self.downband_width)
+
+    @property
+    def data(self):
+        return dict(server_price=self.server_price, storage_price=self.storage_price, upband_width=self.upband_width, downband_width=self.downband_width)
 
 
 class Machine:
@@ -49,7 +52,7 @@ class Machine:
 
     @property
     def data(self):
-        return dict(machine_id=self.machine_id, pub_key=self.pub_key, host=self.host, port=self.port, server_info=self.server_info, apiVersion=self.api_version, market_id=self.market_id, status=self.status)
+        return dict(machine_id=self.machine_id, owner=self.pub_key, host=self.host, port=self.port, server_info=self.server_info, apiVersion=self.api_version, market_id=self.market_id, status=self.status, price=self.price.data)
 
     # 生成合约的info
     @property
