@@ -20,13 +20,29 @@ struct providerLeaseInfo {
     uint deviceId;
 }
 
-struct providerBilling {
+struct providerStakeBilling {
     address provider;
-    
-    
+    uint id;
+    uint leaseId;
 }
 
-contract Lease is Device{
+contract Billing {
+    uint providerBillingCounter = 0;
+    providerBilling [] public billingProvider;
+
+    function getProviderBillingByLeaseId(uint _leaseId) view public returns(providerBilling memory) {
+        for (uint i = 0; i < billingProvider.length; i++) {
+            if (billingProvider[i].leaseId == _leaseId) {
+                return billingProvider[i];
+            }
+        }
+        revert("can't find billing!");
+    }
+
+    function providerOnlineBilling(uint _leaseId, uint stake_amount, )
+}
+
+contract Lease is Device, Billing{
     uint private leaseId = 0;
     uint8 public platformSharingRatio = 0;
 
@@ -46,8 +62,9 @@ contract Lease is Device{
     }
 
     function offlineLease(uint _deviceId) internal returns(uint) {
+        // 这里要结算中账单, lease失效
         providerLeaseInfo memory providerLease = getLeaseByDeviceId(_deviceId);
-
+        
     }
 
     function getLeaseByDeviceId(uint _deviceId) view public returns(providerLeaseInfo memory) {

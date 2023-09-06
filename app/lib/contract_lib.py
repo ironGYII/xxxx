@@ -104,3 +104,6 @@ if __name__ == '__main__':
         print(HelperLib().get_account_info(role.user.public_key).info) ## 测试一个不存在的key, 应该返回报错, 先注册
     except Exception as e:
         print(e)
+
+    print(HelperLib().register(role.user))
+    print(HelperLib().get_account_info(role.provider.public_key).info)

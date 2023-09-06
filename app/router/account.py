@@ -15,7 +15,7 @@ def mount_client():
         info = contract_helper.get_account_info(pub_key=user_address)
     except Exception as e:
         return jsonify(dict(code=400, msg=str(e)))
-    return jsonify(dict(code=200, data=info))
+    return jsonify(dict(code=200, data=info.info))
 
 
 
