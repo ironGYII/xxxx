@@ -18,7 +18,7 @@ def get_mount_server():
     return jsonify(dict(code=200, data=dict(server_info=machine.contract_server_info)))
 
 
-@machine_blueprint.route("/list")
+@machine_blueprint.route("/provider/list")
 def list_server():
     # offset = int(request.args.get("offset"))
     # limit = int(request.args.get("limit"))
@@ -26,7 +26,7 @@ def list_server():
     d_machines = mounted_machine.list(address)
 
     try:
-        c_machines = contract_helper.list_own_devices(dict(public_key=address))
+        c_machines = contract_helper.list_own_devices(type("owner", (), dict(public_key=address)), 100, 0)
         c_machines = {machine.machine_id: machine for machine in c_machines}
     except Exception as e:
         return jsonify(dict(code=400, msg="contract rpc:listOwnMachine err"))
@@ -39,4 +39,18 @@ def list_server():
 
     for machine in c_machines.values():
         result.append(machine)
+
+    result = [item.data for item in result]
+    return jsonify(dict(code=200, data=result))
+
+
+@machine_blueprint.route("/market/list")
+def list_market_server():
+    offset = int(request.args.get("offset"))
+    limit = int(request.args.get("limit"))
+    try:
+        c_machines = contract_helper.list_devices(limit, offset)
+        result = [item.data for item in c_machines]
+    except Exception as e:
+        return jsonify(dict(code=400, msg="contract rpc:listMachine err"))
     return jsonify(dict(code=200, data=result))

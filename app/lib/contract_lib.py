@@ -15,13 +15,14 @@ class UserInfo:
         self.recipient_blocked_funds = recipient_blocked_funds
         self._info = info
 
-    @classmethod
-    def from_contract(cls, address):
-        info = contract_helper.get_account_info(addr=address)
+    # @classmethod
+    # def from_contract(cls, address):
+    #     info = contract_helper.get_account_info(addr=address)
 
     @property
     def info(self):
         return dict(address=self.address, balance=self.balance, provider_blocked_funds=self.provider_blocked_funds, recipient_blocked_funds=self.recipient_blocked_funds, info=self._info)
+
 
 class HelperLib:
     _contract = None

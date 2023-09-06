@@ -22,10 +22,11 @@ class Price:
 class Machine:
 
     def __init__(self, machine_id, pub_key, host, port, server_info, api_version):
-        if type(server_info) == str and len(server_info) > 0:
-            server_info = json.loads(server_info)
-        else:
-            server_info = None
+        if type(server_info) == str:
+            if  len(server_info) > 0:
+                server_info = json.loads(server_info)
+            else:
+                server_info = None
         self.machine_id = machine_id
         self.pub_key = pub_key
         self.host = host
