@@ -190,7 +190,7 @@ def main_test():
 
 
 if __name__ == '__main__':
-    main_test()
+    # main_test()
     #
     # print("=" * 10, "续租机器", "=" * 10)
     # print(len(ContractLib().get_all()))
@@ -222,9 +222,9 @@ if __name__ == '__main__':
     # time.sleep(3)
     # print(contract_connector.get_device(4))
 
-    # print(contract_connector.get_device(4))
-    # print(contract_connector.terminate_instance(role.user, 4))
-    # print(contract_connector.get_device(4))
+    print(contract_connector.get_device(4))
+    print(contract_connector.terminate_instance(role.user, 6))
+    print(contract_connector.get_device(4))
 
     # print(contract_connector.get_device(4))
     # print(contract_connector.renewal_lease_server(role.user, 4, 1694102698 + 2))
