@@ -33,7 +33,7 @@ public_to_private_keys = {
 class _role:
     _contract_owner = '0x1a8E1BEBd5abc6E6ADc3dAC3aa73243fAEab64A7'
     _provider = '0x0dE70097283EAac8cf0F5304Ed69476A6Bf6af4E'
-    _user = '0x4511aA6140EaD2A2696007E0235612913dA79a11'
+    _user = '0x0dE70097283EAac8cf0F5304Ed69476A6Bf6af4E'
 
     @classmethod
     def private_key(cls, public_key):

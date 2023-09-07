@@ -13,8 +13,7 @@ class Instance:
         return Instance(addr, lease_id, start_time, end_time, device_id)
 
     def instance_info(self, machine):
-        # todo(yuanming): ssh_port 改为临时取
-        return dict(info=machine.data, status=dict(state="renting" if self.end_time > int(time.time()) else "end", lease_expire=self.end_time, rent_from=machine.pub_key, lease_start=self.start_time), connection=dict(ssh_user_name="root", ssh_password="password", ssh_ip=machine.host, ssh_port=100))
+        return dict(info=machine.data, instance_id=self.lease_id, status=dict(state="renting" if self.end_time > int(time.time()) else "end", lease_expire=self.end_time, rent_from=machine.pub_key, lease_start=self.start_time), connection=dict(ssh_user_name="root", ssh_password="password", ssh_ip=machine.host, ssh_port=100))
 
     @property
     def data(self):
