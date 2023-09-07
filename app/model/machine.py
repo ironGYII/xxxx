@@ -54,9 +54,12 @@ class Machine:
     def data(self):
 
         data = dict(machine_id=self.machine_id, owner=self.pub_key, host=self.host, port=self.port,
-                    server_info=self.server_info, apiVersion=self.api_version, market_id=self.market_id, status=self.status, price=self.price.data)
+                    server_info=self.server_info, apiVersion=self.api_version, market_id=self.market_id, status=self.status)
         if self.status == 0:
             data['contract_server_info'] = self.contract_server_info
+
+        if self.price is not None:
+            data['price'] = self.price.data
         return data
 
     # 生成合约的info
