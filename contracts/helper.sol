@@ -107,34 +107,9 @@ contract Helper is Billing {
         return ds;
     }
 
-    function listProviderLease(address _user, uint _limit, uint _offset) public view returns (leaseInfo [] memory, billingInfo[] memory) {
-        _limit = _limit + _offset;
-        _user = _user;
-        return (leaseProvider, providerBillings);
-        // providerLeaseInfo [] memory _ls = new providerLeaseInfo[] (_limit);
-        // uint counter = 0;
-        // for (uint i = 0; i < leaseProvider.length; i++ ) {
-        //     if (leaseProvider[i].owner== _user ) {
-        //         if (counter > _limit * _offset) {
-        //             _ls[counter] = leaseProvider[i];
-        //             counter ++;
-        //         }
-
-        //         if  (counter >= _limit * _offset) {
-        //             return _ls;
-        //         }
-        //     }
-        // }
-        // return _ls;
+    // 为了本次方便, 后续会废弃
+    function getAll() public view returns(billingInfo [] memory, billingInfo [] memory, leaseInfo [] memory, leaseInfo [] memory, deviceInfo [] memory){
+        return (providerBillings, recipientBillings, leaseProvider, leaseRecipient, devices);
     }
 
-    function getOfflineLeaseAndBilling(uint _deviceId) public view returns(leaseInfo memory, billingInfo memory){
-        leaseInfo memory _pli = getLeaseByDeviceId(_deviceId);
-        billingInfo memory b = getProviderBillingByLeaseId(_pli.leaseId);
-        return (_pli, b);
-    }
-
-    function getRecipientLease() public returns(billingInfo [] memory){
-        return recipientBillings;
-    }
 }

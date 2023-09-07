@@ -54,3 +54,15 @@ def list_market_server():
     except Exception as e:
         return jsonify(dict(code=400, msg="contract rpc:listMachine err"))
     return jsonify(dict(code=200, data=result))
+
+
+@machine_blueprint.route("/instance/list")
+def list_market_server():
+    offset = int(request.args.get("offset"))
+    limit = int(request.args.get("limit"))
+    try:
+        c_machines = contract_connector.list_devices(limit, offset)
+        result = [item.data for item in c_machines]
+    except Exception as e:
+        return jsonify(dict(code=400, msg="contract rpc:listMachine err"))
+    return jsonify(dict(code=200, data=result))

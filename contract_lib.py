@@ -6,7 +6,6 @@ import web3
 from app.lib.config import role
 from app.lib.conn import helper_contract, account_contract, get_nonce, transaction
 from app.model.machine import Machine, Price
-from app.model.instance import Instance, Billing
 
 
 class UserInfo:
@@ -18,6 +17,10 @@ class UserInfo:
         self.provider_blocked_funds = provider_blocked_funds
         self.recipient_blocked_funds = recipient_blocked_funds
         self._info = info
+
+    # @classmethod
+    # def from_contract(cls, address):
+    #     info = contract_helper.get_account_info(addr=address)
 
     @property
     def info(self):
@@ -101,26 +104,20 @@ class ContractLib:
         return tx_receipt
 
     def get_earn_billings(self):
-        self._account_contract.functions.renewalRentBilling().call()
+        address, balance, provider_blocked_funds, recipient_blocked_funds, info = self._account_contract.functions.getAccount().call()
+        pass
 
     def get_consume_billings(self):
-        self._account_contract.functions.renewalRentBilling().call()
+        pass
 
     def get_release(self):
-        self._account_contract.functions.renewalRentBilling().call()
+        pass
 
     def get_device(self, _deviceId):
         return self._helper_contract.functions.getDevice(_deviceId=_deviceId).call()
 
-    def get_all(self):
-        provider_billings, recipient_billings, lease_provider, lease_recipient, devices = self._helper_contract.functions.getAll().call()
-
-        provider_billings = [Billing(*i) for i in provider_billings]
-        recipient_billings = [Billing(*i) for i in recipient_billings]
-        lease_provider = [Instance(*i) for i in lease_provider]
-        lease_recipient = [Instance(*i) for i in lease_recipient]
-        devices = [Machine.init_from_contract(device) for device in devices]
-        return provider_billings, recipient_billings, lease_provider, lease_recipient, devices
+    def get_recipient_lease(self):
+        return self._helper_contract.functions.getRecipientLease().call()
 
 contract_connector = ContractLib()
 
@@ -151,7 +148,7 @@ if __name__ == '__main__':
     # print(HelperLib().unstake(role.provider, 50))
     print("=" * 10, "下线机器", "=" * 10)
     print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
-    print("list_provider_lease", [i for i in ContractLib().get_all()[3]])
+    print("list_provider_lease", [i for i in ContractLib().list_provider_lease(role.provider.public_key, 1000, 0)])
     print("offline_server", ContractLib().offline_server(role.provider, 1)['status'])
     print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
 
@@ -166,9 +163,9 @@ if __name__ == '__main__':
         print("online_device not enough")
 
     print("=" * 10, "续租机器", "=" * 10)
-    leases = [i.lease_id for i in ContractLib().get_all()[3]]
+    leases = [i[2] for i in ContractLib().get_recipient_lease()]
     if len(leases) > 0:
-        print("list_leases", ContractLib().get_all()[3])
+        print("list_leases", ContractLib().get_recipient_lease())
         print("renewal_lease_server", leases[-1], ContractLib().renewal_lease_server(role.user, leases[-1], int(time.time()) + 10)['status'])
         print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
     else:
@@ -178,9 +175,6 @@ if __name__ == '__main__':
     if len(leases) > 0:
         print("terminate_instance", leases[-1], ContractLib().terminate_instance(role.user, leases[-1])['status'])
         print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
-        print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
+        print("list_leases", [i for i in ContractLib().get_recipient_lease() if i[2] == leases[-1]])
     else:
         print("rent server not enough")
-
-    print(ContractLib().get_all())
-
