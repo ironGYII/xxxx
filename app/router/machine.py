@@ -57,7 +57,7 @@ def list_market_server():
 
 
 @machine_blueprint.route("/instance/list")
-def list_market_server():
+def list_instance():
     offset = int(request.args.get("offset"))
     limit = int(request.args.get("limit"))
     try:
