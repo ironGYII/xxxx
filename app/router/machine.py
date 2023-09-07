@@ -29,7 +29,7 @@ def list_server():
         c_machines = contract_connector.list_own_devices(type("owner", (), dict(public_key=address)), 100, 0)
         c_machines = {machine.machine_id: machine for machine in c_machines}
     except Exception as e:
-        return jsonify(dict(code=400, msg="contract rpc:listOwnMachine err"))
+        return jsonify(dict(code=400, msg="contract rpc: get_all err"))
 
     # merge online & created address
     result = []

@@ -38,9 +38,8 @@ class ContractLib:
         return result
 
     def list_own_devices(self, _provider, _limit, _offset):
-        resp = self._helper_contract.functions.listOwnDevices(_provider.public_key, 10, 0).call()
-        resp = list(filter(lambda x: x[0] != 0, resp))
-        result = [Machine.init_from_contract(item) for item in resp]
+        _, _, _, _, resp = self.get_all()
+        result = list(filter(lambda x: x.pub_key == _provider.public_key, resp))
         return result
 
     def list_provider_lease(self, public_key, _limit, _offset):

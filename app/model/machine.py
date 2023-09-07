@@ -52,7 +52,12 @@ class Machine:
 
     @property
     def data(self):
-        return dict(machine_id=self.machine_id, owner=self.pub_key, host=self.host, port=self.port, server_info=self.server_info, apiVersion=self.api_version, market_id=self.market_id, status=self.status, price=self.price.data)
+
+        data = dict(machine_id=self.machine_id, owner=self.pub_key, host=self.host, port=self.port,
+                    server_info=self.server_info, apiVersion=self.api_version, market_id=self.market_id, status=self.status, price=self.price.data)
+        if self.status == 0:
+            data['contract_server_info'] = self.contract_server_info
+        return data
 
     # 生成合约的info
     @property
