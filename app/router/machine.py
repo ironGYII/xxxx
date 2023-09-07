@@ -49,7 +49,8 @@ def list_market_server():
     offset = int(request.args.get("offset"))
     limit = int(request.args.get("limit"))
     try:
-        c_machines = contract_connector.list_devices(limit, offset)
+        # c_machines = contract_connector.list_devices(limit, offset)
+        _, _, _, _, c_machines = contract_connector.get_all()
         result = [item.data for item in c_machines if item.status == 1]
     except Exception as e:
         return jsonify(dict(code=400, msg="contract rpc:listMachine err"))

@@ -198,8 +198,8 @@ contract Billing is Lease {
         return extraStakeAmount;
     }
     
-    function terminateBilling(uint _billId, uint _stakeAmount) internal returns (uint){
-        uint unBlockedAmount = recipientBillings[_billId - 1].recipientBlockedFunds - _stakeAmount;
+    function terminateBilling(uint _billId, uint _stakeAmount) internal returns (int){
+        int unBlockedAmount = int(recipientBillings[_billId - 1].recipientBlockedFunds) - int(_stakeAmount);
         recipientBillings[_billId - 1].status = billingStatus.Payed;
         recipientBillings[_billId - 1].amount = _stakeAmount;
         return unBlockedAmount;

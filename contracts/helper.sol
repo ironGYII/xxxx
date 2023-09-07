@@ -42,14 +42,14 @@ contract Helper is Billing {
         leaseInfo memory _lease  = terminateLease(_leaseId);
 
         terminateDevice(_lease.deviceId);
-        // device rent
+        // // device rent
         deviceInfo memory _dc = getDevice(_lease.deviceId);
 
         uint _stakeAmount = recipientStakeCalcute(_lease.startTime, _lease.expireTime, _dc.price);
 
         billingInfo memory _bi = getRecipientBillingByLeaseId(_leaseId);
 
-        uint _unBlockedAmount = terminateBilling(_bi.id, _stakeAmount);
+        int _unBlockedAmount = terminateBilling(_bi.id, _stakeAmount);
 
         account_contract.rentUnBlockedFund(msg.sender, _dc.owner, _stakeAmount, _unBlockedAmount);
     }

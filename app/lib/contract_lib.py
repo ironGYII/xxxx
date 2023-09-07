@@ -168,10 +168,9 @@ def main_test():
     leases = [i for i in ContractLib().get_all()[3]]
     if len(leases) > 0:
         # print("list_leases", [i.data for i in ContractLib().get_all()[3]])
-        time.sleep(2)
         print("list_lease", leases[-1].data)
         print("renewal_lease_server", leases[-1].lease_id, ContractLib().renewal_lease_server(role.user, leases[-1].lease_id, int(time.time()) + 300)['status'])
-        time.sleep(2)
+        leases = [i for i in ContractLib().get_all()[3]]
         print("list_lease", leases[-1].data)
         # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
     else:
@@ -180,7 +179,6 @@ def main_test():
     print("=" * 10, "关闭机器", "=" * 10)
     if len(leases) > 0:
         print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
-        time.sleep(2)
         print("list_lease", leases[-1].data)
         # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
         # print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
@@ -191,16 +189,17 @@ def main_test():
 
 
 if __name__ == '__main__':
-    # main_test()
+    main_test()
 
     print("=" * 10, "续租机器", "=" * 10)
+    print(len(ContractLib().get_all()))
     leases = [i for i in ContractLib().get_all()[3]]
     if len(leases) > 0:
         # print("list_leases", [i.data for i in ContractLib().get_all()[3]])
-        time.sleep(2)
         print("list_lease", leases[-1].data)
-        print("renewal_lease_server", leases[-1].lease_id, ContractLib().renewal_lease_server(role.user, leases[-1].lease_id, int(time.time()) + 300)['status'])
-        time.sleep(2)
+        t = int(time.time()) + 300
+        print("renewal_lease_server", leases[-1].lease_id, "target_end_time: ", str(t), ContractLib().renewal_lease_server(role.user, leases[-1].lease_id, t)['status'])
+        leases = [i for i in ContractLib().get_all()[3]]
         print("list_lease", leases[-1].data)
         # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
     else:
@@ -209,8 +208,8 @@ if __name__ == '__main__':
     print("=" * 10, "关闭机器", "=" * 10)
     if len(leases) > 0:
         print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
-        time.sleep(2)
-        print("list_lease", leases[-1].data)
+        leases = [i for i in ContractLib().get_all()[3]]
+        print("list_lease", leases[-1].data, ContractLib().get_device(leases[-1].device_id))
         # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
         # print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
     else:
