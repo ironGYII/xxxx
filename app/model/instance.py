@@ -16,6 +16,11 @@ class Instance:
         # todo(yuanming): ssh_port 改为临时取
         return dict(info=machine.data, status=dict(state="renting" if self.end_time > int(time.time()) else "end", lease_expire=self.end_time, rent_from=machine.pub_key, lease_start=self.start_time), connection=dict(ssh_user_name="root", ssh_password="password", ssh_ip=machine.host, ssh_port=100))
 
+    @property
+    def data(self):
+        return dict(addr = self.addr ,lease_id = self.lease_id ,start_time = self.start_time ,end_time = self.end_time ,device_id = self.device_id)
+
+
 
 class Billing:
     def __init__(self, addr, bill_id, lease_id, provider_blocked_fund, recipient_blocked_funds, amount, status, bill_type):

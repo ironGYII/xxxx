@@ -194,7 +194,6 @@ contract Billing is Lease {
 
     function renewalRentBilling(uint _billId, uint _stakeAmount) internal returns (uint) {
         uint extraStakeAmount = _stakeAmount - recipientBillings[_billId - 1].recipientBlockedFunds;
-        recipientBillingCounter = recipientBillingCounter + 1;
         recipientBillings[_billId - 1].recipientBlockedFunds = _stakeAmount;
         return extraStakeAmount;
     }

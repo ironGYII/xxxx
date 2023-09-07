@@ -125,7 +125,7 @@ class ContractLib:
 contract_connector = ContractLib()
 
 
-if __name__ == '__main__':
+def main_test():
     print(ContractLib().register(role.provider))
     print(ContractLib().register(role.user))
     print(ContractLib().get_account_info(role.provider.public_key).info)
@@ -149,11 +149,11 @@ if __name__ == '__main__':
     print("online_server", ContractLib().online_server(role.provider, Machine(machine_id="ym-test", pub_key=role.provider.public_key, host="127.0.0.1", port="10", server_info=dict(a="a", b="b", c="c"), api_version="v0"), price=Price(server_price=10 ** 16, storage_price=10, upband_width=20, downband_width=30), start_time=int(time.time()), end_time=int(time.time()) + 10)['status'])
 
     # print(HelperLib().unstake(role.provider, 50))
-    # print("=" * 10, "下线机器", "=" * 10)
-    # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
-    # print("list_provider_lease", [i for i in ContractLib().get_all()[3]])
-    # print("offline_server", ContractLib().offline_server(role.provider, 1)['status'])
-    # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+    print("=" * 10, "下线机器", "=" * 10)
+    print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+    print("list_provider_lease", [i for i in ContractLib().get_all()[3]])
+    print("offline_server", ContractLib().offline_server(role.provider, 1)['status'])
+    print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
 
     print("=" * 10, "租用机器", "=" * 10)
     devices = [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0) if i.data['status'] == 1]
@@ -166,21 +166,53 @@ if __name__ == '__main__':
         print("online_device not enough")
 
     print("=" * 10, "续租机器", "=" * 10)
-    leases = [i.lease_id for i in ContractLib().get_all()[3]]
+    leases = [i for i in ContractLib().get_all()[3]]
     if len(leases) > 0:
-        print("list_leases", ContractLib().get_all()[3])
-        print("renewal_lease_server", leases[-1], ContractLib().renewal_lease_server(role.user, leases[-1], int(time.time()) + 10)['status'])
-        print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+        # print("list_leases", [i.data for i in ContractLib().get_all()[3]])
+        time.sleep(2)
+        print("list_lease", leases[-1].data)
+        print("renewal_lease_server", leases[-1].lease_id, ContractLib().renewal_lease_server(role.user, leases[-1].lease_id, int(time.time()) + 300)['status'])
+        time.sleep(2)
+        print("list_lease", leases[-1].data)
+        # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
     else:
         print("rent server not enough")
 
     print("=" * 10, "关闭机器", "=" * 10)
     if len(leases) > 0:
-        print("terminate_instance", leases[-1], ContractLib().terminate_instance(role.user, leases[-1])['status'])
-        print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
-        print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
+        print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
+        time.sleep(2)
+        print("list_lease", leases[-1].data)
+        # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+        # print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
     else:
         print("rent server not enough")
 
     print(ContractLib().get_all())
 
+
+if __name__ == '__main__':
+    # main_test()
+
+    print("=" * 10, "续租机器", "=" * 10)
+    leases = [i for i in ContractLib().get_all()[3]]
+    if len(leases) > 0:
+        # print("list_leases", [i.data for i in ContractLib().get_all()[3]])
+        time.sleep(2)
+        print("list_lease", leases[-1].data)
+        print("renewal_lease_server", leases[-1].lease_id, ContractLib().renewal_lease_server(role.user, leases[-1].lease_id, int(time.time()) + 300)['status'])
+        time.sleep(2)
+        print("list_lease", leases[-1].data)
+        # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+    else:
+        print("rent server not enough")
+
+    print("=" * 10, "关闭机器", "=" * 10)
+    if len(leases) > 0:
+        print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
+        time.sleep(2)
+        print("list_lease", leases[-1].data)
+        # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+        # print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
+    else:
+        print("rent server not enough")

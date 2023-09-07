@@ -7,10 +7,10 @@ url = 'http://2.tcp.cpolar.top:13434'
 url = 'http://127.0.0.1:8545'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
-helper_contract_address = '0xF5cD61D578348E0C9114775A6f6373F42175c33a'
+helper_contract_address = '0x6fea9f16372A8691D5C44452291c7e7BBF0a4B93'
 helper_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/Helper.json")))['abi']
 
-account_contract_address = '0x61d394941646BB5D34b66a2CEea68BC1d5378724'
+account_contract_address = '0x4aE0722d606eCb988F1720Fa6eA218850d705F53'
 account_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/AccountFactory.json")))['abi']
 
 gas_limit = 1000000  # 您可能需要根据合约函数的复杂性和资源消耗进行调整
