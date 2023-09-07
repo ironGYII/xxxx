@@ -19228,12 +19228,12 @@
         }
       },
       "links": {},
-      "address": "0x12CF7045a1927960D1A9f25aC5E4B6484cc387a8",
-      "transactionHash": "0xe471c80cf66bc6506e5b396cf6d362ed837d709154ee2550ddf11c55f382ebc6"
+      "address": "0x6Ff8425560A1E5096b8DB922dE10c714Dfb3fAd5",
+      "transactionHash": "0x54eb40b99cefaae84dcdd2f119d944c3bac1a2a1af8fce57e3dae6e6d834d855"
     }
   },
   "schemaVersion": "3.4.15",
-  "updatedAt": "2023-09-07T14:25:59.624Z",
+  "updatedAt": "2023-09-07T16:44:41.416Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

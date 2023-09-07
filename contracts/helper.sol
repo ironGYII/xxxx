@@ -21,8 +21,8 @@ contract Helper is Billing {
         rentDevice(_deviceId);
         uint _leaseId = createRentLease(_deviceId, _startTime, _endTime);
         uint _stakeAmount = recipientStakeCalcute(_startTime, _endTime, dc.price);
-        createRentBilling(_leaseId, 10);
-        account_contract.rentBlockedFund(msg.sender, 10);
+        createRentBilling(_leaseId, _stakeAmount);
+        account_contract.rentBlockedFund(msg.sender, _stakeAmount);
     }
 
     // 续租
