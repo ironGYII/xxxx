@@ -1,3 +1,4 @@
+import time
 class Instance:
     def __init__(self, addr, lease_id, start_time, end_time, device_id):
         self.addr = addr
@@ -11,11 +12,9 @@ class Instance:
         # demo '0xA24d5b9CEFDe16cEfB488040B4f7de99e4dE92bB', 2, 1694053093, 1694053103, 2
         return Instance(addr, lease_id, start_time, end_time, device_id)
 
-    def is_recipient(self):
-        pass
-
-    def is_owner(self):
-        pass
+    def instance_info(self, machine):
+        # todo(yuanming): ssh_port 改为临时取
+        return dict(info=machine.data, status=dict(state="renting" if self.end_time > int(time.time()) else "end", lease_expire=self.end_time, rent_from=machine.pub_key), connection=dict(ssh_user_name="root", ssh_password="password", ssh_ip=machine.host, ssh_port=100))
 
 
 class Billing:
@@ -34,4 +33,4 @@ class Billing:
         return Billing(addr, bill_id, lease_id, provider_blocked_fund, recipient_blocked_funds, amount, status, bill_type)
 
     def data(self, instance, machine):
-        return dict(instance_id=instance.lease_id, device=machine.market_id, amount=self.amount, recipient_address=self.addr, provider_address=machine.pub_key, setlle_at=instance.end_time, start_time=instance.start_time)
+        return dict(sku="server", instance_id=instance.lease_id, server_id=machine.market_id, amount=self.amount, recipient_address=self.addr, provider_address=machine.pub_key, setlle_at=instance.end_time, start_time=instance.start_time, price=machine.price.data)

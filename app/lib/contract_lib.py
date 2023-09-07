@@ -149,11 +149,11 @@ if __name__ == '__main__':
     print("online_server", ContractLib().online_server(role.provider, Machine(machine_id="ym-test", pub_key=role.provider.public_key, host="127.0.0.1", port="10", server_info=dict(a="a", b="b", c="c"), api_version="v0"), price=Price(server_price=10 ** 16, storage_price=10, upband_width=20, downband_width=30), start_time=int(time.time()), end_time=int(time.time()) + 10)['status'])
 
     # print(HelperLib().unstake(role.provider, 50))
-    print("=" * 10, "下线机器", "=" * 10)
-    print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
-    print("list_provider_lease", [i for i in ContractLib().get_all()[3]])
-    print("offline_server", ContractLib().offline_server(role.provider, 1)['status'])
-    print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+    # print("=" * 10, "下线机器", "=" * 10)
+    # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+    # print("list_provider_lease", [i for i in ContractLib().get_all()[3]])
+    # print("offline_server", ContractLib().offline_server(role.provider, 1)['status'])
+    # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
 
     print("=" * 10, "租用机器", "=" * 10)
     devices = [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0) if i.data['status'] == 1]

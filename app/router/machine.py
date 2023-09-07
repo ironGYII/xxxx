@@ -58,11 +58,14 @@ def list_market_server():
 
 @machine_blueprint.route("/instance/list")
 def list_instance():
-    offset = int(request.args.get("offset"))
-    limit = int(request.args.get("limit"))
-    try:
-        c_machines = contract_connector.list_devices(limit, offset)
-        result = [item.data for item in c_machines]
-    except Exception as e:
-        return jsonify(dict(code=400, msg="contract rpc:listMachine err"))
-    return jsonify(dict(code=200, data=result))
+    user_address = request.args.get("address")
+
+    provider_billings, recipient_billings, lease_provider, lease_recipient, devices = contract_connector.get_all()
+
+    own_release = [_rb for _rb in lease_recipient if _rb.addr == user_address]
+    device_ids = {_rb.device_id: _rb for _rb in own_release}
+    rent_devices = {_device.market_id: _device for _device in devices}
+
+    result = [_instance.instance_info(rent_devices[_instance.device_id]) for _instance in own_release]
+
+    return jsonify(dict(code=200, items=result))
