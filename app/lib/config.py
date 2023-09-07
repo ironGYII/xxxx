@@ -3,7 +3,7 @@ import json
 import os
 import sys
 
-url = 'http://2.tcp.cpolar.top:16180'
+url = 'http://2.tcp.cpolar.top:13434'
 url = 'http://127.0.0.1:8545'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
