@@ -178,7 +178,8 @@ def main_test():
 
     print("=" * 10, "关闭机器", "=" * 10)
     if len(leases) > 0:
-        print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
+        # print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
+        print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id))
         print("list_lease", leases[-1].data)
         # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
         # print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
