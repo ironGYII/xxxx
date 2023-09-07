@@ -34,9 +34,8 @@ def get_bill_consume():
     user_address = request.args.get("address")
 
     provider_billings, recipient_billings, lease_provider, lease_recipient, devices = contract_connector.get_all()
-
     devices = {_device.market_id: _device for _device in devices}
-    own_recipient_lease = {_rb.lease_id: (_rb, devices[_rb.lease_id]) for _rb in lease_recipient if _rb.addr == user_address}
+    own_recipient_lease = {_rb.lease_id: (_rb, devices[_rb.device_id]) for _rb in lease_recipient if _rb.addr == user_address}
     own_recipient_billings = [_rb.data(*own_recipient_lease[_rb.lease_id]) for _rb in recipient_billings if _rb.lease_id in own_recipient_lease]
 
     return jsonify(dict(code=200, items=own_recipient_billings))

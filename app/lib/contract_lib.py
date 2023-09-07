@@ -222,11 +222,12 @@ if __name__ == '__main__':
     # time.sleep(3)
     # print(contract_connector.get_device(4))
 
-    print(contract_connector.get_device(4))
-    print(contract_connector.terminate_instance(role.user, 6))
-    print(contract_connector.get_device(4))
+    # print(contract_connector.get_device(4))
+    # print(contract_connector.terminate_instance(role.user, 6))
+    # print(contract_connector.get_device(4))
 
     # print(contract_connector.get_device(4))
-    # print(contract_connector.renewal_lease_server(role.user, 4, 1694102698 + 2))
+    # print(contract_connector.renewal_lease_server(role.user, 8, 1695140459))
     # print(contract_connector.get_device(4))
+    pass
 
