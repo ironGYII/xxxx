@@ -68,6 +68,6 @@ def list_instance():
     rent_devices = {_device.market_id: _device for _device in devices}
 
     result = [_instance.instance_info(rent_devices[_instance.device_id]) for _instance in own_release]
-    result = [i for i in result if i.get("status") != "end"]
+    result = [i for i in result if i.get["status"]["state"] != "end"]
 
     return jsonify(dict(code=200, items=result))
