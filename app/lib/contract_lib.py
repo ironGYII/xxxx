@@ -602,10 +602,10 @@ if __name__ == '__main__':
 
     # print("=" * 10, "测试质押", "=" * 10)
     print(ContractLib().register(role.provider))
-    print(ContractLib().stake(role.provider, 100))
-    print(ContractLib().get_account_info(role.provider.public_key).info)
+    # print(ContractLib().stake(role.provider, 100))
+    # print(ContractLib().get_account_info(role.provider.public_key).info)
     print("=" * 10, "上线机器", "=" * 10)
-    for i in range(3):
+    for i in range(4):
         index = random.Random().randint(0, len(server_infos) - 1)
         info = json.loads(json.dumps(server_infos[index]))
         print(info)
@@ -614,7 +614,8 @@ if __name__ == '__main__':
         del info['network']
         del info['disk']
         del info['price']
-        del info["motherboard"]
+        if 'mmotherboard' in info:
+            del info["motherboard"]
 
         machine = Machine(machine_id=role.provider.public_key + str(int(time.time() + i)), pub_key=role.provider.public_key, host="112341234", port="10",
                           server_info=json.dumps(info), api_version="v0")
