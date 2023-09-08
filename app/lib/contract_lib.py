@@ -621,7 +621,7 @@ if __name__ == '__main__':
         index = random.Random().randint(0, len(server_infos) - 1)
         info = json.loads(json.dumps(server_infos[index]))
         print(info)
-        info['gpu']['tflop'] =  random.Random().randint(50, 100)
+        info['gpu']['tflops'] = float(random.Random().randint(5000, 15000)) * 0.01
         info['gpu']['maxCUDAVersion'] = ['11.2', '11.4', '12.0', '12.1'][i % 4]
         del info['network']
         del info['disk']
@@ -630,7 +630,7 @@ if __name__ == '__main__':
         machine = Machine(machine_id=role.provider.public_key + str(int(time.time() + i)), pub_key=role.provider.public_key, host="112341234", port="10",
                           server_info=json.dumps(info), api_version="v0")
         print("online_server", ContractLib().online_server(_user=role.provider, machine_info=machine,
-                                                           price=Price(server_price=random.Random().randint(1, 3) * 36 * 10 ** 10 , storage_price=10, upband_width=20, downband_width=30),
+                                                           price=Price(server_price=random.Random().randint(10, 30) * 36 * 10 ** 9 , storage_price=10, upband_width=20, downband_width=30),
                                                            start_time=int(time.time()),
                                                            end_time=int(time.time()) + 36000)['status'])
 
