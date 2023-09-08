@@ -49,21 +49,11 @@ contract AccountFactory is Ownable {
         ownerToAccount[user].recipientBlockedFunds += _stakeAmount;
     }
 
-    function rentUnBlockedFund(address _recipient, address _provider, uint _stakeAmount, int _unBlockedAmount) public {
-        if (_unBlockedAmount >= 0) {
-            // ownerToAccount[_recipient].recipientBlockedFunds -= _stakeAmount + uint(_unBlockedAmount);
-            ownerToAccount[_recipient].recipientBlockedFunds -= _stakeAmount;
-            // ownerToAccount[_recipient].balance += uint(_unBlockedAmount);
-        } else {
-            _unBlockedAmount = -1 * _unBlockedAmount;
-            ownerToAccount[_recipient].recipientBlockedFunds -= _stakeAmount - uint(_unBlockedAmount);
-            if (ownerToAccount[_recipient].balance >= uint(_unBlockedAmount)) {
-                ownerToAccount[_recipient].balance -= uint(_unBlockedAmount);
-            } else {
-                ownerToAccount[_recipient].balance = 0;
-            }
+    function rentUnBlockedFund(address _recipient, address _provider, uint _stakeAmount, uint _unBlockedAmount) public {
+        ownerToAccount[_recipient].recipientBlockedFunds -= _unBlockedAmount;
+        if (_stakeAmount < _unBlockedAmount) {
+            ownerToAccount[_recipient].balance += _unBlockedAmount - _stakeAmount;
         }
-
         ownerToAccount[_provider].balance += _stakeAmount;
     }
 

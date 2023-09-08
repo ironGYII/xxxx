@@ -604,6 +604,19 @@
 				"type": "function"
 			},
 			{
+				"inputs": [],
+				"name": "get_timestamp",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "uint256",
@@ -1258,11 +1271,11 @@
 	},
 	"sources": {
 		"contracts/account.sol": {
-			"keccak256": "0x9b49dbcd631e9e5c5f3f34d8a3b099bb5eee76108e89bd77680707f2a83b10d5",
+			"keccak256": "0x18e27c5d6dfdb7c9f13903b9d0158e46eb71a05317f583939b7da6082dcfb295",
 			"license": "SEE LICENSE IN LICENSE",
 			"urls": [
-				"bzz-raw://4d2ec9e03504dd3821d8f6e8c25dd1e3acfe661a228574629f8bafdf260fe4e7",
-				"dweb:/ipfs/QmNf6tC2eppAKw8ho9FEBgwxRLkptnk7GdQvYHaAB8QTuU"
+				"bzz-raw://1e024a93385c3cce17e172c1962f4953d221f99816051900b2d3f2583326fab5",
+				"dweb:/ipfs/QmQkohtCx7cNoJMXkkpx19JJc8twSWoTQPZBAgUu7BmXUT"
 			]
 		},
 		"contracts/device.sol": {
@@ -1274,19 +1287,19 @@
 			]
 		},
 		"contracts/helper.sol": {
-			"keccak256": "0x7065f6c4a01e7153dd49b099de116ba38019b7ccdea8c4d01b7fc21ba92107d3",
+			"keccak256": "0x76b800065a543c7e0966a476036b0319b8e11246ad6b85ee82f9a75bc6c57204",
 			"license": "SEE LICENSE IN LICENSE",
 			"urls": [
-				"bzz-raw://14761f9e52065bc02ea192ccfec3199066b2b11f61a8a6633ef503ee2b6cf5b1",
-				"dweb:/ipfs/QmPYsuMMJ5gVq1srr39kMFuGkaUtwHnAGeAcX2JoqPqegc"
+				"bzz-raw://d63dd619bf096032b177f2998f38d56a4cd12016432b120b11dd4c65167794e5",
+				"dweb:/ipfs/Qma8xWiTwXejrv7EAUgkXzyS6cGeerKocrG2g3epFDCPP1"
 			]
 		},
 		"contracts/lease.sol": {
-			"keccak256": "0x436338eef5f38afd2453afc0ec87a97a6c5cf43ccd22f4e119765ea64a1e5d4a",
+			"keccak256": "0x70a5ef0f6015d4ad26d6f835e65cc1b62d116060a27f1829c381410cd81646a8",
 			"license": "SEE LICENSE IN LICENSE",
 			"urls": [
-				"bzz-raw://f8e9453e1d98c67a5679c57be8810e19bd4d8cc3ab01a9f022eed078aee5e743",
-				"dweb:/ipfs/QmaMuPg7z9ofwRNaLizdeNppDbPe8w6eBfmNfBnjoiT2bj"
+				"bzz-raw://61ed67df48057907903d7d1df3f0b455d815b3c0e40062b26e88d95b3a169ff1",
+				"dweb:/ipfs/QmRtAKNkVM3FWMAAb1naAozHQ795hjhK8U5S7txd8bGZhy"
 			]
 		},
 		"openzeppelin-solidity/contracts/access/Ownable.sol": {

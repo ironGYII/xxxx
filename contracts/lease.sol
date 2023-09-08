@@ -64,7 +64,9 @@ contract Lease is Device {
     }
     function renewalRentLease(uint _leaseId, uint _endTime) internal returns (leaseInfo memory) {
         // uint _period =  _endTime - leaseRecipient[_leaseId - 1].expireTime;
-        leaseRecipient[_leaseId - 1].expireTime = _endTime;
+        if (leaseRecipient[_leaseId - 1].expireTime < _endTime) {
+            leaseRecipient[_leaseId - 1].expireTime = _endTime;
+        }
         return leaseRecipient[_leaseId - 1];
     }
 
@@ -193,16 +195,19 @@ contract Billing is Lease {
     }
 
     function renewalRentBilling(uint _billId, uint _stakeAmount) internal returns (uint) {
-        uint extraStakeAmount = _stakeAmount - recipientBillings[_billId - 1].recipientBlockedFunds;
-        recipientBillings[_billId - 1].recipientBlockedFunds = _stakeAmount;
-        return extraStakeAmount;
+        if (_stakeAmount > recipientBillings[_billId - 1].recipientBlockedFunds) {
+            uint extraStakeAmount = _stakeAmount - recipientBillings[_billId - 1].recipientBlockedFunds;
+            recipientBillings[_billId - 1].recipientBlockedFunds = _stakeAmount;
+            return extraStakeAmount;
+        }
+        return 0;
     }
     
-    function terminateBilling(uint _billId, uint _stakeAmount) internal returns (int){
-        int unBlockedAmount = int(recipientBillings[_billId - 1].recipientBlockedFunds) - int(_stakeAmount);
+    function terminateBilling(uint _billId, uint _stakeAmount) internal returns (uint){
+        
         recipientBillings[_billId - 1].status = billingStatus.Payed;
         recipientBillings[_billId - 1].amount = _stakeAmount;
-        return unBlockedAmount;
+        return  recipientBillings[_billId - 1].recipientBlockedFunds;
     }
 
 }

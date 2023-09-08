@@ -49,7 +49,7 @@ contract Helper is Billing {
 
         billingInfo memory _bi = getRecipientBillingByLeaseId(_leaseId);
 
-        int _unBlockedAmount = terminateBilling(_bi.id, _stakeAmount);
+        uint _unBlockedAmount = terminateBilling(_bi.id, _stakeAmount);
 
         account_contract.rentUnBlockedFund(msg.sender, _dc.owner, _stakeAmount, _unBlockedAmount);
     }
