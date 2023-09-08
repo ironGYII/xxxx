@@ -32,7 +32,7 @@ public_to_private_keys = {
 
 class _role:
     _contract_owner = '0x8f7C4591922c97885598941D63a0D2CB070C3edd'
-    _provider = '0x8f7C4591922c97885598941D63a0D2CB070C3edd'
+    _provider = '0x927eF1A025Ef203287ABFb440eD006C06C576EDC'
     _user = '0xC99b11BF91a11d732Da63dC1A4B6684E62BA9857'
 
     @classmethod

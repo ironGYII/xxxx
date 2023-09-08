@@ -192,7 +192,7 @@ server_infos = [
   {
     "gpu": {
       "count": 1,
-      "model": "Nvidia RTX A2080",
+      "model": "Nvidia A100",
       "tflops": 30,
       "maxCUDAVersion": "11.2",
       "ram": 8,
@@ -239,7 +239,7 @@ server_infos = [
   {
     "gpu": {
       "count": 2,
-      "model": "Nvidia RTX A3090",
+      "model": "Nvidia A100",
       "tflops": 40,
       "maxCUDAVersion": "11.4",
       "ram": 24,
@@ -286,7 +286,7 @@ server_infos = [
   {
     "gpu": {
       "count": 1,
-      "model": "Nvidia RTX A2080",
+      "model": "Nvidia A40",
       "tflops": 30,
       "maxCUDAVersion": "11.2",
       "ram": 8,
@@ -333,7 +333,7 @@ server_infos = [
   {
     "gpu": {
       "count": 2,
-      "model": "Nvidia RTX A3090",
+      "model": "Nvidia V100",
       "tflops": 40,
       "maxCUDAVersion": "11.4",
       "ram": 24,
@@ -380,7 +380,7 @@ server_infos = [
   {
     "gpu": {
       "count": 1,
-      "model": "Nvidia RTX T2080",
+      "model": "Nvidia RTX 3070",
       "tflops": 30,
       "maxCUDAVersion": "11.2",
       "ram": 8,
@@ -427,7 +427,7 @@ server_infos = [
   {
     "gpu": {
       "count": 1,
-      "model": "Nvidia RTX T2080",
+      "model": "Nvidia RTX 4090",
       "tflops": 30,
       "maxCUDAVersion": "11.2",
       "ram": 8,
@@ -474,7 +474,7 @@ server_infos = [
   {
     "gpu": {
       "count": 1,
-      "model": "Nvidia RTX T2080",
+      "model": "Nvidia A4000",
       "tflops": 30,
       "maxCUDAVersion": "11.2",
       "ram": 8,
@@ -521,7 +521,7 @@ server_infos = [
   {
     "gpu": {
       "count": 1,
-      "model": "Nvidia RTX T2080",
+      "model": "Nvidia RTX 3080Ti",
       "tflops": 30,
       "maxCUDAVersion": "11.2",
       "ram": 8,
@@ -613,20 +613,24 @@ if __name__ == '__main__':
     #     print(i.data)
 
     # print("=" * 10, "测试质押", "=" * 10)
-    # print(ContractLib().register(role.provider))
-    # print(ContractLib().stake(role.provider, 300))
+    print(ContractLib().register(role.provider))
+    print(ContractLib().stake(role.provider, 100))
     print(ContractLib().get_account_info(role.provider.public_key).info)
     print("=" * 10, "上线机器", "=" * 10)
-    for i in range(1):
+    for i in range(3):
         index = random.Random().randint(0, len(server_infos) - 1)
         info = json.loads(json.dumps(server_infos[index]))
         print(info)
+        info['gpu']['tflop'] =  random.Random().randint(50, 100)
+        info['gpu']['maxCUDAVersion'] = ['11.2', '11.4', '12.0', '12.1'][i % 4]
         del info['network']
         del info['disk']
-        machine = Machine(machine_id=role.provider.public_key + str(i), pub_key=role.provider.public_key, host="112341234", port="10",
+        del info['price']
+
+        machine = Machine(machine_id=role.provider.public_key + str(int(time.time() + i)), pub_key=role.provider.public_key, host="112341234", port="10",
                           server_info=json.dumps(info), api_version="v0")
         print("online_server", ContractLib().online_server(_user=role.provider, machine_info=machine,
-                                                           price=Price(server_price=36 * 10 ** 10, storage_price=10, upband_width=20, downband_width=30),
+                                                           price=Price(server_price=random.Random().randint(1, 3) * 36 * 10 ** 10 , storage_price=10, upband_width=20, downband_width=30),
                                                            start_time=int(time.time()),
                                                            end_time=int(time.time()) + 36000)['status'])
 
