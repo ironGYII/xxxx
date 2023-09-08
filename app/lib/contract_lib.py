@@ -121,6 +121,7 @@ class ContractLib:
         devices = [Machine.init_from_contract(device) for device in devices]
         return provider_billings, recipient_billings, lease_provider, lease_recipient, devices
 
+
 contract_connector = ContractLib()
 
 
@@ -176,15 +177,15 @@ def main_test():
     else:
         print("rent server not enough")
 
-    print("=" * 10, "关闭机器", "=" * 10)
-    if len(leases) > 0:
-        # print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
-        print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
-        print("list_lease", leases[-1].data)
-        # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
-        # print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
-    else:
-        print("rent server not enough")
+    # print("=" * 10, "关闭机器", "=" * 10)
+    # if len(leases) > 0:
+    #     # print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
+    #     print("terminate_instance", leases[-1].lease_id, ContractLib().terminate_instance(role.user, leases[-1].lease_id)['status'])
+    #     print("list_lease", leases[-1].data)
+    #     # print("list_devices", [(i.data['market_id'], i.data['status']) for i in ContractLib().list_devices(100, 0)])
+    #     # print("list_leases", [i for i in ContractLib().get_all()[2] if i.lease_id == leases[-1]])
+    # else:
+    #     print("rent server not enough")
 
 
 if __name__ == '__main__':
@@ -221,10 +222,13 @@ if __name__ == '__main__':
     # print(contract_connector.get_device(4))
 
     # print(contract_connector.get_device(4))
-    print(contract_connector.terminate_instance(role.user, 5))
+    # print(contract_connector.terminate_instance(role.user, 5))
     # print(contract_connector.get_device(4))
 
     # print(contract_connector.get_device(4))
     # print(contract_connector.renewal_lease_server(role.user, 8, 1695140459))
     # print(contract_connector.get_device(4))
 
+    leases = [i for i in ContractLib().get_all()[3]]
+    for i in leases:
+        print(i.data)

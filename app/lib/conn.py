@@ -6,9 +6,6 @@ from web3 import Web3
 
 from .config import *
 
-
-
-
 web3 = Web3(Web3.HTTPProvider(url))  # 替换为您自己的Infura项目ID或以太坊节点URL
 
 helper_contract = web3.eth.contract(address=helper_contract_address, abi=helper_abi)
