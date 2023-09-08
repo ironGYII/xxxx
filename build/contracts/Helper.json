@@ -36055,10 +36055,16 @@
       "links": {},
       "address": "0x3A65726e24b00860C51222a7E4a7e303c5C0E834",
       "transactionHash": "0xb7f750e66d835d44ef4492b255f4c46d44778fa01d4706f0b39d59e150fd5882"
+    },
+    "1694134108475": {
+      "events": {},
+      "links": {},
+      "address": "0x00fea3E5653870341DE95F9d3f202b0a2D2B0fc5",
+      "transactionHash": "0x32b4423b6458d8624f1e5728a9d801dab7ea1176fdcad931b92201d409965685"
     }
   },
   "schemaVersion": "3.4.15",
-  "updatedAt": "2023-09-08T00:39:04.258Z",
+  "updatedAt": "2023-09-08T00:48:54.193Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
