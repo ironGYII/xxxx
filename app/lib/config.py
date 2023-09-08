@@ -6,10 +6,10 @@ import sys
 url = 'http://9.tcp.cpolar.top:10861'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
-account_contract_address = '0x36A4D97E5cfb4D7116432EBD2ff3C175599D0fCe'
+account_contract_address = '0x1722177ded1C1F6988eDC7d9784528e77988F7ac'
 account_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/AccountFactory.json")))['abi']
 
-helper_contract_address = '0xCB875Ce36AcE8878B74aB6af90D24EcC57491E29'
+helper_contract_address = '0x8beFF99EE557f54426F8AFc2069A0d8D0fC9F789'
 helper_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/Helper.json")))['abi']
 
 
@@ -32,7 +32,7 @@ public_to_private_keys = {
 class _role:
     _contract_owner = '0x51ABBC385AE0bD3c9247B999dc1c2146Fb6F2429'
     _provider = '0x81eCb14C77a8Fcc59040eDf6fab96F9Aa25cC6B8'
-    _user = '0x56e48deBc4aff73d3fc226A9E71339b0fb44BDbb'
+    _user = '0x375958BFfEFe8df7FB6B829222C25c0c031C59C7'
 
     @classmethod
     def private_key(cls, public_key):
