@@ -7,10 +7,10 @@ url = 'http://2.tcp.cpolar.top:15121'
 url = 'http://127.0.0.1:8545'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
-helper_contract_address = '0x00fea3E5653870341DE95F9d3f202b0a2D2B0fc5'
+helper_contract_address = '0x815a21f26B2DdDBdd9ac5fDf5dD994B9179f2284'
 helper_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/Helper.json")))['abi']
 
-account_contract_address = '0xb73D7Db6d5D46c125C8c542e0e2F95114d46a9e0'
+account_contract_address = '0x68e48361CEdEA3675eaa23e10871c829a11a0EeF'
 account_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/AccountFactory.json")))['abi']
 
 gas_limit = 1000000  # 您可能需要根据合约函数的复杂性和资源消耗进行调整
@@ -33,7 +33,7 @@ public_to_private_keys = {
 class _role:
     _contract_owner = '0x35f425f9e97ee5E6ff52E8898c7682f9823737a6'
     _provider = '0xFD5D4AF80B1d277d29a905a359d95932B174B70F'
-    _user = '0x86f0A52AAEf587989bacEf567fB17E915055e4dF'
+    _user = '0x24C4439f7DF053029EcC4a1B2cC096C090e51a21'
 
     @classmethod
     def private_key(cls, public_key):

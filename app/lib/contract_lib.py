@@ -221,7 +221,7 @@ if __name__ == '__main__':
     # print(contract_connector.get_device(4))
 
     # print(contract_connector.get_device(4))
-    # print(contract_connector.terminate_instance(role.user, 9))
+    print(contract_connector.terminate_instance(role.user, 5))
     # print(contract_connector.get_device(4))
 
     # print(contract_connector.get_device(4))
