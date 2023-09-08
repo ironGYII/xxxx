@@ -44,6 +44,8 @@ class Machine:
     def init_from_contract(cls, resp):
         cid, address, status, machine_id, server_info, price = resp
         server_info = json.loads(server_info)
+        server_info['network'] = { "upBandwidth": 2000, "downBandwidth": 2000, "ports": 8 }
+        server_info['disk'] = { "type": "NVMe", "readBandwidth": 3000, "writeBandwidth": 3000, "iops": 100000, "size": "2TB" }
         machine = Machine(machine_id, address, server_info['host_info']['host'], server_info['host_info']['port'], server_info, server_info['api_version'])
         machine.price = Price.init_from_contract(price)
         machine.market_id = cid

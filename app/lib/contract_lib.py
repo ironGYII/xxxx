@@ -1,4 +1,5 @@
 import json
+import random
 import time
 
 import web3
@@ -187,9 +188,387 @@ def main_test():
     else:
         print("rent server not enough")
 
+server_infos = [
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX A2080",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 2,
+      "model": "Nvidia RTX A3090",
+      "tflops": 40,
+      "maxCUDAVersion": "11.4",
+      "ram": 24,
+      "ramBandwidth": 600
+    },
+    "motherboard": {
+      "model": "MSI MEG Z590 ACE",
+      "pcieVersion": "4.0",
+      "pcieLanes": 24,
+      "pcieBandwidth": 6000
+    },
+    "cpu": {
+      "cores": "12",
+      "threads": "24",
+      "model": "Intel Core i9-11900K"
+    },
+    "ram": {
+      "size": 32,
+      "frequency": 3600
+    },
+    "network": {
+      "upBandwidth": 2000,
+      "downBandwidth": 2000,
+      "ports": 8
+    },
+    "disk": {
+      "type": "NVMe",
+      "readBandwidth": 3000,
+      "writeBandwidth": 3000,
+      "iops": 100000,
+      "size": "2TB"
+    },
+    "price": {
+      "server": 3000,
+      "storage": 200,
+      "upbandwidth": 100,
+      "downbandwidth": 100
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1800000000,
+      "reliability": 98
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX A2080",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 2,
+      "model": "Nvidia RTX A3090",
+      "tflops": 40,
+      "maxCUDAVersion": "11.4",
+      "ram": 24,
+      "ramBandwidth": 600
+    },
+    "motherboard": {
+      "model": "MSI MEG Z590 ACE",
+      "pcieVersion": "4.0",
+      "pcieLanes": 24,
+      "pcieBandwidth": 6000
+    },
+    "cpu": {
+      "cores": "12",
+      "threads": "24",
+      "model": "Intel Core i9-11900K"
+    },
+    "ram": {
+      "size": 32,
+      "frequency": 3600
+    },
+    "network": {
+      "upBandwidth": 2000,
+      "downBandwidth": 2000,
+      "ports": 8
+    },
+    "disk": {
+      "type": "NVMe",
+      "readBandwidth": 3000,
+      "writeBandwidth": 3000,
+      "iops": 100000,
+      "size": "2TB"
+    },
+    "price": {
+      "server": 3000,
+      "storage": 200,
+      "upbandwidth": 100,
+      "downbandwidth": 100
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1800000000,
+      "reliability": 98
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX T2080",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX T2080",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX T2080",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX T2080",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  }
+]
 
 if __name__ == '__main__':
-    main_test()
+    # main_test()
     #
     # print("=" * 10, "续租机器", "=" * 10)
     # print(len(ContractLib().get_all()))
@@ -232,3 +611,28 @@ if __name__ == '__main__':
     # leases = [i for i in ContractLib().get_all()[3]]
     # for i in leases:
     #     print(i.data)
+
+    # print("=" * 10, "测试质押", "=" * 10)
+    # print(ContractLib().register(role.provider))
+    # print(ContractLib().stake(role.provider, 300))
+    print(ContractLib().get_account_info(role.provider.public_key).info)
+    print("=" * 10, "上线机器", "=" * 10)
+    for i in range(1):
+        index = random.Random().randint(0, len(server_infos) - 1)
+        info = json.loads(json.dumps(server_infos[index]))
+        print(info)
+        del info['network']
+        del info['disk']
+        machine = Machine(machine_id=role.provider.public_key + str(i), pub_key=role.provider.public_key, host="112341234", port="10",
+                          server_info=json.dumps(info), api_version="v0")
+        print("online_server", ContractLib().online_server(_user=role.provider, machine_info=machine,
+                                                           price=Price(server_price=36 * 10 ** 10, storage_price=10, upband_width=20, downband_width=30),
+                                                           start_time=int(time.time()),
+                                                           end_time=int(time.time()) + 36000)['status'])
+
+        # print("=" * 10, "上线机器", "=" * 10)
+        # print("online_server", ContractLib().online_server(role.provider, machine,
+        #                                                    price=Price(server_price=36 * 10 ** 10, storage_price=10,
+        #                                                                upband_width=20, downband_width=30),
+        #                                                    start_time=int(time.time()),
+        #                                                    end_time=int(time.time()) + 36000)['status'])
