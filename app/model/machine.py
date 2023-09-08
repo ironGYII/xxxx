@@ -51,6 +51,13 @@ class Machine:
         server_info['disk'] = {"type": "NVMe", "readBandwidth": 3000, "writeBandwidth": 3000, "iops": 100000, "size": "2000"}
         server_info['disk']['readBandwidth'] = random.Random().randint(1500, 3500)
         server_info['disk']['writeBandwidth'] = random.Random().randint(1500, 3500)
+
+        server_info["motherboard"] = {
+            "model": "ASUS ROG Strix B550-F",
+            "pcieVersion": "4.0",
+            "pcieLanes": 16,
+            "pcieBandwidth": 5000
+        }
         machine = Machine(machine_id, address, server_info['host_info']['host'], server_info['host_info']['port'], server_info, server_info['api_version'])
         machine.price = Price.init_from_contract(price)
         machine.market_id = cid

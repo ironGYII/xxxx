@@ -480,12 +480,6 @@ server_infos = [
       "ram": 8,
       "ramBandwidth": 400
     },
-    "motherboard": {
-      "model": "ASUS ROG Strix B550-F",
-      "pcieVersion": "4.0",
-      "pcieLanes": 16,
-      "pcieBandwidth": 5000
-    },
     "cpu": {
       "cores": "8",
       "threads": "16",
@@ -526,12 +520,6 @@ server_infos = [
       "maxCUDAVersion": "11.2",
       "ram": 8,
       "ramBandwidth": 400
-    },
-    "motherboard": {
-      "model": "ASUS ROG Strix B550-F",
-      "pcieVersion": "4.0",
-      "pcieLanes": 16,
-      "pcieBandwidth": 5000
     },
     "cpu": {
       "cores": "8",
@@ -626,6 +614,7 @@ if __name__ == '__main__':
         del info['network']
         del info['disk']
         del info['price']
+        del info["motherboard"]
 
         machine = Machine(machine_id=role.provider.public_key + str(int(time.time() + i)), pub_key=role.provider.public_key, host="112341234", port="10",
                           server_info=json.dumps(info), api_version="v0")
