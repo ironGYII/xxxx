@@ -24,7 +24,7 @@ def list_server():
     # limit = int(request.args.get("limit"))
     address = request.args.get("address")
     d_machines = mounted_machine.list(address)
-    d_machines = {machine.machine_id: machine for machine in d_machines}
+    d_machines = {machine.machine_id: machine for machine in d_machines.items()}
 
     try:
         c_machines = contract_connector.list_own_devices(type("owner", (), dict(public_key=address)), 100, 0)

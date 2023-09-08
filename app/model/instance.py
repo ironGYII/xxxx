@@ -1,4 +1,5 @@
 import time
+
 class Instance:
     def __init__(self, addr, lease_id, start_time, end_time, device_id):
         self.addr = addr
