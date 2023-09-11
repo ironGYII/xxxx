@@ -600,12 +600,12 @@ if __name__ == '__main__':
     # for i in leases:
     #     print(i.data)
 
-    # print("=" * 10, "测试质押", "=" * 10)
+    print("=" * 10, "测试质押", "=" * 10)
     print(ContractLib().register(role.provider))
-    # print(ContractLib().stake(role.provider, 100))
-    # print(ContractLib().get_account_info(role.provider.public_key).info)
+    print(ContractLib().stake(role.provider, 0.1))
+    print(ContractLib().get_account_info(role.provider.public_key).info)
     print("=" * 10, "上线机器", "=" * 10)
-    for i in range(4):
+    for i in range(5):
         index = random.Random().randint(0, len(server_infos) - 1)
         info = json.loads(json.dumps(server_infos[index]))
         print(info)
@@ -614,15 +614,27 @@ if __name__ == '__main__':
         del info['network']
         del info['disk']
         del info['price']
+        # info['network'] = {"upBandwidth": 2000, "downBandwidth": 2000, "ports": random.Random().randint(10, 20000)}
+        # info['network']["upBandwidth"] = random.Random().randint(100, 1000)
+        # info['network']["downBandwidth"] = random.Random().randint(200, 2000)
+        # info['disk'] = {"type": "NVMe", "readBandwidth": 3000, "writeBandwidth": 3000, "iops": 100000, "size": "2000"}
+        # info['disk']['readBandwidth'] = random.Random().randint(1500, 3500)
+        # info['disk']['writeBandwidth'] = random.Random().randint(1500, 3500)
+        # info["motherboard"] = {
+        #     "model": "ASUS ROG Strix B550-F",
+        #     "pcieVersion": "4.0",
+        #     "pcieLanes": 16,
+        #     "pcieBandwidth": 5000
+        # }
         if 'mmotherboard' in info:
             del info["motherboard"]
 
         machine = Machine(machine_id=role.provider.public_key + str(int(time.time() + i)), pub_key=role.provider.public_key, host="112341234", port="10",
                           server_info=json.dumps(info), api_version="v0")
         print("online_server", ContractLib().online_server(_user=role.provider, machine_info=machine,
-                                                           price=Price(server_price=random.Random().randint(10, 30) * 36 * 10 ** 9 , storage_price=10, upband_width=20, downband_width=30),
+                                                           price=Price(server_price=random.Random().randint(10, 30) * 36 * 10 ** 6 , storage_price=10, upband_width=20, downband_width=30),
                                                            start_time=int(time.time()),
-                                                           end_time=int(time.time()) + 36000)['status'])
+                                                           end_time=int(time.time()) + 36000))
 
         # print("=" * 10, "上线机器", "=" * 10)
         # print("online_server", ContractLib().online_server(role.provider, machine,

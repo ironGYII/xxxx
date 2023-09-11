@@ -2,6 +2,8 @@ import json
 import random
 
 
+extra_info = dict()
+
 class Price:
 
     def __init__(self, server_price, storage_price, upband_width, downband_width):
@@ -45,13 +47,17 @@ class Machine:
     def init_from_contract(cls, resp):
         cid, address, status, machine_id, server_info, price = resp
         server_info = json.loads(server_info)
-        server_info['network'] = {"upBandwidth": 2000, "downBandwidth": 2000, "ports": random.Random().randint(10, 20000)}
-        server_info['network']["upBandwidth"] = random.Random().randint(100, 1000)
-        server_info['network']["downBandwidth"] = random.Random().randint(200, 2000)
-        server_info['disk'] = {"type": "NVMe", "readBandwidth": 3000, "writeBandwidth": 3000, "iops": 100000, "size": "2000"}
-        server_info['disk']['readBandwidth'] = random.Random().randint(1500, 3500)
-        server_info['disk']['writeBandwidth'] = random.Random().randint(1500, 3500)
-
+        _server_info = extra_info.get(machine_id, dict())
+        if len(_server_info) == 0:
+            _server_info = dict()
+            _server_info['network'] = {"upBandwidth": 2000, "downBandwidth": 2000, "ports": random.Random().randint(10, 20000)}
+            _server_info['network']["upBandwidth"] = random.Random().randint(100, 1000)
+            _server_info['network']["downBandwidth"] = random.Random().randint(200, 2000)
+            _server_info['disk'] = {"type": "NVMe", "readBandwidth": 3000, "writeBandwidth": 3000, "iops": 100000, "size": "2000"}
+            _server_info['disk']['readBandwidth'] = random.Random().randint(1500, 3500)
+            _server_info['disk']['writeBandwidth'] = random.Random().randint(1500, 3500)
+            extra_info[machine_id] = _server_info
+        server_info.update(_server_info)
         server_info["motherboard"] = {
             "model": "ASUS ROG Strix B550-F",
             "pcieVersion": "4.0",
