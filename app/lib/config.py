@@ -14,7 +14,7 @@ helper_contract_address = '0x976DE5a7aa0304D9F2F4a90De3A8c7C00629206b'
 helper_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/Helper.json")))['abi']
 
 
-gas_limit = 3000000  # 您可能需要根据合约函数的复杂性和资源消耗进行调整
+gas_limit = 10000000 # 您可能需要根据合约函数的复杂性和资源消耗进行调整
 # chain_id = 1337
 
 url = 'https://linea-goerli.infura.io/v3/fedb760e61ff474e80caa22028b0348f'

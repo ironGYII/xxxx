@@ -19,11 +19,12 @@ def get_nonce(address):
 def transaction(addr, func, **kwargs):
     transaction = {
         'chainId': chain_id,
-        'gas': gas_limit * 2,
-        'gasPrice': web3.eth.gas_price * 2,
+        'gas': gas_limit,
+        # 'gasPrice': int(web3.eth.gas_price * 10.5),
+        'gasPrice': 800000000,
         'nonce': get_nonce(addr.public_key),
     }
-
+    print(transaction)
     transaction.update(**kwargs)
     transaction = func.build_transaction(transaction)
     signed_txn = web3.eth.account.sign_transaction(transaction, addr.private_key)
