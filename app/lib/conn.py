@@ -19,8 +19,8 @@ def get_nonce(address):
 def transaction(addr, func, **kwargs):
     transaction = {
         'chainId': chain_id,
-        'gas': gas_limit,
-        'gasPrice': web3.eth.gas_price,
+        'gas': gas_limit * 2,
+        'gasPrice': web3.eth.gas_price * 2,
         'nonce': get_nonce(addr.public_key),
     }
 

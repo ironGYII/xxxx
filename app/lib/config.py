@@ -7,10 +7,10 @@ import sys
 # url = 'http://127.0.0.1:8545'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
 # contract_address = '0xBfFd481336eac92e381D990636d9e8be7e909bFd'
-account_contract_address = '0xA1B03FF0F99c118B46C7e49E1AbDc8919400895c'
+account_contract_address = '0x7592A188A064395E54b2E7fE01b5C5554569D111'
 account_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/AccountFactory.json")))['abi']
 
-helper_contract_address = '0x84b3A4C39880F2Bf207620af993C3eA003E5995E'
+helper_contract_address = '0x976DE5a7aa0304D9F2F4a90De3A8c7C00629206b'
 helper_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/Helper.json")))['abi']
 
 

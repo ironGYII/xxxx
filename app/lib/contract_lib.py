@@ -607,7 +607,7 @@ if __name__ == '__main__':
     print("=" * 10, "测试质押", "=" * 10)
     # print(ContractLib().register(role.provider))
     # print(ContractLib().stake(role.provider, 0.1))
-    # print(ContractLib().get_account_info(role.provider.public_key).info)
+    print(ContractLib().get_account_info(role.provider.public_key).info)
     print("=" * 10, "上线机器", "=" * 10)
     for i in range(1):
         index = random.Random().randint(0, len(server_infos) - 1)
