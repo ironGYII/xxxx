@@ -14,7 +14,7 @@ class Instance:
         return Instance(addr, lease_id, start_time, end_time, device_id)
 
     def instance_info(self, machine):
-        return dict(info=machine.data, instance_id=self.lease_id, status=dict(state="renting" if self.end_time > int(time.time()) else "end", lease_expire=self.end_time, rent_from=machine.pub_key, lease_start=self.start_time), connection=dict(ssh_user_name="root", ssh_password="password", ssh_ip='35.93.23.87', ssh_port=33))
+        return dict(info=machine.data, instance_id=self.lease_id, status=dict(state="renting" if self.end_time > int(time.time()) else "end", lease_expire=self.end_time, rent_from=machine.pub_key, lease_start=self.start_time), connection=dict(ssh_user_name="ubuntu", ssh_password="apus_network", ssh_ip='35.93.23.87', ssh_port=22))
 
     @property
     def data(self):
