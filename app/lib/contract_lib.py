@@ -50,6 +50,9 @@ class ContractLib:
         return lease, billing
 
     def online_server(self, _user, machine_info, price, start_time, end_time):
+        a = dict(_machineId=machine_info.machine_id, _serverInfo=machine_info.contract_server_info, _price=price.contract_price, _startTime=start_time, _endTime=end_time)
+        for k, v in a.items():
+            print(k, v)
         tx_receipt = transaction(_user, self._helper_contract.functions.onlineServer(_machineId=machine_info.machine_id, _serverInfo=machine_info.contract_server_info, _price=price.contract_price, _startTime=start_time, _endTime=end_time))
         return tx_receipt
 
@@ -87,7 +90,8 @@ class ContractLib:
         return self._account_contract.functions.isRegister(_user=pub_key).call()
 
     def get_account_info(self, pub_key):
-        pub_key = web3.Web3.to_checksum_address(pub_key)
+        if not web3.Web3.is_checksum_address(pub_key):
+            pub_key = web3.Web3.to_checksum_address(pub_key)
         try:
             address, balance, provider_blocked_funds, recipient_blocked_funds, info = self._account_contract.functions.getAccount(pub_key).call()
         except Exception as e:
@@ -601,11 +605,11 @@ if __name__ == '__main__':
     #     print(i.data)
 
     print("=" * 10, "测试质押", "=" * 10)
-    print(ContractLib().register(role.provider))
-    print(ContractLib().stake(role.provider, 0.1))
-    print(ContractLib().get_account_info(role.provider.public_key).info)
+    # print(ContractLib().register(role.provider))
+    # print(ContractLib().stake(role.provider, 0.1))
+    # print(ContractLib().get_account_info(role.provider.public_key).info)
     print("=" * 10, "上线机器", "=" * 10)
-    for i in range(5):
+    for i in range(1):
         index = random.Random().randint(0, len(server_infos) - 1)
         info = json.loads(json.dumps(server_infos[index]))
         print(info)

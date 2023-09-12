@@ -14,14 +14,14 @@ helper_contract_address = '0x84b3A4C39880F2Bf207620af993C3eA003E5995E'
 helper_abi = json.load(open(os.path.join(os.getcwd(), "build/contracts/Helper.json")))['abi']
 
 
-gas_limit = 1000000  # 您可能需要根据合约函数的复杂性和资源消耗进行调整
-chain_id = 1337
+gas_limit = 3000000  # 您可能需要根据合约函数的复杂性和资源消耗进行调整
+# chain_id = 1337
 
-url = 'https://data-seed-prebsc-1-s1.bnbchain.org:8545'
-chain_id = 97
+url = 'https://linea-goerli.infura.io/v3/fedb760e61ff474e80caa22028b0348f'
+chain_id = 59140
 
 public_to_private_keys = {
-'0x1fD416560041Aa3e7e51B0290AA5969d75B11b79': 'a8add9f438ed4094a54dce9daeff346ae70edf354e466eec71fb4d9f1f6b75fd',
+'0xCAd129c097C6f496E1a89539427A1B4A727292C3': 'a3137bc8b100b6d707f16b0535ba3edde2a135ca502eb1eb8432e9ac377fab49',
 # '0xdF31fd83C12BB3d66D07394A843E7b6065FcDaB0': '0x932ba50d15d7b02f9e6317bc56f88931c372553cfbc5da2ad68e1992f86ce7b4',
 # '0x62DA151Df793d2E8eDB721BBa899FA55168A979A': '0x2bd1570a01dd4d8591822bd3b2f5832df1935aa6bbd1a6d3edf3c4abd77634df',
 # '0xF458f69eC7C57be88c456eF2D492864dfC0Ca802': '0x148ca90033e7221081a6625dee17eb0e3b991bba1ef72c724ee219c5a7f17552',
@@ -34,9 +34,9 @@ public_to_private_keys = {
 
 
 class _role:
-    _contract_owner = '0x1fD416560041Aa3e7e51B0290AA5969d75B11b79'
-    _provider = '0x28E1E8fAE8dC002478394f8C7e2b2458E63D5605'
-    _user = '0x1fD416560041Aa3e7e51B0290AA5969d75B11b79'
+    _contract_owner = '0xCAd129c097C6f496E1a89539427A1B4A727292C3'
+    _provider = '0xCAd129c097C6f496E1a89539427A1B4A727292C3'
+    _user = '0xCAd129c097C6f496E1a89539427A1B4A727292C3'
 
     @classmethod
     def private_key(cls, public_key):

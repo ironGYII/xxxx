@@ -1,4 +1,5 @@
 import json
+import random
 import time
 
 import web3
@@ -187,9 +188,375 @@ def main_test():
     else:
         print("rent server not enough")
 
+server_infos = [
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia A100",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 2,
+      "model": "Nvidia A100",
+      "tflops": 40,
+      "maxCUDAVersion": "11.4",
+      "ram": 24,
+      "ramBandwidth": 600
+    },
+    "motherboard": {
+      "model": "MSI MEG Z590 ACE",
+      "pcieVersion": "4.0",
+      "pcieLanes": 24,
+      "pcieBandwidth": 6000
+    },
+    "cpu": {
+      "cores": "12",
+      "threads": "24",
+      "model": "Intel Core i9-11900K"
+    },
+    "ram": {
+      "size": 32,
+      "frequency": 3600
+    },
+    "network": {
+      "upBandwidth": 2000,
+      "downBandwidth": 2000,
+      "ports": 8
+    },
+    "disk": {
+      "type": "NVMe",
+      "readBandwidth": 3000,
+      "writeBandwidth": 3000,
+      "iops": 100000,
+      "size": "2TB"
+    },
+    "price": {
+      "server": 3000,
+      "storage": 200,
+      "upbandwidth": 100,
+      "downbandwidth": 100
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1800000000,
+      "reliability": 98
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia A40",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 2,
+      "model": "Nvidia V100",
+      "tflops": 40,
+      "maxCUDAVersion": "11.4",
+      "ram": 24,
+      "ramBandwidth": 600
+    },
+    "motherboard": {
+      "model": "MSI MEG Z590 ACE",
+      "pcieVersion": "4.0",
+      "pcieLanes": 24,
+      "pcieBandwidth": 6000
+    },
+    "cpu": {
+      "cores": "12",
+      "threads": "24",
+      "model": "Intel Core i9-11900K"
+    },
+    "ram": {
+      "size": 32,
+      "frequency": 3600
+    },
+    "network": {
+      "upBandwidth": 2000,
+      "downBandwidth": 2000,
+      "ports": 8
+    },
+    "disk": {
+      "type": "NVMe",
+      "readBandwidth": 3000,
+      "writeBandwidth": 3000,
+      "iops": 100000,
+      "size": "2TB"
+    },
+    "price": {
+      "server": 3000,
+      "storage": 200,
+      "upbandwidth": 100,
+      "downbandwidth": 100
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1800000000,
+      "reliability": 98
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX 3070",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX 4090",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "motherboard": {
+      "model": "ASUS ROG Strix B550-F",
+      "pcieVersion": "4.0",
+      "pcieLanes": 16,
+      "pcieBandwidth": 5000
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia A4000",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  },
+  {
+    "gpu": {
+      "count": 1,
+      "model": "Nvidia RTX 3080Ti",
+      "tflops": 30,
+      "maxCUDAVersion": "11.2",
+      "ram": 8,
+      "ramBandwidth": 400
+    },
+    "cpu": {
+      "cores": "8",
+      "threads": "16",
+      "model": "AMD Ryzen 7 5800X"
+    },
+    "ram": {
+      "size": 16,
+      "frequency": 3200
+    },
+    "network": {
+      "upBandwidth": 1000,
+      "downBandwidth": 1000,
+      "ports": 4
+    },
+    "disk": {
+      "type": "SSD",
+      "readBandwidth": 500,
+      "writeBandwidth": 500,
+      "iops": 50000,
+      "size": "1TB"
+    },
+    "price": {
+      "server": 2000,
+      "storage": 150,
+      "upbandwidth": 50,
+      "downbandwidth": 50
+    },
+    "health": {
+      "scheduledMaintenanceTimestamp": 1700000000,
+      "reliability": 95
+    }
+  }
+]
 
 if __name__ == '__main__':
-    main_test()
+    # main_test()
     #
     # print("=" * 10, "续租机器", "=" * 10)
     # print(len(ContractLib().get_all()))
@@ -232,3 +599,46 @@ if __name__ == '__main__':
     # leases = [i for i in ContractLib().get_all()[3]]
     # for i in leases:
     #     print(i.data)
+
+    print("=" * 10, "测试质押", "=" * 10)
+    # print(ContractLib().register(role.provider))
+    # print(ContractLib().stake(role.provider, 0.1))
+    print(ContractLib().get_account_info(role.provider.public_key).info)
+    print("=" * 10, "上线机器", "=" * 10)
+    for i in range(0):
+        index = random.Random().randint(0, len(server_infos) - 1)
+        info = json.loads(json.dumps(server_infos[index]))
+        print(info)
+        info['gpu']['tflops'] = float(random.Random().randint(5000, 15000)) * 0.01
+        info['gpu']['maxCUDAVersion'] = ['11.2', '11.4', '12.0', '12.1'][i % 4]
+        del info['network']
+        del info['disk']
+        del info['price']
+        # info['network'] = {"upBandwidth": 2000, "downBandwidth": 2000, "ports": random.Random().randint(10, 20000)}
+        # info['network']["upBandwidth"] = random.Random().randint(100, 1000)
+        # info['network']["downBandwidth"] = random.Random().randint(200, 2000)
+        # info['disk'] = {"type": "NVMe", "readBandwidth": 3000, "writeBandwidth": 3000, "iops": 100000, "size": "2000"}
+        # info['disk']['readBandwidth'] = random.Random().randint(1500, 3500)
+        # info['disk']['writeBandwidth'] = random.Random().randint(1500, 3500)
+        # info["motherboard"] = {
+        #     "model": "ASUS ROG Strix B550-F",
+        #     "pcieVersion": "4.0",
+        #     "pcieLanes": 16,
+        #     "pcieBandwidth": 5000
+        # }
+        if 'mmotherboard' in info:
+            del info["motherboard"]
+
+        machine = Machine(machine_id=role.provider.public_key + str(int(time.time() + i)), pub_key=role.provider.public_key, host="112341234", port="10",
+                          server_info=json.dumps(info), api_version="v0")
+        print("online_server", ContractLib().online_server(_user=role.provider, machine_info=machine,
+                                                           price=Price(server_price=random.Random().randint(10, 30) * 36 * 10 ** 6 , storage_price=10, upband_width=20, downband_width=30),
+                                                           start_time=int(time.time()),
+                                                           end_time=int(time.time()) + 36000))
+
+        # print("=" * 10, "上线机器", "=" * 10)
+        # print("online_server", ContractLib().online_server(role.provider, machine,
+        #                                                    price=Price(server_price=36 * 10 ** 10, storage_price=10,
+        #                                                                upband_width=20, downband_width=30),
+        #                                                    start_time=int(time.time()),
+        #                                                    end_time=int(time.time()) + 36000)['status'])
