@@ -1,0 +1,85 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/helper.sol": "ApusToke"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/account.sol": {
+			"keccak256": "0xb97116d59855e0af476f4d3e867d63597721fb002303782d43df7cdf557de5eb",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://45dbdca9a6ec83b47ee740b115c3fb73bf47dc964e99960e555c4bca0a15f4fc",
+				"dweb:/ipfs/QmXbyYEY2MKMZjbstWwxQs24fd1XHveqZcP3UY52n1HK68"
+			]
+		},
+		"contracts/device.sol": {
+			"keccak256": "0x5c48face09069bfed38e5092ac0ee67bb2d81fdc8bc6478120690222862ac31a",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://8c59a99ed3c31ff68a109a45b1abb759b19cb10861727ca0f876afd8e7d12b14",
+				"dweb:/ipfs/QmZovvoNfbQF5utcemPK8w6st2TbrMgFG1dkpG2jgiHaVp"
+			]
+		},
+		"contracts/helper.sol": {
+			"keccak256": "0x0e1aaad76a7d9a7e027b4f6bfe4c959c84bce5adbbe1439706a2a9b0a892c732",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://2b0d6c2513906d00740b3170cd1ccfabd52fe24dd0e1c133245786ecf14a5efd",
+				"dweb:/ipfs/QmVQK1YMtJd9RSDkuusDAULUpvFVhejFV45k7bYheeLXCn"
+			]
+		},
+		"contracts/lease.sol": {
+			"keccak256": "0x3f39e7433caaef84b7e144a9d6e4dbedaccb920720261535e1dba972bcc51d49",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://f182ea515f5ab4aa0f9a2bbdbb8a7813dcb699d8f386a2501bc7b25262dc6af4",
+				"dweb:/ipfs/QmVU62WTEGbPeB9U51m4opRi7ap8SxYPMUxjuEdGfvgjRK"
+			]
+		},
+		"openzeppelin-solidity/contracts/access/Ownable.sol": {
+			"keccak256": "0x24e0364e503a9bbde94c715d26573a76f14cd2a202d45f96f52134ab806b67b9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e12cbaa7378fd9b62280e4e1d164bedcb4399ce238f5f98fc0eefb7e50577981",
+				"dweb:/ipfs/QmXRoFGUgfsaRkoPT5bxNMtSayKTQ8GZATLPXf69HcRA51"
+			]
+		},
+		"openzeppelin-solidity/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		}
+	},
+	"version": 1
+}
