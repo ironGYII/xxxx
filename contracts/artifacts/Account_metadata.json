@@ -1,0 +1,125 @@
+{
+	"compiler": {
+		"version": "0.8.21+commit.d9974bed"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/account.sol": "Account"
+		},
+		"evmVersion": "shanghai",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://8ed324d3920bb545059d66ab97d43e43ee85fd3bd52e03e401f020afb0b120f6",
+				"dweb:/ipfs/QmfEckWLmZkDDcoWrkEvMWhms66xwTLff9DDhegYpvHo1a"
+			]
+		},
+		"@openzeppelin/contracts/interfaces/draft-IERC6093.sol": {
+			"keccak256": "0x60c65f701957fdd6faea1acb0bb45825791d473693ed9ecb34726fdfaa849dd7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea290300e0efc4d901244949dc4d877fd46e6c5e43dc2b26620e8efab3ab803f",
+				"dweb:/ipfs/QmcLLJppxKeJWqHxE2CUkcfhuRTgHSn8J4kijcLa5MYhSt"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0xc6a8ff0ea489379b61faa647490411b80102578440ab9d84e9a957cc12164e70",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ea104e577e63faea3b69c415637e99e755dcbf64c5833d7140c35a714d6d90c",
+				"dweb:/ipfs/Qmau6x4Ns9XdyynRCNNp3RhLqijJjFm7z5fyZazfYFGYdq"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
+			"keccak256": "0xaa761817f6cd7892fcf158b3c776b34551cde36f48ff9703d53898bc45a94ea2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0ad7c8d4d08938c8dfc43d75a148863fb324b80cf53e0a36f7e5a4ac29008850",
+				"dweb:/ipfs/QmcrhfPgVNf5mkdhQvy1pMv51TFokD3Y4Wa5WZhFqVh8UV"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x75a4ee64c68dbd5f38bddd06e664a64c8271b4caa554fb6f0607dfd672bb4bf3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0c4e6cb30d3601e2f7af5af09e265508147cb275a8dcd99d6f7363645cc56867",
+				"dweb:/ipfs/QmNgFkoXNWoUbAyw71rr1sKQ95Rj2GfvYiWg79xEYDn2NY"
+			]
+		},
+		"contracts/account.sol": {
+			"keccak256": "0xdd82d0bd83944583c5a6650c66d6f71c0089c4d6ccb021464c4de874b42e5aa2",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://fc636f1eda45dc35c43a761303f57f84886e047a083960d0bd898f1a6b42f893",
+				"dweb:/ipfs/QmW366PxGcmTfbD6Nv8nzu7LdWXHXqNjQ9SuAChfMWzNJw"
+			]
+		},
+		"contracts/device.sol": {
+			"keccak256": "0x5c48face09069bfed38e5092ac0ee67bb2d81fdc8bc6478120690222862ac31a",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://8c59a99ed3c31ff68a109a45b1abb759b19cb10861727ca0f876afd8e7d12b14",
+				"dweb:/ipfs/QmZovvoNfbQF5utcemPK8w6st2TbrMgFG1dkpG2jgiHaVp"
+			]
+		},
+		"contracts/lease.sol": {
+			"keccak256": "0x3f39e7433caaef84b7e144a9d6e4dbedaccb920720261535e1dba972bcc51d49",
+			"license": "SEE LICENSE IN LICENSE",
+			"urls": [
+				"bzz-raw://f182ea515f5ab4aa0f9a2bbdbb8a7813dcb699d8f386a2501bc7b25262dc6af4",
+				"dweb:/ipfs/QmVU62WTEGbPeB9U51m4opRi7ap8SxYPMUxjuEdGfvgjRK"
+			]
+		},
+		"contracts/token.sol": {
+			"keccak256": "0x627c7f7550b5d1f87815b4a91aec198ec9b04ad153a541591f30bbf7020428e9",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a74ed4ae06bfb2dd6a420a6e37f29bfe31b895f0a938e5303e9808491600ef5e",
+				"dweb:/ipfs/QmPph1LsxFEKohjWZD1NC434nFKyZCHWJu4wyXLPxgxtag"
+			]
+		},
+		"openzeppelin-solidity/contracts/access/Ownable.sol": {
+			"keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
+				"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
+			]
+		},
+		"openzeppelin-solidity/contracts/utils/Context.sol": {
+			"keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+			]
+		}
+	},
+	"version": 1
+}
