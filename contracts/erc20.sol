@@ -111,5 +111,4 @@ contract ApusToken is EIP20Interface {
         return allowed[_owner][_spender];
     }
 
-    function Stake() payable 
 }

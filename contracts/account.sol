@@ -1,18 +1,21 @@
 // SPDX-License-Identifier: SEE LICENSE IN LICENSE
 pragma solidity ^0.8.0;
-import "openzeppelin-solidity/contracts/access/Ownable.sol";
-import {ApusToken} from "./token.sol";
-import {Lease} from "./lease.sol";
 
-contract Account {
+contract A {
+    mapping (address => uint256) private _account;
 
-    ApusToken private _apusToken;
-    Lease private _leaseManager;
+    function Set(uint256 amount) public {
+        _account[msg.sender] = _account[msg.sender] + amount;
+    }
+}
 
-    mapping (address => uint256) private  _stakeAmount;
-    mapping (address => uint256) private _depositAmount;
+contract Account is A{
 
-    function stake(uint256 amount) uint256 {
-        
+    function stake(uint256 amount) public {
+        _account[msg.sender] = _account[msg.sender] + amount;
+    }
+
+    function get() public  {
+        return _account[msg.sender];
     }
 }

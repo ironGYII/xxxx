@@ -1,307 +1,44 @@
 {
 	"compiler": {
-		"version": "0.4.26+commit.4563c3fc"
+		"version": "0.8.21+commit.d9974bed"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"constant": true,
-				"inputs": [],
-				"name": "name",
-				"outputs": [
-					{
-						"name": "",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
 				"inputs": [
 					{
-						"name": "_spender",
-						"type": "address"
-					},
-					{
-						"name": "_value",
+						"internalType": "uint256",
+						"name": "amount",
 						"type": "uint256"
 					}
 				],
-				"name": "approve",
-				"outputs": [
-					{
-						"name": "success",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "totalSupply",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "_from",
-						"type": "address"
-					},
-					{
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"name": "_value",
-						"type": "uint256"
-					}
-				],
-				"name": "transferFrom",
-				"outputs": [
-					{
-						"name": "success",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "balances",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "decimals",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint8"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "",
-						"type": "address"
-					},
-					{
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "allowed",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "_initialAmount",
-						"type": "uint256"
-					},
-					{
-						"name": "_tokenName",
-						"type": "string"
-					},
-					{
-						"name": "_decimalUnits",
-						"type": "uint8"
-					},
-					{
-						"name": "_tokenSymbol",
-						"type": "string"
-					}
-				],
-				"name": "EIP20",
+				"name": "Set",
 				"outputs": [],
-				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "_owner",
-						"type": "address"
-					}
-				],
-				"name": "balanceOf",
-				"outputs": [
-					{
-						"name": "balance",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "symbol",
-				"outputs": [
-					{
-						"name": "",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"name": "_value",
-						"type": "uint256"
-					}
-				],
-				"name": "transfer",
-				"outputs": [
-					{
-						"name": "success",
-						"type": "bool"
-					}
-				],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "_owner",
-						"type": "address"
-					},
-					{
-						"name": "_spender",
-						"type": "address"
-					}
-				],
-				"name": "allowance",
-				"outputs": [
-					{
-						"name": "remaining",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"name": "_from",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"name": "_value",
-						"type": "uint256"
-					}
-				],
-				"name": "Transfer",
-				"type": "event"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": true,
-						"name": "_owner",
-						"type": "address"
-					},
-					{
-						"indexed": true,
-						"name": "_spender",
-						"type": "address"
-					},
-					{
-						"indexed": false,
-						"name": "_value",
-						"type": "uint256"
-					}
-				],
-				"name": "Approval",
-				"type": "event"
 			}
 		],
 		"devdoc": {
-			"methods": {}
+			"kind": "dev",
+			"methods": {},
+			"version": 1
 		},
 		"userdoc": {
-			"methods": {}
+			"kind": "user",
+			"methods": {},
+			"version": 1
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/erc20.sol": "A"
+			"contracts/account.sol": "A"
 		},
-		"evmVersion": "byzantium",
+		"evmVersion": "shanghai",
 		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
 		"optimizer": {
 			"enabled": false,
 			"runs": 200
@@ -309,10 +46,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/erc20.sol": {
-			"keccak256": "0xee3c575055e1175889b5f205622940160213e460eff94b382c2ee6ff73ef3836",
+		"contracts/account.sol": {
+			"keccak256": "0xb0bd27320e4c4a4a4531319248f971ddb14fe6be732f4cfa58d42b6f12a37b8c",
+			"license": "SEE LICENSE IN LICENSE",
 			"urls": [
-				"bzzr://1c395fad12090cc29a853c83a9d4b8be783772fb6804fdbcc4b5011705733ef6"
+				"bzz-raw://bf5ce152f57f33df86ebfa34fe8b7d3590aa3125164579267920256b86348307",
+				"dweb:/ipfs/QmRXBaETGfgLLTJ3rm6sTjSsbaajYChEnHYBJ8btmHBZhU"
 			]
 		}
 	},

@@ -35,6 +35,10 @@ import {ERC20Wrapper} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20
 contract ApusToken is Context, IERC20, IERC20Metadata, IERC20Errors, Ownable {
     mapping(address account => uint256) private _balances;
 
+    mapping(address account => uint256) private _stakes;
+
+    mapping(address account => uint256) private _deposits;
+
     mapping(address account => mapping(address spender => uint256)) private _allowances;
 
     uint256 private _totalSupply;
@@ -51,7 +55,7 @@ contract ApusToken is Context, IERC20, IERC20Metadata, IERC20Errors, Ownable {
     constructor(uint256 _initAmount) Ownable(msg.sender) {
         _name = "Apus Token Alpha";
         _symbol = "APTa";
-        _balances[msg.sender] = _initAmount;
+        _mint(msg.sender, _initAmount);
     }
 
     /**
@@ -97,7 +101,7 @@ contract ApusToken is Context, IERC20, IERC20Metadata, IERC20Errors, Ownable {
      * @dev See {IERC20-balanceOf}.
      */
     function balanceOf(address account) public view virtual returns (uint256) {
-        return _balances[account];
+        return _balances[account] + _stakes[account] + _deposits[account];
     }
 
     /**
@@ -315,5 +319,29 @@ contract ApusToken is Context, IERC20, IERC20Metadata, IERC20Errors, Ownable {
             }
         }
     }
+
+    function stake(uint256 amount) public  {
+        // todo(yuanming): translate (yu e bu zu!)
+        require(_balances[msg.sender] >= amount, "amount not enough");
+        _balances[msg.sender] -= amount;
+        _stakes[msg.sender] += amount;
+    }
+
+    function deposit(uint256 amount) public  {
+        // todo(yuanming): translate (yu e bu zu!)
+        require(_balances[msg.sender] >= amount, "amount not enough");
+        _balances[msg.sender] -= amount;
+        _deposits[msg.sender] += amount;
+    }
+
 }
 
+
+contract Account {
+
+    ApusToken private apusToken;
+
+    function deposit(uint256 amount) payable public  {
+        super._stake(amount);
+    }
+}
