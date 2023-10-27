@@ -8,6 +8,11 @@
 *.so
 *.dylib
 
+scripts/__pycache__
+migrations/.gitkeep
+contracts/.gitkeep
+build/
+
 # Test binary, built with `go test -c`
 *.test
 
