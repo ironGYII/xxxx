@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-var ApusIProverContract = artifacts.require("ApusIProver");
+var ApusIProverContract = artifacts.require("ApusTaikoProverPool");
 
 module.exports = function (deployer) {
  
@@ -11,7 +11,7 @@ deployer.deploy(ApusIProverContract).then(() => {
           address: contractAddress
         };
         const directoryPath = path.join(__dirname, '../', 'build', 'contract_address');
-        const filePath = path.join(directoryPath, 'ApusIProver.json');
+        const filePath = path.join(directoryPath, 'IProver.json');
 
         // 创建目录
         if (!fs.existsSync(directoryPath)) {
