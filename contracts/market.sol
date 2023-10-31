@@ -8,9 +8,10 @@ import "./console.sol";
 contract Market {
     // Search the n'st lowest price prover 
 
-    function get() public view {
+    function get() public view returns(uint256){
         uint256 count = 5;
         console.log('count: %d', count);
         console.log();
+        return count;
     }
 }

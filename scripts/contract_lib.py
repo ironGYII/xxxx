@@ -18,8 +18,6 @@ class ContractLib:
 
 
 
-
-
 if __name__ == '__main__':
   contract_connector = ContractLib()
-  contract_connector.get()
+  print(  contract_connector.get())
