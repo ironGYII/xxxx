@@ -5,6 +5,7 @@ import {TaikoData} from "./TaikoData.sol";
 import {ApusData} from "./ApusData.sol";
 import {IReward, IProver, IProofTask} from "./ApusInterface.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 // import "@openzeppelin/contracts/utils/Address.sol";
 
@@ -25,8 +26,10 @@ contract ApusTaikoProverPool is IProver, IReward, IERC1271, Ownable {
     // using Address for address;
     address[] public pubkeys;
     bytes4 private constant _INTERFACE_ID_ERC1271 = 0x1626ba7e;
+    IERC20 public ttkojToken;
 
-    constructor() Ownable(msg.sender){
+    constructor(address _ttkojAddress) Ownable(msg.sender) {
+        ttkojToken = IERC20(_ttkojAddress);
     }
 
     // 定义一个修饰符，用于检查调用者是否是合约的拥有者
@@ -126,5 +129,12 @@ contract ApusTaikoProverPool is IProver, IReward, IERC1271, Ownable {
         // ERC20合约 mint token
         IERC20Mintable(apusTokenContract).mint(address(this), amount);
         // 分配token，待定
+    }
+
+    function approveTTKOj(address _spender, uint256 _value) external onlyOwner {
+        require(_spender != address(0), "Approve to zero address");
+        // 调用ERC20合约的approve方法，注意这里的msg.sender应该有足够的余额
+        bool success = ttkojToken.approve(_spender, _value);
+        require(success, "Approve failed");
     }
 }
