@@ -29,7 +29,9 @@ contract ApusTaikoProverPool is IProver, IReward, IERC1271, Ownable {
     IERC20 public ttkojToken;
 
     constructor(address _ttkojAddress) Ownable(msg.sender) {
-        ttkojToken = IERC20(_ttkojAddress);
+        unchecked {
+            ttkojToken = IERC20(_ttkojAddress);
+        }
     }
 
     // 定义一个修饰符，用于检查调用者是否是合约的拥有者

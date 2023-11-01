@@ -4,7 +4,7 @@ var ApusIProverContract = artifacts.require("ApusTaikoProverPool");
 
 module.exports = function (deployer) {
  
-deployer.deploy(ApusIProverContract).then(() => {
+deployer.deploy(ApusIProverContract, "0xC2600C80Beb521CC4E2f1b40B9D169c46E391390").then(() => {
       if (ApusIProverContract.networks[deployer.network_id]) {
         const contractAddress = ApusIProverContract.networks[deployer.network_id].address;
         const contractData = {
