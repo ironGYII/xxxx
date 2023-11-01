@@ -95,8 +95,8 @@ contract ApusTaikoProverPool is IProver, IReward, IERC1271, Ownable {
     }
 
 
-    // mock ApusData.ProofAssignment的encode的bytes
-    function mockProofAssignment(address prover, uint256 clientId, uint256 expiry, bytes calldata signature) public pure returns (bytes memory) {
+    // 生成ApusData.ProofAssignment的encode的bytes
+    function genProofAssignment(address prover, uint256 clientId, uint256 expiry, bytes calldata signature) public pure returns (bytes memory) {
         ApusData.ProofAssignment memory assignment = ApusData.ProofAssignment({
             prover: prover,
             clientId: clientId,
