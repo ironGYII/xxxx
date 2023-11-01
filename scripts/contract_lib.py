@@ -5,7 +5,7 @@ import time
 import web3
 
 from scripts.config import role
-from scripts.conn import market_contract, apus_iprover_contract, apus_token_contract,  apus_iprover_contract 
+from scripts.conn import market_contract, apus_iprover_contract, apus_token_contract,  apus_iprover_contract, transaction
 
 
 class ContractLib:
@@ -14,10 +14,14 @@ class ContractLib:
     #     return tx_receipt
 
     def get(self):
-        return market_contract.functions.get().call()
+      return market_contract.functions.get().call()
+
+    def set_address(self):
+      print(transaction(role.provider, apus_iprover_contract.functions.setProofTaskContract("0xe9B85f5413D0a6783b96CFE014D3d2A1F179b0cA")))
 
 
 
 if __name__ == '__main__':
   contract_connector = ContractLib()
-  print(  contract_connector.get())
+  print(contract_connector.get())
+  print(contract_connector.set_address())

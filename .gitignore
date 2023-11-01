@@ -24,3 +24,6 @@ build/
 
 # Go workspace file
 go.work
+
+*.go
+node_modules

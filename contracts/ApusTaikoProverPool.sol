@@ -4,29 +4,56 @@ pragma solidity ^0.8.20;
 import {TaikoData} from "./TaikoData.sol";
 import {ApusData} from "./ApusData.sol";
 import {IReward, IProver, IProofTask} from "./ApusInterface.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
+// import "@openzeppelin/contracts/utils/Address.sol";
+
+interface IERC1271 {
+    function isValidSignature(bytes32 _messageHash, bytes memory _signature) external view returns (bytes4 magicValue);
+    event SignatureValidation(bytes32 indexed _messageHash, address indexed _signer, bytes4 indexed _magicValue);
+}
+
 
 // 创建一个接口来表示 ERC20 代币合约
 interface IERC20Mintable {
     function mint(address to, uint256 amount) external;
 }
 
-contract ApusTaikoProverPool is IProver, IReward {
-    address private owner;
+contract ApusTaikoProverPool is IProver, IReward, IERC1271, Ownable {
+    using ECDSA for bytes32;
 
-    constructor() {
-        owner = msg.sender;
+    // using Address for address;
+    address[] public pubkeys;
+    bytes4 private constant _INTERFACE_ID_ERC1271 = 0x1626ba7e;
+
+    constructor() Ownable(msg.sender){
     }
 
     // 定义一个修饰符，用于检查调用者是否是合约的拥有者
-    modifier onlyOwner {
-        require(msg.sender == owner, "Caller is not owner");
-        _;
-    }
+    // modifier onlyOwner {
+    //     require(msg.sender == owner, "Caller is not owner");
+    //     _;
+    // }
 
     // IProofTask合约地址
     address public proofTaskContract;
     // Apus ERC20合约地址
     address public apusTokenContract;
+
+    function isValidSignature(bytes32 _messageHash, bytes memory _signature) public view override returns (bytes4 magicValue) {
+        address signer = _messageHash.recover(_signature);
+        for (uint256 i = 0; i < pubkeys.length; i++) {
+            if (pubkeys[i] == signer) {
+                return _INTERFACE_ID_ERC1271;
+            }
+        }
+        revert("unvalid signature");
+    }
+
+    // not safe add ownerable after test
+    function addProver(address prover) public {
+        pubkeys.push(prover);
+    }
 
     // 设置IProofTask合约地址
     function setProofTaskContract(address _proofTaskContract) external {
