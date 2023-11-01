@@ -151,4 +151,8 @@ contract ApusTaikoProverPool is IProver, IReward, IERC1271, Ownable {
         bool success = ttkojToken.approve(_spender, _value);
         require(success, "Approve failed");
     }
+
+    function supportsInterface(bytes4 interfaceId) external pure returns (bool) {
+        return interfaceId == type(IProver).interfaceId;
+    }
 }
