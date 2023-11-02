@@ -1,17 +1,17 @@
 const fs = require('fs');
 const path = require('path');
-var BindingContract = artifacts.require("Binding");
+var ProofTaskContract = artifacts.require("ApusProofTask");
 
 module.exports = function (deployer) {
  
-deployer.deploy(BindingContract).then(() => {
-      if (BindingContract.networks[deployer.network_id]) {
-        const contractAddress = BindingContract.networks[deployer.network_id].address;
+deployer.deploy(ProofTaskContract).then(() => {
+      if (ProofTaskContract.networks[deployer.network_id]) {
+        const contractAddress = ProofTaskContract.networks[deployer.network_id].address;
         const contractData = {
           address: contractAddress
         };
         const directoryPath = path.join(__dirname, '../', 'build', 'contract_address');
-        const filePath = path.join(directoryPath, 'Binding.json');
+        const filePath = path.join(directoryPath, 'ProofTask.json');
 
         // 创建目录
         if (!fs.existsSync(directoryPath)) {

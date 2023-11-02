@@ -41,7 +41,7 @@ def get_config(fileName):
 
 market_contract_address, market_abi = get_config('Market.json')
 apus_token_contract_address, apus_token_abi = get_config('ApusToken.json')
-apus_iprover_contract_address, apus_iprover_abi = get_config('ApusIProver.json')
+apus_iprover_contract_address, apus_iprover_abi = get_config('ApusTaikoProverPool.json')
 binding_contract_address, binding_abi = get_config('Binding.json')
 # print(market_contract_address)
 # print(apus_token_contract_address)

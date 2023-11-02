@@ -25,3 +25,10 @@ test/
 
 # Go workspace file
 go.work
+
+*.go
+node_modules
+
+.deps
+.vscode
+contracts/artifacts

@@ -29,19 +29,21 @@ library ApusData {
 
     enum TaskType {TaikoZKEvm}
     enum TaskStatus {Assigned, Proving, Proved, Rewarded, Slashed}
+    
+    struct ProofAssignment {
+        address prover; // 证明者地址，用于接收奖励
+        uint256 clientId; // 客户端ID
+        uint256 expiry; // 承诺证明时间
+        bytes signature; // 签名
+    }
+    
     // proof task info
     struct ProofTask {
-        TaskType _type;
-        // todo(yuanming): 其他必须记录的消息, 目前还不确定
-    }
-
-    // 
-    struct binding {
-        address prover;
-        TaskStatus status;
-        ProofTask task;
-        // mapping(user mapping(erc20 address, amount))
-        mapping(address => mapping (address => uint)) lockAmount; 
+        TaskType _type; // 任务提供者，例如taiko
+        uint64 blockID; // 假定我们是服务于L2的证明者市场
+        bytes meta; // 任务携带的元数据
+        ApusData.ProofAssignment assigment; // 任务分配信息
+        TaskStatus status; // 状态
     }
 }
 

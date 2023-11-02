@@ -14,7 +14,10 @@ class ContractLib:
     #     return tx_receipt
 
     def get(self):
-        return market_contract.functions.get().call()
+      return market_contract.functions.get().call()
+
+    def set_address(self):
+      print(transaction(role.provider, apus_iprover_contract.functions.setProofTaskContract("0xe9B85f5413D0a6783b96CFE014D3d2A1F179b0cA")))
 
     def join_market(self, client_config):
         # 这里假设client_config是一个字典，它的键对应ApusData.ClientConfig结构体的字段

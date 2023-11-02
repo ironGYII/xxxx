@@ -1,17 +1,17 @@
 const fs = require('fs');
 const path = require('path');
-var ApusIProverContract = artifacts.require("ApusTaikoProverPool");
+var MarketContract = artifacts.require("IronGYI");
 
 module.exports = function (deployer) {
  
-deployer.deploy(ApusIProverContract, "0xC2600C80Beb521CC4E2f1b40B9D169c46E391390").then(() => {
-      if (ApusIProverContract.networks[deployer.network_id]) {
-        const contractAddress = ApusIProverContract.networks[deployer.network_id].address;
+deployer.deploy(MarketContract).then(() => {
+      if (MarketContract.networks[deployer.network_id]) {
+        const contractAddress = MarketContract.networks[deployer.network_id].address;
         const contractData = {
           address: contractAddress
         };
         const directoryPath = path.join(__dirname, '../', 'build', 'contract_address');
-        const filePath = path.join(directoryPath, 'ApusTaikoProverPool.json');
+        const filePath = path.join(directoryPath, 'IronGYI.json');
 
         // 创建目录
         if (!fs.existsSync(directoryPath)) {
