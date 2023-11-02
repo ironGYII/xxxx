@@ -4,8 +4,12 @@ pragma solidity ^0.8.20;
 
 library ApusData {
 
+
+
     // prover zkEVM client 
     struct ClientConfig {
+        address owner;
+        uint256 id;
         string url;
         uint256 minFee;
         uint8 maxZkEvmInstance;

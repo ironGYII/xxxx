@@ -8,13 +8,13 @@ chain_id = 1337
 gas_limit = 1000000  # 您可能需要根据合约函数的复杂性和资源消耗进行调整
 
 public_to_private_keys = {
-    '0x2b916e0d058201Ab046f673b7D42a279ADd78B7B': '0x94baf6ab65a09759a30d1803cee7356c2f8fef2a3e8aab7e2f442736f4b24a2d'
+    '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390' :'0x91c6c377cc072cd187fed1caaa6527896f58f10cb20667235c87b07c64b33955'
 }
 
 class _role:
-    _contract_owner = '0x2b916e0d058201Ab046f673b7D42a279ADd78B7B'
-    _provider = '0x2b916e0d058201Ab046f673b7D42a279ADd78B7B'
-    _user = '0x2b916e0d058201Ab046f673b7D42a279ADd78B7B'
+    _contract_owner = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
+    _provider = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
+    _user = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
 
     @classmethod
     def private_key(cls, public_key):
