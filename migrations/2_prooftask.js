@@ -4,14 +4,14 @@ var ProofTaskContract = artifacts.require("ApusProofTask");
 
 module.exports = function (deployer) {
  
-deployer.deploy(ProofTaskContract).then(() => {
+deployer.deploy(ProofTaskContract, "0x3fCc4dd3D00AeBFdb3aFfF12319CB315f14C9C1D").then(() => {
       if (ProofTaskContract.networks[deployer.network_id]) {
         const contractAddress = ProofTaskContract.networks[deployer.network_id].address;
         const contractData = {
           address: contractAddress
         };
         const directoryPath = path.join(__dirname, '../', 'build', 'contract_address');
-        const filePath = path.join(directoryPath, 'ProofTask.json');
+        const filePath = path.join(directoryPath, 'ApusProofTask.json');
 
         // 创建目录
         if (!fs.existsSync(directoryPath)) {

@@ -5,7 +5,7 @@ import time
 import web3
 
 from scripts.config import role
-from scripts.conn import market_contract, apus_iprover_contract, apus_token_contract,  apus_iprover_contract, transaction
+from scripts.conn import market_contract, apus_iprover_contract, apus_token_contract,  apus_iprover_contract, transaction, market_contract_address
 
 client_id = int(time.time() * 100)
 
@@ -51,6 +51,19 @@ class ContractLib:
         tx_hash2 = transaction(role.contract_owner, market_contract.functions.releaseTaskToClient("0xeA389159172f7934DdaC4a935dDA0bd9a1d80290", client_id))
         return tx_hash2
 
+    def task_dispatchTaskToClient(self):
+         tx_hash2 = transaction(role.contract_owner, apus_token_contract.functions.dispatchTaskToClient("0xeA389159172f7934DdaC4a935dDA0bd9a1d80290", client_id))
+         return tx_hash2
+    
+    def task_releaseTaskToClient(self):
+        tx_hash2 = transaction(role.contract_owner, apus_token_contract.functions.releaseTaskToClient("0xeA389159172f7934DdaC4a935dDA0bd9a1d80290", client_id))
+        return tx_hash2
+
+    def task_set_market_address(self):
+        tx_hash2 = transaction(role.contract_owner, apus_token_contract.functions.setMarket(market_contract_address))
+        return tx_hash2
+
+
 
 if __name__ == '__main__':
     contract_connector = ContractLib()
@@ -65,15 +78,14 @@ if __name__ == '__main__':
 
     print(f"\n get Prover:{contract_connector.getProverConfig()}")
 
-    # tx_hash1 = contract_connector.dispatchTaskToClient()
-    # print(f"\n Sent dispatchTaskToClient transaction with hash: {tx_hash1}")
+    tx_hash1 = contract_connector.task_set_market_address()
+    print(f"\n get Prover:{contract_connector.getProverConfig()}")
 
-    # tx_hash2 = contract_connector.releaseTaskToClient()
-    # print(f"\n Sent releaseTaskToClient transaction with hash: {tx_hash2}")
+    print("FUCKKKKKKKKKKK")
+    tx_hash1 = contract_connector.task_dispatchTaskToClient()
+    print(f"\n Sent dispatchTaskToClient transaction with hash: {tx_hash1}")
+    print(f"\n get Prover:{contract_connector.getProverConfig()}")
 
-
-    # tx_hash1 = contract_connector.dispatchTaskToClient()
-    # print(f"\n Sent dispatchTaskToClient transaction with hash: {tx_hash1}")
-
-    # tx_hash2 = contract_connector.releaseTaskToClient()
-    # print(f"\n Sent releaseTaskToClient transaction with hash: {tx_hash2}")
+    tx_hash2 = contract_connector.task_releaseTaskToClient()
+    print(f"\n Sent releaseTaskToClient transaction with hash: {tx_hash2}")
+    print(f"\n get Prover:{contract_connector.getProverConfig()}")

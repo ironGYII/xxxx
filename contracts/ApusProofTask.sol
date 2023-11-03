@@ -53,6 +53,11 @@ contract ApusProofTask is IProofTask {
         taskContracts[_type] = contractAddr;
     }
 
+    // 配置market地址:
+    function setMarket(address marketAddress) public {
+        apusMarket = Market(marketAddress);
+    }
+
     // 查询task对应的合约地址
     function getContract(
         ApusData.TaskType _type

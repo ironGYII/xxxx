@@ -49,9 +49,9 @@ def get_config(fileName):
     return json.load(open(os.path.join(os.getcwd(), "build/contract_address", fileName)))['address'], json.load(open(os.path.join(os.getcwd(), "build/contracts", fileName)))['abi']
 
 market_contract_address, market_abi = get_config('Market.json')
-apus_token_contract_address, apus_token_abi = get_config('ApusToken.json')
+apus_token_contract_address, apus_token_abi = get_config('ApusProofTask.json')
 apus_iprover_contract_address, apus_iprover_abi = get_config('ApusTaikoProverPool.json')
-binding_contract_address, binding_abi = get_config('Binding.json')
+binding_contract_address, binding_abi = get_config('ApusProofTask.json')
 # print(market_contract_address)
 # print(apus_token_contract_address)
 # print(apus_iprover_contract_address)
