@@ -2,13 +2,17 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
+import {Market} from "./market.sol";
 import { ApusData } from "./ApusData.sol";
 import { IProofTask, IReward } from "./ApusInterface.sol";
 
 contract ApusProofTask is IProofTask {
     uint256 public taskId;
 
-    constructor() {
+    Market apusMarket;
+
+    constructor(address marketAddress) {
+        apusMarket = Market(marketAddress);
         taskId = 0;
     }
 
@@ -104,6 +108,7 @@ contract ApusProofTask is IProofTask {
         typedTasks[_type].push(taskId);
         proverTasks[assignment.prover][assignment.clientId].push(taskId);
         blockTasks[blockId] = taskId;
+        apusMarket.dispatchTaskToClient(assignment.prover, assignment.clientId);
         // 触发事件
         emit TaskBound(taskId, _type, blockId, meta, assignment);
     }
@@ -116,10 +121,13 @@ contract ApusProofTask is IProofTask {
         ApusData.ProofTask storage task = tasks[_taskId];
         // 验证prover
         require(msg.sender == task.assigment.prover, "Caller is not the prover");
+        apusMarket.releaseTaskToClient(task.assigment.prover, task.assigment.clientId);
+
         // 验证任务状态
         require(task.status == ApusData.TaskStatus.Assigned, "Task is not pending or does not exist");
         // 修改task状态为已证明
         task.status = ApusData.TaskStatus.Proved;
+
         // 调用reward方法
         reward(_taskId);
     }

@@ -3,6 +3,7 @@ import json
 import os
 import sys
 
+# Localhost
 url = 'http://1.117.58.173:8545'
 chain_id = 1337
 gas_limit = 1000000  # 您可能需要根据合约函数的复杂性和资源消耗进行调整
@@ -10,6 +11,14 @@ gas_limit = 1000000  # 您可能需要根据合约函数的复杂性和资源消
 public_to_private_keys = {
     '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390' :'0x91c6c377cc072cd187fed1caaa6527896f58f10cb20667235c87b07c64b33955'
 }
+
+# Sepolia
+# url = 'https://eth-sepolia.g.alchemy.com/v2/j1yrdLvznv5AQ5NfphKOQZsFDU7-Jc8W'
+# chain_id = 11155111
+# public_to_private_keys = {
+#     '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9' :'88d57d52b4eedc76ca40bd52bc36c16795d61972ec8ff530ad74dc9bcd17299a'
+# }
+
 
 class _role:
     _contract_owner = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
