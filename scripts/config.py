@@ -48,7 +48,7 @@ role = _role()
 def get_config(fileName):
     return json.load(open(os.path.join(os.getcwd(), "build/contract_address", fileName)))['address'], json.load(open(os.path.join(os.getcwd(), "build/contracts", fileName)))['abi']
 
-market_contract_address, market_abi = json.load(open(os.path.join(os.getcwd(), "Market.json")))['address'], json.load(open(os.path.join(os.getcwd(), "Market.json")))['abi']
+market_contract_address, market_abi = "0xC3F33a1FbCa8e2DBc50b63C6742AD85a6Fb8c153", json.load(open(os.path.join(os.getcwd(), "Market.json")))['abi']
 apus_token_contract_address, apus_token_abi = get_config('ApusProofTask.json')
 apus_iprover_contract_address, apus_iprover_abi = get_config('ApusTaikoProverPool.json')
 binding_contract_address, binding_abi = get_config('ApusProofTask.json')
