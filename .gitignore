@@ -11,7 +11,7 @@
 scripts/__pycache__
 migrations/.gitkeep
 contracts/.gitkeep
-build/
+# build/
 test/
 .vscode
 # Test binary, built with `go test -c`

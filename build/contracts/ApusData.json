@@ -1,0 +1,799 @@
+{
+  "contractName": "ApusData",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.20+commit.a1b79de6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/ApusData.sol\":\"ApusData\"},\"evmVersion\":\"shanghai\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/ApusData.sol\":{\"keccak256\":\"0x835ab880301df04e66de9c6276049dfeba99c25690aa59bf878a6e8d6b6077ad\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4a424a8b8cef847050799a5e997868484c1746db13738e77e2f38b321befa7e4\",\"dweb:/ipfs/QmSNZX5bUP8q2MyFkfuzPaRC5oDYAnUYxzt1aNu34LefPF\"]}},\"version\":1}",
+  "bytecode": "0x6055604b600b8282823980515f1a607314603f577f4e487b71000000000000000000000000000000000000000000000000000000005f525f60045260245ffd5b305f52607381538281f3fe730000000000000000000000000000000000000000301460806040525f80fdfea2646970667358221220a3fe10d446a409ddf20c75a59b8f34b097c3666fa9e9210a50f7e1a7040b5d3764736f6c63430008140033",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040525f80fdfea2646970667358221220a3fe10d446a409ddf20c75a59b8f34b097c3666fa9e9210a50f7e1a7040b5d3764736f6c63430008140033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "59:1170:8:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "59:1170:8:-:0;;;;;;;;",
+  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.8.20;\n\nlibrary ApusData {\n\n\n\n    // prover zkEVM client \n    struct ClientConfig {\n        address owner;\n        uint256 id;\n        string url;\n        uint256 minFee;\n        uint8 maxZkEvmInstance;\n        uint8 curInstance;\n    }\n\n\n    struct ProverClient {\n        address owner;\n        // prover stake to apus\n        mapping(address => uint256) stakeAmount;\n        // apus lock amount when assigned prover proof task\n        mapping(address => uint256) lockAmount;\n        ClientConfig[] clients;\n    }\n\n\n    enum TaskType {TaikoZKEvm}\n    enum TaskStatus {Assigned, Proving, Proved, Rewarded, Slashed}\n    \n    struct ProofAssignment {\n        address prover; // 证明者地址，用于接收奖励\n        uint256 clientId; // 客户端ID\n        uint256 expiry; // 承诺证明时间\n        bytes signature; // 签名\n    }\n    \n    // proof task info\n    struct ProofTask {\n        TaskType _type; // 任务提供者，例如taiko\n        uint64 blockID; // 假定我们是服务于L2的证明者市场\n        bytes meta; // 任务携带的元数据\n        ApusData.ProofAssignment assigment; // 任务分配信息\n        TaskStatus status; // 状态\n    }\n}\n\n",
+  "sourcePath": "/Users/irongyi/solidity_project/apus_zkp_market/contracts/ApusData.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/ApusData.sol",
+    "exportedSymbols": {
+      "ApusData": [
+        1253
+      ]
+    },
+    "id": 1254,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1193,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".20"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "33:24:8"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "ApusData",
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 1253,
+        "linearizedBaseContracts": [
+          1253
+        ],
+        "name": "ApusData",
+        "nameLocation": "67:8:8",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "ApusData.ClientConfig",
+            "id": 1206,
+            "members": [
+              {
+                "constant": false,
+                "id": 1195,
+                "mutability": "mutable",
+                "name": "owner",
+                "nameLocation": "151:5:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1206,
+                "src": "143:13:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1194,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "143:7:8",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1197,
+                "mutability": "mutable",
+                "name": "id",
+                "nameLocation": "174:2:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1206,
+                "src": "166:10:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1196,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "166:7:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1199,
+                "mutability": "mutable",
+                "name": "url",
+                "nameLocation": "193:3:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1206,
+                "src": "186:10:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 1198,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "186:6:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1201,
+                "mutability": "mutable",
+                "name": "minFee",
+                "nameLocation": "214:6:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1206,
+                "src": "206:14:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1200,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "206:7:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1203,
+                "mutability": "mutable",
+                "name": "maxZkEvmInstance",
+                "nameLocation": "236:16:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1206,
+                "src": "230:22:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 1202,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "230:5:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1205,
+                "mutability": "mutable",
+                "name": "curInstance",
+                "nameLocation": "268:11:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1206,
+                "src": "262:17:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 1204,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "262:5:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ClientConfig",
+            "nameLocation": "120:12:8",
+            "nodeType": "StructDefinition",
+            "scope": 1253,
+            "src": "113:173:8",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "ApusData.ProverClient",
+            "id": 1221,
+            "members": [
+              {
+                "constant": false,
+                "id": 1208,
+                "mutability": "mutable",
+                "name": "owner",
+                "nameLocation": "331:5:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1221,
+                "src": "323:13:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1207,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "323:7:8",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1212,
+                "mutability": "mutable",
+                "name": "stakeAmount",
+                "nameLocation": "406:11:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1221,
+                "src": "378:39:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 1211,
+                  "keyName": "",
+                  "keyNameLocation": "-1:-1:-1",
+                  "keyType": {
+                    "id": 1209,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "386:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "378:27:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueName": "",
+                  "valueNameLocation": "-1:-1:-1",
+                  "valueType": {
+                    "id": 1210,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "397:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1216,
+                "mutability": "mutable",
+                "name": "lockAmount",
+                "nameLocation": "515:10:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1221,
+                "src": "487:38:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                  "typeString": "mapping(address => uint256)"
+                },
+                "typeName": {
+                  "id": 1215,
+                  "keyName": "",
+                  "keyNameLocation": "-1:-1:-1",
+                  "keyType": {
+                    "id": 1213,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "495:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "nodeType": "Mapping",
+                  "src": "487:27:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                    "typeString": "mapping(address => uint256)"
+                  },
+                  "valueName": "",
+                  "valueNameLocation": "-1:-1:-1",
+                  "valueType": {
+                    "id": 1214,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "506:7:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1220,
+                "mutability": "mutable",
+                "name": "clients",
+                "nameLocation": "550:7:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1221,
+                "src": "535:22:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_struct$_ClientConfig_$1206_storage_$dyn_storage_ptr",
+                  "typeString": "struct ApusData.ClientConfig[]"
+                },
+                "typeName": {
+                  "baseType": {
+                    "id": 1218,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 1217,
+                      "name": "ClientConfig",
+                      "nameLocations": [
+                        "535:12:8"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 1206,
+                      "src": "535:12:8"
+                    },
+                    "referencedDeclaration": 1206,
+                    "src": "535:12:8",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ClientConfig_$1206_storage_ptr",
+                      "typeString": "struct ApusData.ClientConfig"
+                    }
+                  },
+                  "id": 1219,
+                  "nodeType": "ArrayTypeName",
+                  "src": "535:14:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_ClientConfig_$1206_storage_$dyn_storage_ptr",
+                    "typeString": "struct ApusData.ClientConfig[]"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ProverClient",
+            "nameLocation": "300:12:8",
+            "nodeType": "StructDefinition",
+            "scope": 1253,
+            "src": "293:271:8",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "ApusData.TaskType",
+            "id": 1223,
+            "members": [
+              {
+                "id": 1222,
+                "name": "TaikoZKEvm",
+                "nameLocation": "586:10:8",
+                "nodeType": "EnumValue",
+                "src": "586:10:8"
+              }
+            ],
+            "name": "TaskType",
+            "nameLocation": "576:8:8",
+            "nodeType": "EnumDefinition",
+            "src": "571:26:8"
+          },
+          {
+            "canonicalName": "ApusData.TaskStatus",
+            "id": 1229,
+            "members": [
+              {
+                "id": 1224,
+                "name": "Assigned",
+                "nameLocation": "619:8:8",
+                "nodeType": "EnumValue",
+                "src": "619:8:8"
+              },
+              {
+                "id": 1225,
+                "name": "Proving",
+                "nameLocation": "629:7:8",
+                "nodeType": "EnumValue",
+                "src": "629:7:8"
+              },
+              {
+                "id": 1226,
+                "name": "Proved",
+                "nameLocation": "638:6:8",
+                "nodeType": "EnumValue",
+                "src": "638:6:8"
+              },
+              {
+                "id": 1227,
+                "name": "Rewarded",
+                "nameLocation": "646:8:8",
+                "nodeType": "EnumValue",
+                "src": "646:8:8"
+              },
+              {
+                "id": 1228,
+                "name": "Slashed",
+                "nameLocation": "656:7:8",
+                "nodeType": "EnumValue",
+                "src": "656:7:8"
+              }
+            ],
+            "name": "TaskStatus",
+            "nameLocation": "607:10:8",
+            "nodeType": "EnumDefinition",
+            "src": "602:62:8"
+          },
+          {
+            "canonicalName": "ApusData.ProofAssignment",
+            "id": 1238,
+            "members": [
+              {
+                "constant": false,
+                "id": 1231,
+                "mutability": "mutable",
+                "name": "prover",
+                "nameLocation": "715:6:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1238,
+                "src": "707:14:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 1230,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "707:7:8",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1233,
+                "mutability": "mutable",
+                "name": "clientId",
+                "nameLocation": "779:8:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1238,
+                "src": "771:16:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1232,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "771:7:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1235,
+                "mutability": "mutable",
+                "name": "expiry",
+                "nameLocation": "820:6:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1238,
+                "src": "812:14:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 1234,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "812:7:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1237,
+                "mutability": "mutable",
+                "name": "signature",
+                "nameLocation": "864:9:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1238,
+                "src": "858:15:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 1236,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "858:5:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ProofAssignment",
+            "nameLocation": "681:15:8",
+            "nodeType": "StructDefinition",
+            "scope": 1253,
+            "src": "674:216:8",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "ApusData.ProofTask",
+            "id": 1252,
+            "members": [
+              {
+                "constant": false,
+                "id": 1241,
+                "mutability": "mutable",
+                "name": "_type",
+                "nameLocation": "959:5:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1252,
+                "src": "950:14:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_TaskType_$1223",
+                  "typeString": "enum ApusData.TaskType"
+                },
+                "typeName": {
+                  "id": 1240,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 1239,
+                    "name": "TaskType",
+                    "nameLocations": [
+                      "950:8:8"
+                    ],
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 1223,
+                    "src": "950:8:8"
+                  },
+                  "referencedDeclaration": 1223,
+                  "src": "950:8:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskType_$1223",
+                    "typeString": "enum ApusData.TaskType"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1243,
+                "mutability": "mutable",
+                "name": "blockID",
+                "nameLocation": "1014:7:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1252,
+                "src": "1007:14:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 1242,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1007:6:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1245,
+                "mutability": "mutable",
+                "name": "meta",
+                "nameLocation": "1085:4:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1252,
+                "src": "1079:10:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 1244,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1079:5:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1248,
+                "mutability": "mutable",
+                "name": "assigment",
+                "nameLocation": "1152:9:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1252,
+                "src": "1127:34:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_ProofAssignment_$1238_storage_ptr",
+                  "typeString": "struct ApusData.ProofAssignment"
+                },
+                "typeName": {
+                  "id": 1247,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 1246,
+                    "name": "ApusData.ProofAssignment",
+                    "nameLocations": [
+                      "1127:8:8",
+                      "1136:15:8"
+                    ],
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 1238,
+                    "src": "1127:24:8"
+                  },
+                  "referencedDeclaration": 1238,
+                  "src": "1127:24:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ProofAssignment_$1238_storage_ptr",
+                    "typeString": "struct ApusData.ProofAssignment"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1251,
+                "mutability": "mutable",
+                "name": "status",
+                "nameLocation": "1204:6:8",
+                "nodeType": "VariableDeclaration",
+                "scope": 1252,
+                "src": "1193:17:8",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_enum$_TaskStatus_$1229",
+                  "typeString": "enum ApusData.TaskStatus"
+                },
+                "typeName": {
+                  "id": 1250,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 1249,
+                    "name": "TaskStatus",
+                    "nameLocations": [
+                      "1193:10:8"
+                    ],
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 1229,
+                    "src": "1193:10:8"
+                  },
+                  "referencedDeclaration": 1229,
+                  "src": "1193:10:8",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_TaskStatus_$1229",
+                    "typeString": "enum ApusData.TaskStatus"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "ProofTask",
+            "nameLocation": "930:9:8",
+            "nodeType": "StructDefinition",
+            "scope": 1253,
+            "src": "923:304:8",
+            "visibility": "public"
+          }
+        ],
+        "scope": 1254,
+        "src": "59:1170:8",
+        "usedErrors": [],
+        "usedEvents": []
+      }
+    ],
+    "src": "33:1198:8"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.20+commit.a1b79de6.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.16",
+  "updatedAt": "2023-11-03T04:30:46.129Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
