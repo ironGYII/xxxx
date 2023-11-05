@@ -120,9 +120,9 @@ contract EIP20 is EIP20Interface {
     function reward(address _prover) public {
         rewardCache[block.number].push(_prover);
 
-        for (; rewardEpoch < block.number; rewardEpoch ++) {
-            _mint(rewardEpoch);
-        }
+        // for (; rewardEpoch < block.number; rewardEpoch ++) {
+        //     _mint(rewardEpoch);
+        // }
     }
 
     function getRewardEpoch() public view returns (uint256) {
