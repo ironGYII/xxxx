@@ -10,12 +10,12 @@ from scripts.conn import market_contract, apus_iprover_contract, apus_token_cont
 client_id = int(time.time() * 100)
 
 client_config = {
-    'owner': '0xeA389159172f7934DdaC4a935dDA0bd9a1d80290',  # Account1
+    'owner': role.contract_owner.public_key,  # Account1
     'id': client_id,  # 这是一个示例ID
-    'url': 'http://ec2-54-172-57-18.compute-1.amazonaws.com:9000',  # 这是一个示例URL
+    'url': 'http://ec2-3-235-67-158.compute-1.amazonaws.com:9000',  # 这是一个示例URL
     'minFee': 1,  # 这是一个示例费用，可以根据需要更改
-    'maxZkEvmInstance': 5,  # 这是一个示例的最大实例数
-    'curInstance': 2  # 这是一个示例的当前实例数
+    'maxZkEvmInstance': 1,  # 这是一个示例的最大实例数
+    'curInstance': 0  # 这是一个示例的当前实例数
 }
 
 
@@ -28,7 +28,7 @@ class ContractLib:
       return market_contract.functions.get().call()
 
     def set_address(self):
-      print(transaction(role.provider, apus_iprover_contract.functions.setProofTaskContract("0xe9B85f5413D0a6783b96CFE014D3d2A1F179b0cA")))
+      print(transaction(role.provider, apus_iprover_contract.functions.setProofTaskContract(role.contract_owner.public_key)))
 
     def join_market(self, client_config):
         # 这里假设client_config是一个字典，它的键对应ApusData.ClientConfig结构体的字段
@@ -40,23 +40,23 @@ class ContractLib:
     def getLowestN(self):
         return market_contract.functions.getLowestN().call()
 
-    def getProverConfig(self):
-        return market_contract.functions.getProverConfig("0xeA389159172f7934DdaC4a935dDA0bd9a1d80290", client_id).call()
+    def getProverConfig(self, cid):
+        return market_contract.functions.getProverConfig(role.contract_owner.public_key, cid).call()
 
-    def dispatchTaskToClient(self):
-         tx_hash2 = transaction(role.contract_owner, market_contract.functions.dispatchTaskToClient("0xeA389159172f7934DdaC4a935dDA0bd9a1d80290", client_id))
+    def dispatchTaskToClient(self, cid):
+         tx_hash2 = transaction(role.contract_owner, market_contract.functions.dispatchTaskToClient(role.contract_owner.public_key, cid))
          return tx_hash2
     
-    def releaseTaskToClient(self):
-        tx_hash2 = transaction(role.contract_owner, market_contract.functions.releaseTaskToClient("0xeA389159172f7934DdaC4a935dDA0bd9a1d80290", client_id))
+    def releaseTaskToClient(self, cid):
+        tx_hash2 = transaction(role.contract_owner, market_contract.functions.releaseTaskToClient(role.contract_owner.public_key, cid))
         return tx_hash2
 
     def task_dispatchTaskToClient(self):
-         tx_hash2 = transaction(role.contract_owner, apus_token_contract.functions.dispatchTaskToClient("0xeA389159172f7934DdaC4a935dDA0bd9a1d80290", client_id))
+         tx_hash2 = transaction(role.contract_owner, apus_token_contract.functions.dispatchTaskToClient(role.contract_owner.public_key, client_id))
          return tx_hash2
     
     def task_releaseTaskToClient(self):
-        tx_hash2 = transaction(role.contract_owner, apus_token_contract.functions.releaseTaskToClient("0xeA389159172f7934DdaC4a935dDA0bd9a1d80290", client_id))
+        tx_hash2 = transaction(role.contract_owner, apus_token_contract.functions.releaseTaskToClient(role.contract_owner.public_key, client_id))
         return tx_hash2
 
     def task_set_market_address(self):
@@ -72,20 +72,27 @@ if __name__ == '__main__':
 
     tx_hash = contract_connector.join_market(client_config)
 
-    print(f"Sent joinMarket transaction with hash: {tx_hash}")
+    # print(f"Sent joinMarket transaction with hash: {tx_hash}")
 
-    print(f"\n LowestN:{contract_connector.getLowestN()}")
 
-    print(f"\n get Prover:{contract_connector.getProverConfig()}")
+    for i in range(10):
+        gln = contract_connector.getLowestN()
+        print(f"\n LowestN:{gln[1][1]}")
 
-    tx_hash1 = contract_connector.task_set_market_address()
-    print(f"\n get Prover:{contract_connector.getProverConfig()}")
+        print(f"\n get Prover:{contract_connector.getProverConfig(gln[1][1])}")
 
-    print("FUCKKKKKKKKKKK")
-    tx_hash1 = contract_connector.task_dispatchTaskToClient()
-    print(f"\n Sent dispatchTaskToClient transaction with hash: {tx_hash1}")
-    print(f"\n get Prover:{contract_connector.getProverConfig()}")
+        break
+        # contract_connector.dispatchTaskToClient(gln[1][1])
 
-    tx_hash2 = contract_connector.task_releaseTaskToClient()
-    print(f"\n Sent releaseTaskToClient transaction with hash: {tx_hash2}")
-    print(f"\n get Prover:{contract_connector.getProverConfig()}")
+    # tx_hash1 = contract_connector.task_set_market_address()
+    # print(f"\n get Prover:{contract_connector.getProverConfig()}")
+
+    # print("FUCKKKKKKKKKKK")
+    # tx_hash1 = contract_connector.task_dispatchTaskToClient()
+    # print(f"\n Sent dispatchTaskToClient transaction with hash: {tx_hash1}")
+    # print(f"\n get Prover:{contract_connector.getProverConfig()}")
+
+    # tx_hash2 = contract_connector.task_releaseTaskToClient()
+    # print(f"\n Sent releaseTaskToClient transaction with hash: {tx_hash2}")
+    # print(f"\n get Prover:{contract_connector.getProverConfig()}")
+

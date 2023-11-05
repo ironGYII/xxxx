@@ -1,14 +1,159 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+// Abstract contract for the full ERC 20 Token standard
+// https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md
+pragma solidity ^0.4.21;
 
-import "./console.sol";
 
-contract ApusToken {
-    // Search the n'st lowest price prover 
+contract EIP20Interface {
+    /* This is a slight change to the ERC20 base standard.
+    function totalSupply() constant returns (uint256 supply);
+    is replaced with:
+    uint256 public totalSupply;
+    This automatically creates a getter function for the totalSupply.
+    This is moved to the base contract since public getter functions are not
+    currently recognised as an implementation of the matching abstract
+    function by the compiler.
+    */
+    /// total amount of tokens
+    uint256 public totalSupply;
 
-    function get() public view {
-        uint256 count = 5;
-        console.log('count: %d', count);
-        console.log();
-    }
+    /// @param _owner The address from which the balance will be retrieved
+    /// @return The balance
+    function balanceOf(address _owner) public view returns (uint256 balance);
+
+    /// @notice send `_value` token to `_to` from `msg.sender`
+    /// @param _to The address of the recipient
+    /// @param _value The amount of token to be transferred
+    /// @return Whether the transfer was successful or not
+    function transfer(address _to, uint256 _value) public returns (bool success);
+
+    /// @notice send `_value` token to `_to` from `_from` on the condition it is approved by `_from`
+    /// @param _from The address of the sender
+    /// @param _to The address of the recipient
+    /// @param _value The amount of token to be transferred
+    /// @return Whether the transfer was successful or not
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success);
+
+    /// @notice `msg.sender` approves `_spender` to spend `_value` tokens
+    /// @param _spender The address of the account able to transfer the tokens
+    /// @param _value The amount of tokens to be approved for transfer
+    /// @return Whether the approval was successful or not
+    function approve(address _spender, uint256 _value) public returns (bool success);
+
+    /// @param _owner The address of the account owning tokens
+    /// @param _spender The address of the account able to transfer the tokens
+    /// @return Amount of remaining tokens allowed to spent
+    function allowance(address _owner, address _spender) public view returns (uint256 remaining);
+
+    // solhint-disable-next-line no-simple-event-func-name
+    event Transfer(address indexed _from, address indexed _to, uint256 _value);
+    event Approval(address indexed _owner, address indexed _spender, uint256 _value);
 }
+
+contract EIP20 is EIP20Interface {
+
+    uint256 constant private MAX_UINT256 = 2**256 - 1;
+    mapping (address => uint256) public balances;
+    mapping (address => mapping (address => uint256)) public allowed;
+    /*
+    NOTE:
+    The following variables are OPTIONAL vanities. One does not have to include them.
+    They allow one to customise the token contract & in no way influences the core functionality.
+    Some wallets/interfaces might not even bother to look at this information.
+    */
+    string public name;                   //fancy name: eg Simon Bucks
+    uint8 public decimals;                //How many decimals to show.
+    string public symbol;                 //An identifier: eg SBX
+    address private owner;
+
+    constructor(
+        uint256 _initialAmount,
+        string _tokenName,
+        uint8 _decimalUnits,
+        string _tokenSymbol
+    ) public {
+        owner = msg.sender;
+        balances[msg.sender] = _initialAmount;               // Give the creator all initial tokens
+        totalSupply = _initialAmount;                        // Update total supply
+        name = _tokenName;                                   // Set the name for display purposes
+        decimals = _decimalUnits;                            // Amount of decimals for display purposes
+        symbol = _tokenSymbol;                               // Set the symbol for display purposes
+    }
+
+    function transfer(address _to, uint256 _value) public returns (bool success) {
+        require(balances[msg.sender] >= _value);
+        balances[msg.sender] -= _value;
+        balances[_to] += _value;
+        emit Transfer(msg.sender, _to, _value); //solhint-disable-line indent, no-unused-vars
+        return true;
+    }
+
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
+        uint256 allowance = allowed[_from][msg.sender];
+        require(balances[_from] >= _value && allowance >= _value);
+        balances[_to] += _value;
+        balances[_from] -= _value;
+        if (allowance < MAX_UINT256) {
+            allowed[_from][msg.sender] -= _value;
+        }
+        emit Transfer(_from, _to, _value); //solhint-disable-line indent, no-unused-vars
+        return true;
+    }
+
+    function balanceOf(address _owner) public view returns (uint256 balance) {
+        return balances[_owner];
+    }
+
+    function approve(address _spender, uint256 _value) public returns (bool success) {
+        allowed[msg.sender][_spender] = _value;
+        emit Approval(msg.sender, _spender, _value); //solhint-disable-line indent, no-unused-vars
+        return true;
+    }
+
+    function allowance(address _owner, address _spender) public view returns (uint256 remaining) {
+        return allowed[_owner][_spender];
+    }
+
+    uint256 rewardEpoch;
+    mapping (uint256 => address[]) rewardCache;
+    // todo: add auth verify
+    function reward(address _prover) public {
+        rewardCache[block.number].push(_prover);
+
+        for (; rewardEpoch < block.number; rewardEpoch ++) {
+            _mint(rewardEpoch);
+        }
+    }
+
+    function getRewardEpoch() public view returns (uint256) {
+        return rewardEpoch;
+    }
+
+    function _mintTokenAmount(uint256 epoch) private pure returns (uint256) {
+        // need strategy, cur Empty, fixed amount 
+        return 1000000000000000000000;
+    }
+
+    function _mint(uint256 epoch) private {
+        if (rewardCache[epoch].length <= 0 ) {
+            return ;
+        }
+        
+        uint256 totalProverReward = _mintTokenAmount(epoch) * 60 / 100;
+        uint256 rewardPerTask = calcReward(totalProverReward, rewardCache[epoch].length);
+        balances[owner] +=  _mintTokenAmount(epoch) - rewardPerTask * rewardCache[epoch].length;
+    
+        for (uint256 i = 0; i < rewardCache[epoch].length; i ++ ) {
+            balances[rewardCache[epoch][i]] += rewardPerTask;
+        }
+
+    }
+
+    function calcReward(uint256 a, uint256 b) private pure returns(uint256){
+        if (a % b == 0) {
+            return a / b;
+        } else {
+            return a / b + 1;
+        }
+    }
+} 

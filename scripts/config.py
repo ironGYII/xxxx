@@ -13,15 +13,15 @@ public_to_private_keys = {
 }
 
 # Sepolia
-# url = 'https://eth-sepolia.g.alchemy.com/v2/j1yrdLvznv5AQ5NfphKOQZsFDU7-Jc8W'
-# chain_id = 11155111
-# public_to_private_keys = {
-#     '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9' :'88d57d52b4eedc76ca40bd52bc36c16795d61972ec8ff530ad74dc9bcd17299a'
-# }
+url = 'https://eth-sepolia.g.alchemy.com/v2/j1yrdLvznv5AQ5NfphKOQZsFDU7-Jc8W'
+chain_id = 11155111
+public_to_private_keys = {
+    '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9' :'88d57d52b4eedc76ca40bd52bc36c16795d61972ec8ff530ad74dc9bcd17299a'
+}
 
 
 class _role:
-    _contract_owner = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
+    _contract_owner = '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9'
     _provider = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
     _user = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
 
