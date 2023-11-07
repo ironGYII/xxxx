@@ -65,6 +65,7 @@ contract EIP20 is EIP20Interface {
     uint8 public decimals;                //How many decimals to show.
     string public symbol;                 //An identifier: eg SBX
     address private owner;
+    uint256 public mintPerYear;
 
     constructor(
         uint256 _initialAmount,
@@ -119,10 +120,14 @@ contract EIP20 is EIP20Interface {
     // todo: add auth verify
     function reward(address _prover) public {
         rewardCache[block.number].push(_prover);
-
         // for (; rewardEpoch < block.number; rewardEpoch ++) {
         //     _mint(rewardEpoch);
         // }
+        _mint(block.numbersss
+    }
+
+    function mint(uint256 epoch) public {
+        return _mint(epoch)
     }
 
     function getRewardEpoch() public view returns (uint256) {
@@ -130,17 +135,23 @@ contract EIP20 is EIP20Interface {
     }
 
     function _mintTokenAmount(uint256 epoch) private pure returns (uint256) {
+        // 以太坊的出块速度大概是30秒, 
         // need strategy, cur Empty, fixed amount 
-        return 1000000000000000000000;
+        // 
+        uint256 epochPerYear = 365 * 2 * 60 * 24;
+        return mintPerYear / epochPerYear;
     }
+
+    function setMintPerYear(uint256 amount)
 
     function _mint(uint256 epoch) private {
         if (rewardCache[epoch].length <= 0 ) {
             return ;
-        }
+        } 
         
+        totalSupply += _mintTokenAmount(epoch);
         uint256 totalProverReward = _mintTokenAmount(epoch) * 60 / 100;
-        uint256 rewardPerTask = calcReward(totalProverReward, rewardCache[epoch].length);
+        uint256 rewardPerTask = calcReward(tstalProverReward, rewardCache[epoch].length);
         balances[owner] +=  _mintTokenAmount(epoch) - rewardPerTask * rewardCache[epoch].length;
     
         for (uint256 i = 0; i < rewardCache[epoch].length; i ++ ) {
