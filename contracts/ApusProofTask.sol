@@ -21,13 +21,29 @@ contract ApusProofTask {
         token = ERC20(_tokenAddr);
     }
 
-    function submitTask(uint256 taskID, bytes calldata result) public {
-        require(tasks[taskID - 1]._stat == ApusData.TaskStatus.Assigned);
-        tasks[taskID - 1]._stat = ApusData.TaskStatus.Done;
-        tasks[taskID - 1].result = result;
-        market.releaseTaskToClient(tasks[taskID - 1].assigner, tasks[taskID - 1].clientId);
+    function submitTask(ApusData.TaskType _tp, uint256 uniqID, bytes calldata result) public {
+        for (uint256 i = 0; i < tasks.length; i++) {
+            if (tasks[i]._tp ==  _tp && tasks[i].uniqID == uniqID) {
+                require(tasks[i]._stat == ApusData.TaskStatus.Assigned);
+                tasks[i]._stat = ApusData.TaskStatus.Done;
+                tasks[i].result = result;
+                market.getProverConfig(tasks[i].assigner, tasks[i].clientId);
+                market.releaseTaskToClient(tasks[i].assigner, tasks[i].clientId);
+                token.reward(tasks[i].assigner);
+                return ;
+            }
+        }
 
-        token.reward(tasks[taskID - 1].assigner);
+    }
+
+    function getTask(ApusData.TaskType _tp, uint256 uniqID) public view returns(ApusData.Task memory, ApusData.ClientConfig memory){
+        for (uint256 i = 0; i < tasks.length; i++) {
+            if (tasks[i]._tp ==  _tp && tasks[i].uniqID == uniqID) {
+                ApusData.ClientConfig memory cf = market.getProverConfig(tasks[i].assigner, tasks[i].clientId);
+                return (tasks[i], cf);
+            }
+        }
+        revert("unknow task");
     }
 
     function postTask(ApusData.TaskType _tp, uint256 uniqID, bytes calldata input, uint64 expiry, ApusData.rewardInfo memory ri) public {
@@ -40,12 +56,16 @@ contract ApusProofTask {
         tasks.push(ApusData.Task(tasks.length + 1, 0, uniqID, address(0), input, _tp, ApusData.TaskStatus.Posted, new bytes(0), ri, expiry));
     }
 
-    function dispatchTaskToClient(address prover, uint256 cid, uint256 taskID) public {
+    function dispatchTaskToClient(uint256 taskID) public {
+        // address prover, uint256 cid, 
         require(tasks[taskID - 1]._stat == ApusData.TaskStatus.Posted);
         tasks[taskID - 1]._stat = ApusData.TaskStatus.Assigned;
-        tasks[taskID - 1].assigner = prover;
-        tasks[taskID - 1].clientId = cid;
-        market.dispatchTaskToClient(prover, cid);
+        ApusData.ClientConfig memory cf;
+        (, cf) = market.getLowestN();
+
+        tasks[taskID - 1].assigner = cf.owner;
+        tasks[taskID - 1].clientId = cf.id;
+        market.dispatchTaskToClient(cf.owner, cf.id);
     }
 
 } 
