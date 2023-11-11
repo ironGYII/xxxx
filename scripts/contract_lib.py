@@ -47,8 +47,11 @@ class ContractLib:
         return apus_task_contract.functions.tasks(index).call()
 
     def submit_task(self, user, task_id):
-        tx_hash2 = transaction(user, apus_task_contract.functions.submitTask(0, task_id, b"result"))
+        tx_hash2 = transaction(user, apus_task_contract.functions.submitTask(0, task_id, b"8b6ffb96d2377872afd4998fb8329183abb8a321bde906059c8fa4643040728a"))
         return tx_hash2
+
+    def market_dispatch(self, user, addr, cid):
+        return transaction(user, market_contract.functions.dispatchTaskToClient(addr, cid))
 
 
 
@@ -105,7 +108,7 @@ def create_client():
 
 
 
-task_id = 1087692
+task_id = 1089754
 def post_task():
     print("-" * 10, "推送task", "-" * 10)
     tx = connector.post_task(role.provider, task_id)
@@ -138,12 +141,14 @@ def get_client_config():
 
 
 if __name__ == '__main__':
-    create_client()
-    post_task()
+    # print(connector.market_dispatch(role.provider, '0x0000000000000000000000000000000000000000', 0)['status'])
+    # create_client()
+    # print(connector.getLowestN())
+    # post_task()
     get_task()
-    dispatch_task()
-    get_task()
+    # dispatch_task()
+    # get_task()
     get_client_config()
-    # submit_task()
+    submit_task()
     # get_task()
 
