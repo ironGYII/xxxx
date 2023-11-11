@@ -39,8 +39,11 @@ contract ApusProofTask {
     function getTask(ApusData.TaskType _tp, uint256 uniqID) public view returns(ApusData.Task memory, ApusData.ClientConfig memory){
         for (uint256 i = 0; i < tasks.length; i++) {
             if (tasks[i]._tp ==  _tp && tasks[i].uniqID == uniqID) {
-                ApusData.ClientConfig memory cf = market.getProverConfig(tasks[i].assigner, tasks[i].clientId);
-                return (tasks[i], cf);
+                if (tasks[i]._stat != ApusData.TaskStatus.Posted) {
+                    ApusData.ClientConfig memory cf = market.getProverConfig(tasks[i].assigner, tasks[i].clientId);
+                    return (tasks[i], cf);
+                }
+                return (tasks[i], ApusData.ClientConfig(address(0), 0, "", 0, 0, 0));
             }
         }
         revert("unknow task");
@@ -58,14 +61,20 @@ contract ApusProofTask {
 
     function dispatchTaskToClient(uint256 taskID) public {
         // address prover, uint256 cid, 
-        require(tasks[taskID - 1]._stat == ApusData.TaskStatus.Posted);
-        tasks[taskID - 1]._stat = ApusData.TaskStatus.Assigned;
-        ApusData.ClientConfig memory cf;
-        (, cf) = market.getLowestN();
 
-        tasks[taskID - 1].assigner = cf.owner;
-        tasks[taskID - 1].clientId = cf.id;
-        market.dispatchTaskToClient(cf.owner, cf.id);
+        for (uint256 i = 0; i < tasks.length; i++) {
+            if (tasks[i].uniqID == taskID) {
+                if (tasks[i]._stat == ApusData.TaskStatus.Posted) {
+                    tasks[i]._stat = ApusData.TaskStatus.Assigned;
+                    ApusData.ClientConfig memory cf;
+                    (, cf) = market.getLowestN();
+
+                    tasks[i].assigner = cf.owner;
+                    tasks[i].clientId = cf.id;
+                    market.dispatchTaskToClient(cf.owner, cf.id);
+                }
+            }
+        }
     }
 
 } 

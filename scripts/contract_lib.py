@@ -30,25 +30,29 @@ class ContractLib:
     def getLowestN(self):
         return market_contract.functions.getLowestN().call()
 
-    def getProverConfig(self, cid):
-        return market_contract.functions.getProverConfig(role.contract_owner.public_key, cid).call()
+    def getProverConfig(self, addr, cid):
+        return market_contract.functions.getProverConfig(addr, cid).call()
 
     def post_task(self, user, uniq_id):
         return transaction(user, apus_task_contract.functions.postTask(0, uniq_id, b"hello world! input", int(time.time()) + 90 * 60, dict(token=none_address, amount=10)))
 
-    def dispatchTaskToClient(self, user, cid, taskID):
-        tx_hash2 = transaction(user, apus_task_contract.functions.dispatchTaskToClient(user.public_key, cid, taskID))
+    def dispatchTaskToClient(self, user, block_id):
+        tx_hash2 = transaction(user, apus_task_contract.functions.dispatchTaskToClient(block_id))
         return tx_hash2
 
-    def get_task(self, index):
+    def get_task(self, block_id):
+        return apus_task_contract.functions.getTask(0, block_id).call()
+
+    def get_task_by_index(self, index):
         return apus_task_contract.functions.tasks(index).call()
 
     def submit_task(self, user, task_id):
-        tx_hash2 = transaction(user, apus_task_contract.functions.submitTask(task_id, b"result"))
+        tx_hash2 = transaction(user, apus_task_contract.functions.submitTask(0, task_id, b"result"))
         return tx_hash2
 
 
-if __name__ == '__main__':
+
+def develop_test():
     # 新增一个client
     connector = ContractLib()
     task_id = 3
@@ -82,3 +86,64 @@ if __name__ == '__main__':
     print("-" * 10, "submit task", "-" * 10)
     tx = connector.submit_task(role.provider, task_id)
     print("end: state", tx['status'], connector.getProverConfig(client_config['id']), connector.get_task(task_id - 1))
+
+
+connector = ContractLib()
+
+
+def create_client():
+    # provider 0xC2600C80Beb521CC4E2f1b40B9D169c46E391390
+    client_config = gen_client_config(role.provider, 'http://3.235.67.158:9000', 1, 10)
+
+    print("-" * 10, "加入market client", "-" * 10)
+    tx = connector.join_market(role.provider, client_config)
+    print(tx['status'])
+
+    print("-" * 10, "获取价格最低client", "-" * 10)
+    result = connector.getLowestN()
+    print(result)
+
+
+
+task_id = 1087692
+def post_task():
+    print("-" * 10, "推送task", "-" * 10)
+    tx = connector.post_task(role.provider, task_id)
+    print(tx['status'])
+
+
+def get_task():
+    print("-" * 10, "获取task & client", "-" * 10)
+    result = connector.get_task(task_id)
+    print(result)
+
+
+def dispatch_task():
+    print("-" * 10, "分配机器", "-" * 10)
+    tx = connector.dispatchTaskToClient(role.provider, task_id)
+    print(tx['status'])
+
+
+def submit_task():
+    print("-" * 10, "提交任务", "-" * 10)
+    tx = connector.submit_task(role.provider, task_id)
+    print(tx['status'])
+
+def get_client_config():
+    print("-" * 10, "获取client配置", "-" * 10)
+    task, _ = connector.get_task(task_id)
+    result = connector.getProverConfig(task[3], task[1])
+    print(result)
+
+
+
+if __name__ == '__main__':
+    create_client()
+    post_task()
+    get_task()
+    dispatch_task()
+    get_task()
+    get_client_config()
+    # submit_task()
+    # get_task()
+
