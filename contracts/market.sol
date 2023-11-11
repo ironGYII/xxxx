@@ -19,6 +19,9 @@ contract Market {
     //     return count;
     // }
 
+    function setTask(address _as)  public {
+    }
+
     function joinMarket(ApusData.ClientConfig memory cf) public {
         clients.push(cf);
         // console.log("market j");

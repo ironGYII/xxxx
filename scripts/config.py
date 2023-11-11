@@ -13,15 +13,15 @@ public_to_private_keys = {
 }
 
 # Sepolia
-url = 'https://eth-sepolia.g.alchemy.com/v2/j1yrdLvznv5AQ5NfphKOQZsFDU7-Jc8W'
-chain_id = 11155111
-public_to_private_keys = {
-    '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9' :'88d57d52b4eedc76ca40bd52bc36c16795d61972ec8ff530ad74dc9bcd17299a'
-}
+# url = 'https://eth-sepolia.g.alchemy.com/v2/j1yrdLvznv5AQ5NfphKOQZsFDU7-Jc8W'
+# chain_id = 11155111
+# public_to_private_keys = {
+#     '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9' :'88d57d52b4eedc76ca40bd52bc36c16795d61972ec8ff530ad74dc9bcd17299a'
+# }
 
 
 class _role:
-    _contract_owner = '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9'
+    _contract_owner = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
     _provider = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
     _user = '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390'
 
@@ -48,16 +48,10 @@ role = _role()
 def get_config(fileName):
     return json.load(open(os.path.join(os.getcwd(), "build/contract_address", fileName)))['address'], json.load(open(os.path.join(os.getcwd(), "build/contracts", fileName)))['abi']
 
-market_contract_address, market_abi = "0xC3F33a1FbCa8e2DBc50b63C6742AD85a6Fb8c153", json.load(open(os.path.join(os.getcwd(), "Market.json")))['abi']
-apus_token_contract_address, apus_token_abi = get_config('ApusProofTask.json')
-apus_iprover_contract_address, apus_iprover_abi = get_config('ApusTaikoProverPool.json')
-binding_contract_address, binding_abi = get_config('ApusProofTask.json')
-# print(market_contract_address)
-# print(apus_token_contract_address)
-# print(apus_iprover_contract_address)
-# print(binding_contract_address)
+market_contract_address, market_abi = get_config("Market.json")
+apus_task_address, apus_task_abi = get_config('ApusProofTask.json')
 
-__all__ = ['role', 'url', 'chain_id', 'gas_limit', 'market_contract_address', 'market_abi', 'apus_token_contract_address', 'apus_token_abi', 'apus_iprover_contract_address', 'apus_iprover_abi', 'binding_contract_address', 'binding_abi']
+__all__ = ['role', 'url', 'chain_id', 'gas_limit', 'market_contract_address', 'market_abi', 'apus_task_address', 'apus_task_abi']
 
 if __name__ == '__main__':
     print(role.provider.public_key)

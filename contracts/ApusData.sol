@@ -26,24 +26,26 @@ library ApusData {
         ClientConfig[] clients;
     }
 
+    struct rewardInfo {
+        address token; // token address, eth if 0
+        uint256 amount;
+    }
+
+    struct Task {
+        uint256 id;
+        uint256 clientId;
+        uint256 uniqID;
+        address assigner;
+        bytes input;
+        TaskType _tp;
+        TaskStatus _stat;
+        bytes result;
+        rewardInfo reward;
+        uint64 expiry;
+    }
+
 
     enum TaskType {TaikoZKEvm}
-    enum TaskStatus {Assigned, Proving, Proved, Rewarded, Slashed}
+    enum TaskStatus {Posted, Assigned, Done, Slashed}
     
-    struct ProofAssignment {
-        address prover; // 证明者地址，用于接收奖励
-        uint256 clientId; // 客户端ID
-        uint256 expiry; // 承诺证明时间
-        bytes signature; // 签名
-    }
-    
-    // proof task info
-    struct ProofTask {
-        TaskType _type; // 任务提供者，例如taiko
-        uint64 blockID; // 假定我们是服务于L2的证明者市场
-        bytes meta; // 任务携带的元数据
-        ApusData.ProofAssignment assigment; // 任务分配信息
-        TaskStatus status; // 状态
-    }
 }
-

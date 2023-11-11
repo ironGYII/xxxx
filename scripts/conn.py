@@ -8,10 +8,8 @@ from scripts.config import *
 
 web3 = Web3(Web3.HTTPProvider(url))  # 替换为您自己的Infura项目ID或以太坊节点URL
 
-market_contract= web3.eth.contract(address=market_contract_address, abi=market_abi)
-apus_iprover_contract= web3.eth.contract(address=apus_iprover_contract_address, abi=apus_iprover_abi)
-apus_token_contract= web3.eth.contract(address=apus_token_contract_address, abi=apus_token_abi)
-apus_iprover_contract = web3.eth.contract(address=apus_iprover_contract_address, abi=apus_iprover_abi)
+market_contract = web3.eth.contract(address=market_contract_address, abi=market_abi)
+apus_task_contract = web3.eth.contract(address=apus_task_address, abi=apus_task_abi)
 
 
 def get_nonce(address):
@@ -32,4 +30,4 @@ def transaction(addr, func, **kwargs):
     tx_hash = web3.eth.send_raw_transaction(signed_txn.rawTransaction)
     return web3.eth.wait_for_transaction_receipt(tx_hash)
 
-__all__ = ['helper_contract', 'account_contract']
+__all__ = ['market_contract', 'apus_task_contract', 'transaction', 'web3']
