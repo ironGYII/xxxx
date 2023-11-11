@@ -145,10 +145,10 @@ if __name__ == '__main__':
     # create_client()
     # print(connector.getLowestN())
     # post_task()
-    get_task()
+    # get_task()
     # dispatch_task()
     # get_task()
-    get_client_config()
+    # get_client_config()
     submit_task()
     # get_task()
 

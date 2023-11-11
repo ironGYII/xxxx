@@ -20,15 +20,19 @@ chain_id = 11155111
 url = 'https://opbnb-testnet-rpc.bnbchain.org'
 chain_id = 5611
 
+# Scroll Sepolia
+url = 'https://sepolia-rpc.scroll.io'
+chain_id = 534351
+
 public_to_private_keys = {
-    '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9' :'88d57d52b4eedc76ca40bd52bc36c16795d61972ec8ff530ad74dc9bcd17299a'
+    '0xe8fa1Dc4d23c54C3C03fcF25EECa7E0Ff882a75e' :'6e84d87f7029357a2c236ddca1f5ec4fc289fff0ff06c70a1e5500e6a22b48b0'
 }
 
 
 class _role:
-    _contract_owner = '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9'
-    _provider = '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9'
-    _user = '0x122b93Ff43d17D6f8D93fB1dEa6faDac20489fA9'
+    _contract_owner = '0xe8fa1Dc4d23c54C3C03fcF25EECa7E0Ff882a75e'
+    _provider = '0xe8fa1Dc4d23c54C3C03fcF25EECa7E0Ff882a75e'
+    _user = '0xe8fa1Dc4d23c54C3C03fcF25EECa7E0Ff882a75e'
 
     @classmethod
     def private_key(cls, public_key):
