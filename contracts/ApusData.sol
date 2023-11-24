@@ -14,6 +14,7 @@ library ApusData {
         uint256 minFee;
         uint8 maxZkEvmInstance;
         uint8 curInstance;
+        ClientStatus stat;
     }
 
 
@@ -45,6 +46,7 @@ library ApusData {
     }
 
 
+    enum ClientStatus {Running, Stopped}
     enum TaskType {TaikoZKEvm}
     enum TaskStatus {Posted, Assigned, Done, Slashed}
     

@@ -1,23 +1,24 @@
 import json
+import sys
 import random
 import time
 
 import web3
 import argparse
-from scripts.config import role
+from scripts.config import role, env
 from scripts.conn import *
 
 none_address = '0x0000000000000000000000000000000000000000'
 
-def gen_client_config(owner, url, max_instance, min_fee):
-    client_id = int(time.time() * 100)
+def gen_client_config(owner, client_id, url, max_instance, min_fee):
     return {
-        'owner': owner.public_key,
+        'owner': owner,
         'id': client_id,  # 这是一个示例ID
         'url': url,  # 这是一个示例URL
         'minFee': min_fee,
         'maxZkEvmInstance': max_instance,
-        'curInstance': 0  # 这是一个示例的当前实例数
+        'curInstance': 0,  # 这是一个示例的当前实例数
+        'stat': 0
     }
 
 
@@ -53,50 +54,25 @@ class ContractLib:
     def market_dispatch(self, user, addr, cid):
         return transaction(user, market_contract.functions.dispatchTaskToClient(addr, cid))
 
+    def has_resource(self):
+        return apus_task_contract.functions.hasResource().call()
 
-
-def develop_test():
-    # 新增一个client
-    connector = ContractLib()
-    task_id = 3
-    task_uniq_id = int(time.time())
-    client_config = gen_client_config(role.provider, 'http://' + str(int(time.time())) + '.com', 1, 10)
-    print("-" * 10, "加入market client", "-" * 10)
-    tx = connector.join_market(role.provider, client_config)
-    print(tx['status'])
-
-    print("-" * 10, "获取价格最低client", "-" * 10)
-    result = connector.getLowestN()
-    print(result)
-
-    print("-" * 10, "prover client 信息", "-" * 10)
-    result = connector.getProverConfig(client_config['id'])
-    print(result)
-
-    print("-" * 10, "post task", "-" * 10)
-    tx = connector.post_task(role.provider, task_uniq_id)
-    print(tx['status'])
-
-    print("-" * 10, "get task", "-" * 10)
-    result = connector.get_task(task_id - 1)
-    print(result)
-
-    print("-" * 10, "dispatchTaskToClient", "-" * 10)
-    print("pre: state", connector.getProverConfig(client_config['id']))
-    tx = connector.dispatchTaskToClient(role.provider, client_config['id'], task_id)
-    print("end: state", tx['status'], connector.getProverConfig(client_config['id']), connector.get_task(task_id - 1))
-
-    print("-" * 10, "submit task", "-" * 10)
-    tx = connector.submit_task(role.provider, task_id)
-    print("end: state", tx['status'], connector.getProverConfig(client_config['id']), connector.get_task(task_id - 1))
 
 
 connector = ContractLib()
 
 
+def creat_client_2():
+    # provider 0xC2600C80Beb521CC4E2f1b40B9D169c46E391390
+    client_config = gen_client_config(role.provider.public_key, 22, 'http://ec2-18-209-35-10.compute-1.amazonaws.com', 1, 10)
+
+    print("-" * 10, "加入market client", "-" * 10)
+    tx = connector.join_market(role.provider, client_config)
+    print(tx['status'])
+
 def create_client():
     # provider 0xC2600C80Beb521CC4E2f1b40B9D169c46E391390
-    client_config = gen_client_config(role.provider, 'http://3.235.67.158:9000', 1, 10)
+    client_config = gen_client_config(role.provider.public_key, 11, 'http://3.235.67.158:9000', 1, 10)
 
     print("-" * 10, "加入market client", "-" * 10)
     tx = connector.join_market(role.provider, client_config)
@@ -107,8 +83,9 @@ def create_client():
     print(result)
 
 
+task_id = 1273181
 
-task_id = 1089754
+
 def post_task():
     print("-" * 10, "推送task", "-" * 10)
     tx = connector.post_task(role.provider, task_id)
@@ -139,16 +116,38 @@ def get_client_config():
     print(result)
 
 
+def auto_init():
+    client_config = gen_client_config(env['PROVER_PUBLIC_KEY'], int(env['CLIENT_ID']), env['CLIENT_URL'], int(env['MAX_ZKEVM_INSTANCE']), int(env['MIN_FEE']))
+    print(client_config)
+    print("-" * 10, "加入market client", "-" * 10)
+    tx = connector.join_market(type("owner", (), dict(public_key=env['PROVER_PUBLIC_KEY'], private_key=env['PROVER_PRIVATE_KEY'])), client_config)
+    if tx['status'] != 1:
+        print("Join Market Failed")
+    else:
+        print("Join Market Success")
+
 
 if __name__ == '__main__':
+    # auto_init()
     # print(connector.market_dispatch(role.provider, '0x0000000000000000000000000000000000000000', 0)['status'])
     # create_client()
+    # creat_client_2()
+    # print(connector.market_dispatch(role.provider, '0xC2600C80Beb521CC4E2f1b40B9D169c46E391390', 170073054677)['status'])
     # print(connector.getLowestN())
-    # post_task()
+    # print(connector.has_resource())
+    # submit_task()
+    # v = connector.get_task_by_index(43)
+    # print(v)
+    for index, i in enumerate(range(100000)):
+        try:
+            v = connector.get_task_by_index(i)
+            print(index, ":", v[2], v[1], v[6])
+        except:
+            break
+    # print(connector.getLowestN())
     # get_task()
     # dispatch_task()
     # get_task()
     # get_client_config()
-    submit_task()
+    # submit_task()
     # get_task()
-

@@ -1,4 +1,3 @@
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.20;
 
@@ -14,7 +13,7 @@ contract ApusProofTask {
     Market private market;
     ERC20 private token;
 
-    event eventPostTask(uint256 taskId, uint256 fee, address tokenAddress);
+    event eventPostTask(ApusData.TaskType _tp, uint256 taskId, bytes data);
 
     constructor(address _marketAddr, address _tokenAddr) {
         market = Market(_marketAddr);
@@ -33,8 +32,11 @@ contract ApusProofTask {
                 return ;
             }
         }
-
     }
+
+    ApusData.rewardInfo  emptyRewardInfo = ApusData.rewardInfo(address(0), 0);
+    ApusData.Task emptyTask = ApusData.Task(0, 0, 0, address(0), new bytes(0), ApusData.TaskType.TaikoZKEvm, ApusData.TaskStatus.Posted, new bytes(0), emptyRewardInfo, 0);
+    ApusData.ClientConfig emptyClientConfig = ApusData.ClientConfig(address(0), 0, "", 0, 0, 0, ApusData.ClientStatus.Running);
 
     function getTask(ApusData.TaskType _tp, uint256 uniqID) public view returns(ApusData.Task memory, ApusData.ClientConfig memory){
         for (uint256 i = 0; i < tasks.length; i++) {
@@ -43,10 +45,10 @@ contract ApusProofTask {
                     ApusData.ClientConfig memory cf = market.getProverConfig(tasks[i].assigner, tasks[i].clientId);
                     return (tasks[i], cf);
                 }
-                return (tasks[i], ApusData.ClientConfig(address(0), 0, "", 0, 0, 0));
+                return (tasks[i], emptyClientConfig);
             }
         }
-        revert("unknow task");
+        return (emptyTask, emptyClientConfig);
     }
 
     function postTask(ApusData.TaskType _tp, uint256 uniqID, bytes calldata input, uint64 expiry, ApusData.rewardInfo memory ri) public {
@@ -57,6 +59,7 @@ contract ApusProofTask {
         }
 
         tasks.push(ApusData.Task(tasks.length + 1, 0, uniqID, address(0), input, _tp, ApusData.TaskStatus.Posted, new bytes(0), ri, expiry));
+        emit eventPostTask(_tp, uniqID, input);
     }
 
     function dispatchTaskToClient(uint256 taskID) public {
@@ -77,4 +80,10 @@ contract ApusProofTask {
         }
     }
 
+    function assignTask(uint256 taskID) public {
+    }
+
+    function hasResource() public view returns(uint256){
+        return market.marketCapacity();
+    }
 } 
